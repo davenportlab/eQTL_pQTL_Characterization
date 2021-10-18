@@ -39,5 +39,7 @@ vignettes/*.pdf
 .Renviron
 
 # Data Folders
-
 **/data
+
+# Mac Files
+.DS_Store
