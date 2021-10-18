@@ -1,0 +1,7 @@
+name: functional_interpretation
+channels:
+ - conda-forge
+ - bioconda
+dependencies:
+ - nextflow >= 21.04.0
+ - sra-tools >= 2.11.0

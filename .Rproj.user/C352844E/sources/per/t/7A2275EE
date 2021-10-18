@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1634384079854.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2262949554",
+    "id" : "7A2275EE",
+    "lastKnownWriteTime" : 1634342412,
+    "last_content_update" : 1634342412,
+    "path" : "~/Desktop/Thesis_Project/04_Expression/scripts/wgcna_gene_expression.R",
+    "project_path" : "04_Expression/scripts/wgcna_gene_expression.R",
+    "properties" : {
+        "cursorPosition" : "21,40",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
