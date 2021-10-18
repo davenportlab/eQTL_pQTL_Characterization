@@ -78,7 +78,6 @@ if (!file.exists("04_Expression/data/gene_expression_generated/TOM.matrix.RDS"))
 }
 
 TOM.dist = 1 - TOM.matrix
-rm(TOM.matrix)
 
 #----------------------------------------------------------
 # Clustering TOM Matrix
@@ -86,11 +85,22 @@ rm(TOM.matrix)
 
 dendrogram = hclust(as.dist(TOM.dist), method="average")
 
+svg(filename="04_Expression/results/gene_expression_dendrogram.svg", width=8, height=5)
+plot(dendrogram, labels=FALSE, main="Gene Expression TOM Dendrogram")
+dev.off()
+
 dynamic.mods = cutreeDynamic(
   dendro=dendrogram, distM=TOM.dist, pamRespectsDendro=FALSE,
   minClusterSize = 10
 )
 rm(TOM.dist)
+
+#----------------------------------------------------------
+# Intra- and Inter-Modular Connectivity
+#----------------------------------------------------------
+
+connectivity <- intramodularConnectivity(TOM.matrix, colors=dynamic.mods)
+rownames(connectivity) <- colnames(gene.exp)
 
 #----------------------------------------------------------
 # Distribution of Co-Expression Module Sizes
@@ -105,6 +115,7 @@ ggplot(plot.data) +
   xlab("Module") + ylab("Number of Genes") +
   ggplot_theme +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+ggsave(filename="04_Expression/results/gene_coexpression_module_sizes.svg", width=8, height=5)
 
 #----------------------------------------------------------
 # Save Gene Expression Modules
@@ -145,3 +156,11 @@ variance.explained <- data.frame(
 )
 
 write.csv(variance.explained, "04_Expression/data/gene_expression_generated/variance.explained.csv", row.names=F)
+
+### Connectivity
+
+connectivity <- connectivity[modules$Gene,]
+connectivity <- cbind(connectivity, modules$Module)
+colnames(connectivity)[ncol(connectivity)] <- "Module"
+
+write.csv(connectivity, "04_Expression/data/gene_expression_generated/connectivity.csv")
