@@ -40,6 +40,7 @@ vignettes/*.pdf
 
 # Data Folders
 **/data
+!**/data/README.md
 
 # Mac Files
 .DS_Store
