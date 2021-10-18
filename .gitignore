@@ -39,7 +39,7 @@ vignettes/*.pdf
 .Renviron
 
 # Data Folders
-**/data
+**/data/*
 !**/data/README.md
 
 # Mac Files
