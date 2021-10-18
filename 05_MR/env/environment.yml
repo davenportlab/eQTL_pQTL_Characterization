@@ -1,0 +1,6 @@
+name: mr
+channels:
+ - conda-forge
+ - bioconda
+dependencies:
+ - r-base >= 4.1.0
