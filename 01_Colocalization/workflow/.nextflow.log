@@ -1,0 +1,57 @@
+Nov-08 14:54:26.445 [main] DEBUG nextflow.cli.Launcher - $> nextflow prepare_eqtl_data_for_coloc.nf
+Nov-08 14:54:26.670 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.0
+Nov-08 14:54:26.695 [main] INFO  nextflow.cli.CmdRun - Launching `prepare_eqtl_data_for_coloc.nf` [trusting_bassi] - revision: dc881b1e7d
+Nov-08 14:54:26.707 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Nov-08 14:54:26.708 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Nov-08 14:54:26.730 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-08 14:54:27.344 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/nfs/users/nfs_n/nm18/.nextflow/plugins
+Nov-08 14:54:27.345 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Nov-08 14:54:27.347 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Nov-08 14:54:27.354 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Nov-08 14:54:27.355 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Nov-08 14:54:27.357 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Nov-08 14:54:27.378 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Nov-08 14:54:27.416 [main] DEBUG nextflow.Session - Session uuid: eee1878f-f338-4dde-918f-4ba48473ed41
+Nov-08 14:54:27.416 [main] DEBUG nextflow.Session - Run name: trusting_bassi
+Nov-08 14:54:27.417 [main] DEBUG nextflow.Session - Executor pool size: 2
+Nov-08 14:54:27.452 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.0 build 5552
+  Created: 02-05-2021 16:22 UTC (17:22 BST)
+  System: Linux 4.15.0-142-generic
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 11.0.9.1-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 42243@node-12-4-4 [10.160.12.47]
+  CPUs: 1 - Mem: 31.2 GB (30.9 GB) - Swap: 0 (816 GB)
+Nov-08 14:54:27.495 [main] DEBUG nextflow.Session - Work-dir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work [lustre]
+Nov-08 14:54:27.496 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/bin
+Nov-08 14:54:27.505 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Nov-08 14:54:27.515 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-08 14:54:27.638 [main] DEBUG nextflow.Session - Session start invoked
+Nov-08 14:54:27.642 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/execution_trace.txt
+Nov-08 14:54:27.978 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-08 14:54:28.047 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: GENERATE_LOCUS_DATA, AGGREGATE, CALCULATE_LD
+Nov-08 14:54:28.083 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name GENERATE_LOCUS_DATA
+Nov-08 14:54:28.173 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Nov-08 14:54:28.173 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Nov-08 14:54:28.180 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Nov-08 14:54:28.185 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Nov-08 14:54:28.193 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Nov-08 14:54:28.197 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Nov-08 14:54:28.303 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:vcftools` matches label `vcftools` for process with name CALCULATE_LD
+Nov-08 14:54:28.305 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Nov-08 14:54:28.305 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Nov-08 14:54:28.324 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name AGGREGATE
+Nov-08 14:54:28.325 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Nov-08 14:54:28.325 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Nov-08 14:54:28.329 [main] DEBUG nextflow.Session - Ignite dataflow network (3)
+Nov-08 14:54:28.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > GENERATE_LOCUS_DATA
+Nov-08 14:54:28.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > CALCULATE_LD
+Nov-08 14:54:28.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > AGGREGATE
+Nov-08 14:54:28.330 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-08 14:54:28.330 [main] DEBUG nextflow.Session - Session await
+Nov-08 14:54:28.398 [Actor Thread 4] DEBUG nextflow.conda.CondaCache - Conda found local env for environment=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization; path=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization
+Nov-08 14:54:28.643 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process GENERATE_LOCUS_DATA > jobId: 270819; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/08/1bc0910f07d33a82f6ea932a5324ff
+Nov-08 14:54:28.646 [Task submitter] INFO  nextflow.Session - [08/1bc091] Submitted process > GENERATE_LOCUS_DATA
+Nov-08 14:58:08.228 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 270819; id: 1; name: GENERATE_LOCUS_DATA; status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/08/1bc0910f07d33a82f6ea932a5324ff started: 1636383273207; exited: 2021-11-08T14:58:06Z; ]
+Nov-08 14:58:08.348 [main] DEBUG nextflow.Session - Session await > all process finished
+Nov-08 14:58:08.390 [main] DEBUG nextflow.Session - Session await > all barriers passed

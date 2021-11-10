@@ -1,0 +1,2 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	08/1bc091	270819	GENERATE_LOCUS_DATA	COMPLETED	0	2021-11-08 14:54:28.643	3m 40s	3m 20s	111.3%	12.9 GB	13.5 GB	1.6 GB	16.1 MB

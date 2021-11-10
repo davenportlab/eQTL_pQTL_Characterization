@@ -1,0 +1,756 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00001539294d546b, pid=42243, tid=42243
+#
+# JRE version: OpenJDK Runtime Environment (11.0.9.1) (build 11.0.9.1-internal+0-adhoc..src)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.9.1-internal+0-adhoc..src, mixed mode, tiered, compressed oops, serial gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0xb6f46b]  SR_handler(int, siginfo*, ucontext*)+0x4b
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.nio.file.spi=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.http=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.ftp=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.file=ALL-UNNAMED --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED --illegal-access=deny -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Djava.library.path=/usr/local/lsf/10.1/linux3.10-glibc2.17-x86_64/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib -Dfile.encoding=UTF-8 -Dcapsule.app=nextflow_21.04.0 -Djava.awt.headless=true -Dcapsule.jar=/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/dist/21.04.0/nextflow-21.04.0-one.jar nextflow.cli.Launcher prepare_eqtl_data_for_coloc.nf
+
+Host: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz, 64 cores, 31G, Ubuntu 18.04.6 LTS
+Time: Tue Nov  9 02:54:21 2021 GMT elapsed time: 43197.805084 seconds (0d 11h 59m 57s)
+
+---------------  T H R E A D  ---------------
+
+Current thread is native thread
+
+Stack: [0x000055f734d32000,0x00007ffeeb93a000],  sp=0x00007ffeeb9348b0,  free space=45129510922k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xb6f46b]  SR_handler(int, siginfo*, ucontext*)+0x4b
+C  [libc.so.6+0x3f040]
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00000000000000d0
+
+Register to memory mapping:
+
+RAX=0x0 is NULL
+RBX=
+[error occurred during error reporting (printing register info), id 0xb, SIGSEGV (0xb) at pc=0x000015392966c758]
+
+Registers:
+RAX=0x0000000000000000, RBX=0x000015392a4676c0, RCX=0x0000153929a8ad2d, RDX=0x000015392a467a60
+RSP=0x00007ffeeb9348b0, RBP=0x00007ffeeb934970, RSI=0x00007ffeeb934ab0, RDI=0x0000000000000001
+R8 =0x0000000000000001, R9 =0x000015392a4519d0, R10=0x0000000000000000, R11=0x0000000000000246
+R12=0x00007ffeeb934ab0, R13=0x00007ffeeb934980, R14=0x0000000000000000, R15=0x000055f734cf2720
+RIP=0x00001539294d546b, EFLAGS=0x0000000000010246, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007ffeeb9348b0)
+0x00007ffeeb9348b0:   0000000080000000 000000000000000d
+0x00007ffeeb9348c0:   0000000000000000 000055f734cf3c20
+0x00007ffeeb9348d0:   000000000000000d 000015392a2a2541
+0x00007ffeeb9348e0:   7463656a6f72702f 0000000000000071 
+
+Instructions: (pc=0x00001539294d546b)
+0x00001539294d536b:   00 5b 41 5c 41 5d 41 5e 41 5f 5d c3 66 0f 1f 84
+0x00001539294d537b:   00 00 00 00 00 4c 89 e2 be 00 01 00 00 4c 89 ef
+0x00001539294d538b:   ff 15 37 c7 51 00 48 85 c0 74 8e 48 8d 35 5a b4
+0x00001539294d539b:   2d 00 4c 89 ef ff 15 da c5 51 00 48 85 c0 75 1d
+0x00001539294d53ab:   48 8d 35 5a b4 2d 00 4c 89 ef ff 15 c5 c5 51 00
+0x00001539294d53bb:   48 85 c0 0f 84 60 ff ff ff 0f 1f 40 00 be 22 00
+0x00001539294d53cb:   00 00 4c 89 ef ff 15 02 c6 51 00 48 85 c0 74 25
+0x00001539294d53db:   4c 8d 68 01 be 22 00 00 00 4c 89 ef ff 15 eb c5
+0x00001539294d53eb:   51 00 48 85 c0 0f 85 41 ff ff ff e9 3f ff ff ff
+0x00001539294d53fb:   0f 1f 44 00 00 4c 89 ef be 3d 00 00 00 ff 15 ca
+0x00001539294d540b:   c5 51 00 4c 8d 68 01 e9 0d ff ff ff ff 15 43 c4
+0x00001539294d541b:   51 00 0f 1f 00 55 48 89 e5 41 57 41 56 41 55 49
+0x00001539294d542b:   89 d5 41 54 49 89 f4 53 48 81 ec 98 00 00 00 64
+0x00001539294d543b:   48 8b 04 25 28 00 00 00 48 89 45 c8 31 c0 ff 15
+0x00001539294d544b:   f1 c9 51 00 44 8b 30 48 89 c3 67 e8 25 5c 19 00
+0x00001539294d545b:   41 89 c0 31 c0 45 84 c0 74 06 67 e8 25 5c 19 00
+0x00001539294d546b:   48 83 b8 d0 00 00 00 00 74 16 4c 8b b8 68 02 00
+0x00001539294d547b:   00 41 8b 87 a8 00 00 00 83 f8 01 74 28 44 89 33
+0x00001539294d548b:   48 8b 45 c8 64 48 33 04 25 28 00 00 00 0f 85 06
+0x00001539294d549b:   01 00 00 48 81 c4 98 00 00 00 5b 41 5c 41 5d 41
+0x00001539294d54ab:   5e 41 5f 5d c3 66 49 0f 6e c4 66 49 0f 6e cd ba
+0x00001539294d54bb:   02 00 00 00 be 01 00 00 00 66 0f 6c c1 4d 8d a7
+0x00001539294d54cb:   a8 00 00 00 41 0f 11 87 b0 00 00 00 4c 89 e7 67
+0x00001539294d54db:   e8 50 ba ff ff 83 f8 02 74 43 85 c0 75 17 66 0f
+0x00001539294d54eb:   ef c0 41 0f 11 87 b0 00 00 00 eb 91 66 0f 1f 84
+0x00001539294d54fb:   00 00 00 00 00 48 8d 05 81 15 52 00 be a1 11 00
+0x00001539294d550b:   00 48 8d 3d 15 bd 2d 00 48 8b 00 c6 00 58 67 e8
+0x00001539294d551b:   a1 27 ae ff eb c8 0f 1f 80 00 00 00 00 4c 8d ad
+0x00001539294d552b:   40 ff ff ff 4c 89 ef ff 15 d8 c6 51 00 4c 89 ea
+0x00001539294d553b:   31 f6 31 ff ff 15 53 c7 51 00 8b 35 05 b7 53 00
+0x00001539294d554b:   4c 89 ef ff 15 bc c4 51 00 be 01 00 00 00 48 8d
+0x00001539294d555b:   3d 40 f4 57 00 67 e8 ca b3 0b 00 66 2e 0f 1f 84 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 
+[error occurred during error reporting (inspecting top of stack), id 0xb, SIGSEGV (0xb) at pc=0x000015392966c758]
+
+
+---------------  P R O C E S S  ---------------
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x000000060c000000, size: 8000 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 0
+Compressed class space size: 1073741824 Address: 0x0000000800000000
+
+Heap:
+ def new generation   total 153728K, used 88778K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K,  64% used [0x000000060c000000, 0x00000006116b2898, 0x0000000614580000)
+  from space 17024K,   0% used [0x0000000614580000, 0x0000000614580000, 0x0000000615620000)
+  to   space 17024K,   0% used [0x0000000615620000, 0x0000000615620000, 0x00000006166c0000)
+ tenured generation   total 341376K, used 32680K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   9% used [0x00000006b2aa0000, 0x00000006b4a8a0d0, 0x00000006b4a8a200, 0x00000006c7800000)
+ Metaspace       used 37397K, capacity 39399K, committed 39552K, reserved 1083392K
+  class space    used 4710K, capacity 5484K, committed 5504K, reserved 1048576K
+
+Card table byte_map: [0x000015390a6de000,0x000015390b67f000] _byte_map_base: 0x000015390767e000
+
+Polling page: 0x000015392a48d000
+
+Metaspace:
+
+Usage:
+  Non-class:     33.12 MB capacity,    31.92 MB ( 96%) used,     1.10 MB (  3%) free+waste,   104.25 KB ( <1%) overhead. 
+      Class:      5.36 MB capacity,     4.60 MB ( 86%) used,   715.48 KB ( 13%) free+waste,    57.81 KB (  1%) overhead. 
+       Both:     38.48 MB capacity,    36.52 MB ( 95%) used,     1.80 MB (  5%) free+waste,   162.06 KB ( <1%) overhead. 
+
+Virtual space:
+  Non-class space:       34.00 MB reserved,      33.25 MB ( 98%) committed 
+      Class space:        1.00 GB reserved,       5.38 MB ( <1%) committed 
+             Both:        1.03 GB reserved,      38.62 MB (  4%) committed 
+
+Chunk freelists:
+   Non-Class:  45.00 KB
+       Class:  20.00 KB
+        Both:  65.00 KB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+
+CodeHeap 'non-profiled nmethods': size=239512Kb used=6247Kb max_used=6257Kb free=233264Kb
+ bounds [0x000015390be6d000, 0x000015390c49d000, 0x000015391a853000]
+CodeHeap 'non-nmethods': size=6248Kb used=2183Kb max_used=2183Kb free=4064Kb
+ bounds [0x000015390b853000, 0x000015390bac3000, 0x000015390be6d000]
+ total_blobs=4941 nmethods=4208 adapters=661
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 224.872 Thread 0x00001539240ae000 4223       1       org.codehaus.groovy.runtime.callsite.GetEffectivePojoPropertySite::acceptGetProperty (46 bytes)
+Event: 224.872 Thread 0x00001539240ae000 nmethod 4223 0x000015390bea4d10 code [0x000015390bea4f00, 0x000015390bea5240]
+Event: 224.883 Thread 0x00001539240ae000 4225       1       org.codehaus.groovy.runtime.MetaClassHelper::calculateParameterDistance (206 bytes)
+Event: 224.884 Thread 0x00001539240ae000 nmethod 4225 0x000015390bee1390 code [0x000015390bee1600, 0x000015390bee1cc0]
+Event: 224.884 Thread 0x00001539240ae000 4224       1       com.esotericsoftware.kryo.Registration::getId (5 bytes)
+Event: 224.884 Thread 0x00001539240ae000 nmethod 4224 0x000015390be93610 code [0x000015390be937c0, 0x000015390be93870]
+Event: 224.886 Thread 0x00001539240ae000 4226       1       java.util.regex.Pattern::newSlice (181 bytes)
+Event: 224.887 Thread 0x00001539240ae000 nmethod 4226 0x000015390beeac10 code [0x000015390beeae80, 0x000015390beeb650]
+Event: 224.887 Thread 0x00001539240ae000 4228       1       java.lang.StringUTF16::putChar (54 bytes)
+Event: 224.887 Thread 0x00001539240ae000 nmethod 4228 0x000015390bea4990 code [0x000015390bea4b40, 0x000015390bea4c30]
+Event: 224.887 Thread 0x00001539240ae000 4227       1       java.util.regex.Pattern$SliceNode::<init> (10 bytes)
+Event: 224.887 Thread 0x00001539240ae000 nmethod 4227 0x000015390beabd10 code [0x000015390beabec0, 0x000015390beabfb0]
+Event: 12093.047 Thread 0x00001539240ae000 4230 % !   1       nextflow.trace.AnsiLogObserver::render0 @ 0 (87 bytes)
+Event: 12093.311 Thread 0x00001539240ae000 nmethod 4230% 0x000015390befb910 code [0x000015390befbb80, 0x000015390befc240]
+Event: 12296.686 Thread 0x00001539240ae000 4231 % !   1       nextflow.util.SimpleAgent::run @ 0 (327 bytes)
+Event: 12296.723 Thread 0x00001539240ae000 nmethod 4231% 0x000015390c489710 code [0x000015390c489aa0, 0x000015390c48b0b0]
+Event: 12297.793 Thread 0x00001539240ae000 4232   !   1       nextflow.trace.AnsiLogObserver::render0 (87 bytes)
+Event: 12297.794 Thread 0x00001539240ae000 nmethod 4232 0x000015390bf2cd90 code [0x000015390bf2d000, 0x000015390bf2d660]
+Event: 12501.577 Thread 0x00001539240ae000 4233   !   1       nextflow.util.SimpleAgent::run (327 bytes)
+Event: 12501.578 Thread 0x00001539240ae000 nmethod 4233 0x000015390c48c510 code [0x000015390c48c8a0, 0x000015390c48de50]
+
+GC Heap History (8 events):
+Event: 2.896 GC heap before
+{Heap before GC invocations=0 (full 0):
+ def new generation   total 153600K, used 105410K [0x000000060c000000, 0x00000006166a0000, 0x00000006b2aa0000)
+  eden space 136576K,  77% used [0x000000060c000000, 0x00000006126f0be8, 0x0000000614560000)
+  from space 17024K,   0% used [0x0000000614560000, 0x0000000614560000, 0x0000000615600000)
+  to   space 17024K,   0% used [0x0000000615600000, 0x0000000615600000, 0x00000006166a0000)
+ tenured generation   total 341376K, used 0K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   0% used [0x00000006b2aa0000, 0x00000006b2aa0000, 0x00000006b2aa0200, 0x00000006c7800000)
+ Metaspace       used 20812K, capacity 21185K, committed 21248K, reserved 1069056K
+  class space    used 2128K, capacity 2269K, committed 2304K, reserved 1048576K
+}
+Event: 2.951 GC heap after
+{Heap after GC invocations=1 (full 1):
+ def new generation   total 153728K, used 0K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K,   0% used [0x000000060c000000, 0x000000060c000000, 0x0000000614580000)
+  from space 17024K,   0% used [0x0000000614580000, 0x0000000614580000, 0x0000000615620000)
+  to   space 17024K,   0% used [0x0000000615620000, 0x0000000615620000, 0x00000006166c0000)
+ tenured generation   total 341376K, used 15102K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   4% used [0x00000006b2aa0000, 0x00000006b395fbd0, 0x00000006b395fc00, 0x00000006c7800000)
+ Metaspace       used 20812K, capacity 21185K, committed 21248K, reserved 1069056K
+  class space    used 2128K, capacity 2269K, committed 2304K, reserved 1048576K
+}
+Event: 3.725 GC heap before
+{Heap before GC invocations=1 (full 1):
+ def new generation   total 153728K, used 136704K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K, 100% used [0x000000060c000000, 0x0000000614580000, 0x0000000614580000)
+  from space 17024K,   0% used [0x0000000614580000, 0x0000000614580000, 0x0000000615620000)
+  to   space 17024K,   0% used [0x0000000615620000, 0x0000000615620000, 0x00000006166c0000)
+ tenured generation   total 341376K, used 15102K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   4% used [0x00000006b2aa0000, 0x00000006b395fbd0, 0x00000006b395fc00, 0x00000006c7800000)
+ Metaspace       used 27617K, capacity 28316K, committed 28672K, reserved 1075200K
+  class space    used 3173K, capacity 3458K, committed 3584K, reserved 1048576K
+}
+Event: 3.748 GC heap after
+{Heap after GC invocations=2 (full 1):
+ def new generation   total 153728K, used 8717K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K,   0% used [0x000000060c000000, 0x000000060c000000, 0x0000000614580000)
+  from space 17024K,  51% used [0x0000000615620000, 0x0000000615ea3440, 0x00000006166c0000)
+  to   space 17024K,   0% used [0x0000000614580000, 0x0000000614580000, 0x0000000615620000)
+ tenured generation   total 341376K, used 15102K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   4% used [0x00000006b2aa0000, 0x00000006b395fbd0, 0x00000006b395fc00, 0x00000006c7800000)
+ Metaspace       used 27617K, capacity 28316K, committed 28672K, reserved 1075200K
+  class space    used 3173K, capacity 3458K, committed 3584K, reserved 1048576K
+}
+Event: 4.433 GC heap before
+{Heap before GC invocations=2 (full 1):
+ def new generation   total 153728K, used 145421K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K, 100% used [0x000000060c000000, 0x0000000614580000, 0x0000000614580000)
+  from space 17024K,  51% used [0x0000000615620000, 0x0000000615ea3440, 0x00000006166c0000)
+  to   space 17024K,   0% used [0x0000000614580000, 0x0000000614580000, 0x0000000615620000)
+ tenured generation   total 341376K, used 15102K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   4% used [0x00000006b2aa0000, 0x00000006b395fbd0, 0x00000006b395fc00, 0x00000006c7800000)
+ Metaspace       used 33323K, capacity 34424K, committed 34560K, reserved 1079296K
+  class space    used 3907K, capacity 4327K, committed 4352K, reserved 1048576K
+}
+Event: 4.465 GC heap after
+{Heap after GC invocations=3 (full 1):
+ def new generation   total 153728K, used 6947K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K,   0% used [0x000000060c000000, 0x000000060c000000, 0x0000000614580000)
+  from space 17024K,  40% used [0x0000000614580000, 0x0000000614c48c70, 0x0000000615620000)
+  to   space 17024K,   0% used [0x0000000615620000, 0x0000000615620000, 0x00000006166c0000)
+ tenured generation   total 341376K, used 23746K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   6% used [0x00000006b2aa0000, 0x00000006b41d08b8, 0x00000006b41d0a00, 0x00000006c7800000)
+ Metaspace       used 33323K, capacity 34424K, committed 34560K, reserved 1079296K
+  class space    used 3907K, capacity 4327K, committed 4352K, reserved 1048576K
+}
+Event: 4.539 GC heap before
+{Heap before GC invocations=3 (full 1):
+ def new generation   total 153728K, used 30886K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K,  17% used [0x000000060c000000, 0x000000060d760bf0, 0x0000000614580000)
+  from space 17024K,  40% used [0x0000000614580000, 0x0000000614c48c70, 0x0000000615620000)
+  to   space 17024K,   0% used [0x0000000615620000, 0x0000000615620000, 0x00000006166c0000)
+ tenured generation   total 341376K, used 23746K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   6% used [0x00000006b2aa0000, 0x00000006b41d08b8, 0x00000006b41d0a00, 0x00000006c7800000)
+ Metaspace       used 33911K, capacity 35162K, committed 35328K, reserved 1079296K
+  class space    used 4014K, capacity 4509K, committed 4608K, reserved 1048576K
+}
+Event: 4.613 GC heap after
+{Heap after GC invocations=4 (full 2):
+ def new generation   total 153728K, used 0K [0x000000060c000000, 0x00000006166c0000, 0x00000006b2aa0000)
+  eden space 136704K,   0% used [0x000000060c000000, 0x000000060c000000, 0x0000000614580000)
+  from space 17024K,   0% used [0x0000000614580000, 0x0000000614580000, 0x0000000615620000)
+  to   space 17024K,   0% used [0x0000000615620000, 0x0000000615620000, 0x00000006166c0000)
+ tenured generation   total 341376K, used 32680K [0x00000006b2aa0000, 0x00000006c7800000, 0x0000000800000000)
+   the space 341376K,   9% used [0x00000006b2aa0000, 0x00000006b4a8a0d0, 0x00000006b4a8a200, 0x00000006c7800000)
+ Metaspace       used 33911K, capacity 35162K, committed 35328K, reserved 1079296K
+  class space    used 4014K, capacity 4509K, committed 4608K, reserved 1048576K
+}
+
+Deoptimization events (2 events):
+Event: 4.534 Thread 0x0000153924019800 DEOPT PACKING pc=0x000015390c06e11c sp=0x000015392a44e000
+Event: 4.534 Thread 0x0000153924019800 DEOPT UNPACKING pc=0x000015390b87a74a sp=0x000015392a44d548 mode 0
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 224.867 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610cc4868}: de/javakaffee/kryoserializers/UnmodifiableCollectionsSerializerBeanInfo> (0x0000000610cc4868) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.867 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610ccb3c0}: com/esotericsoftware/kryo/SerializerBeanInfo> (0x0000000610ccb3c0) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.867 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610cd1f60}: com/esotericsoftware/kryo/SerializerCustomizer> (0x0000000610cd1f60) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.868 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610ce2090}: de/javakaffee/kryoserializers/UnmodifiableCollectionsSerializerCustomizer> (0x0000000610ce2090) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.870 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d23e48}: nextflow/util/PathSerializerBeanInfo> (0x0000000610d23e48) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.870 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d2a208}: nextflow/util/PathSerializerCustomizer> (0x0000000610d2a208) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.871 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d4cc68}: nextflow/util/URLSerializerBeanInfo> (0x0000000610d4cc68) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.871 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d52fd8}: nextflow/util/URLSerializerCustomizer> (0x0000000610d52fd8) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.871 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d758d0}: nextflow/util/UUIDSerializerBeanInfo> (0x0000000610d758d0) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.871 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d7bc90}: nextflow/util/UUIDSerializerCustomizer> (0x0000000610d7bc90) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.872 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610d9e3f8}: nextflow/util/FileSerializerBeanInfo> (0x0000000610d9e3f8) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.872 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610da47b8}: nextflow/util/FileSerializerCustomizer> (0x0000000610da47b8) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.873 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610dc6e50}: nextflow/util/PatternSerializerBeanInfo> (0x0000000610dc6e50) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.873 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610dcd298}: nextflow/util/PatternSerializerCustomizer> (0x0000000610dcd298) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.873 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610df0c98}: nextflow/util/ArrayTupleSerializerBeanInfo> (0x0000000610df0c98) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.874 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610df76b0}: nextflow/util/ArrayTupleSerializerCustomizer> (0x0000000610df76b0) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.877 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610e54ea0}: nextflow/file/http/XPathSerializerBeanInfo> (0x0000000610e54ea0) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.877 Thread 0x0000153924bde800 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610e5b930}: nextflow/file/http/XPathSerializerCustomizer> (0x0000000610e5b930) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.886 Thread 0x0000153924be5000 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610f67860}: java/lang/FloatBeanInfo> (0x0000000610f67860) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+Event: 224.886 Thread 0x0000153924be5000 Exception <a 'java/lang/ClassNotFoundException'{0x0000000610f68598}: java/lang/FloatCustomizer> (0x0000000610f68598) thrown at [src/hotspot/share/classfile/systemDictionary.cpp, line 231]
+
+Events (20 events):
+Event: 224.887 Executing VM operation: RevokeBias
+Event: 224.887 Executing VM operation: RevokeBias done
+Event: 224.887 Executing VM operation: RevokeBias
+Event: 224.887 Executing VM operation: RevokeBias done
+Event: 224.887 Executing VM operation: RevokeBias
+Event: 224.887 Executing VM operation: RevokeBias done
+Event: 224.887 Executing VM operation: RevokeBias
+Event: 224.887 Executing VM operation: RevokeBias done
+Event: 234.798 Executing VM operation: RevokeBias
+Event: 234.798 Executing coalesced safepoint VM operation: RevokeBias
+Event: 234.798 Executing coalesced safepoint VM operation: RevokeBias done
+Event: 234.798 Executing VM operation: RevokeBias done
+Event: 234.798 Thread 0x00001538d001c000 Thread exited: 0x00001538d001c000
+Event: 234.798 Thread 0x00001538c8007800 Thread exited: 0x00001538c8007800
+Event: 234.843 Executing VM operation: RevokeBias
+Event: 234.843 Executing VM operation: RevokeBias done
+Event: 234.844 Thread 0x00001538d001d800 Thread exited: 0x00001538d001d800
+Event: 284.887 Executing VM operation: RevokeBias
+Event: 284.887 Executing VM operation: RevokeBias done
+Event: 284.887 Thread 0x00001538d000b800 Thread exited: 0x00001538d000b800
+
+
+Dynamic libraries:
+60c000000-6166c0000 rw-p 00000000 00:00 0 
+6166c0000-6b2aa0000 ---p 00000000 00:00 0 
+6b2aa0000-6c7800000 rw-p 00000000 00:00 0 
+6c7800000-800000000 ---p 00000000 00:00 0 
+800000000-800560000 rw-p 00000000 00:00 0 
+800560000-840000000 ---p 00000000 00:00 0 
+1538ac000000-1538ac021000 rw-p 00000000 00:00 0 
+1538ac021000-1538b0000000 ---p 00000000 00:00 0 
+1538b4000000-1538b4035000 rw-p 00000000 00:00 0 
+1538b4035000-1538b8000000 ---p 00000000 00:00 0 
+1538b8000000-1538b8021000 rw-p 00000000 00:00 0 
+1538b8021000-1538bc000000 ---p 00000000 00:00 0 
+1538bc000000-1538bc021000 rw-p 00000000 00:00 0 
+1538bc021000-1538c0000000 ---p 00000000 00:00 0 
+1538c0000000-1538c0021000 rw-p 00000000 00:00 0 
+1538c0021000-1538c4000000 ---p 00000000 00:00 0 
+1538c4000000-1538c407a000 rw-p 00000000 00:00 0 
+1538c407a000-1538c8000000 ---p 00000000 00:00 0 
+1538c8000000-1538c8021000 rw-p 00000000 00:00 0 
+1538c8021000-1538cc000000 ---p 00000000 00:00 0 
+1538cc000000-1538cc021000 rw-p 00000000 00:00 0 
+1538cc021000-1538d0000000 ---p 00000000 00:00 0 
+1538d0000000-1538d0028000 rw-p 00000000 00:00 0 
+1538d0028000-1538d4000000 ---p 00000000 00:00 0 
+1538d4000000-1538d4021000 rw-p 00000000 00:00 0 
+1538d4021000-1538d8000000 ---p 00000000 00:00 0 
+1538d8000000-1538d8065000 rw-p 00000000 00:00 0 
+1538d8065000-1538dc000000 ---p 00000000 00:00 0 
+1538dc000000-1538dc021000 rw-p 00000000 00:00 0 
+1538dc021000-1538e0000000 ---p 00000000 00:00 0 
+1538e17d1000-1538e1ad4000 rw-p 00000000 00:00 0 
+1538e1ad4000-1538e1ad8000 ---p 00000000 00:00 0 
+1538e1ad8000-1538e1bd5000 rw-p 00000000 00:00 0 
+1538e1bd5000-1538e1bd9000 ---p 00000000 00:00 0 
+1538e1bd9000-1538e1e16000 rw-p 00000000 00:00 0 
+1538e1e16000-1538e1eda000 ---p 00000000 00:00 0 
+1538e1eda000-1538e1fd7000 rw-p 00000000 00:00 0 
+1538e1fd7000-1538e1fdb000 ---p 00000000 00:00 0 
+1538e1fdb000-1538e20d8000 rw-p 00000000 00:00 0 
+1538e20d8000-1538e20dc000 ---p 00000000 00:00 0 
+1538e20dc000-1538e21d9000 rw-p 00000000 00:00 0 
+1538e21d9000-1538e21dd000 ---p 00000000 00:00 0 
+1538e21dd000-1538e22da000 rw-p 00000000 00:00 0 
+1538e22da000-1538e22de000 ---p 00000000 00:00 0 
+1538e22de000-1538e23db000 rw-p 00000000 00:00 0 
+1538e23db000-1538e23df000 ---p 00000000 00:00 0 
+1538e23df000-1538e26dc000 rw-p 00000000 00:00 0 
+1538e26dc000-1538e26e0000 ---p 00000000 00:00 0 
+1538e26e0000-1538e27dd000 rw-p 00000000 00:00 0 
+1538e27dd000-1538e27e1000 ---p 00000000 00:00 0 
+1538e27e1000-1538e28de000 rw-p 00000000 00:00 0 
+1538e28de000-1538e29de000 rw-s 00000000 00:38 50088903                   /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/.nextflow/cache/eee1878f-f338-4dde-918f-4ba48473ed41/db/MANIFEST-000002
+1538e29de000-1538e2bde000 rw-p 00000000 00:00 0 
+1538e2bde000-1538e2cde000 rw-s 00000000 00:38 50088902                   /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/.nextflow/cache/eee1878f-f338-4dde-918f-4ba48473ed41/db/000003.log
+1538e2cde000-1538e2ce2000 ---p 00000000 00:00 0 
+1538e2ce2000-1538e2ddf000 rw-p 00000000 00:00 0 
+1538e2ddf000-1538e2df6000 r-xp 00000000 08:01 142594                     /lib/x86_64-linux-gnu/libresolv-2.27.so
+1538e2df6000-1538e2ff5000 ---p 00017000 08:01 142594                     /lib/x86_64-linux-gnu/libresolv-2.27.so
+1538e2ff5000-1538e2ff6000 r--p 00016000 08:01 142594                     /lib/x86_64-linux-gnu/libresolv-2.27.so
+1538e2ff6000-1538e2ff7000 rw-p 00017000 08:01 142594                     /lib/x86_64-linux-gnu/libresolv-2.27.so
+1538e2ff7000-1538e2ff9000 rw-p 00000000 00:00 0 
+1538e2ff9000-1538e2ffe000 r-xp 00000000 08:01 142587                     /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+1538e2ffe000-1538e31fe000 ---p 00005000 08:01 142587                     /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+1538e31fe000-1538e31ff000 r--p 00005000 08:01 142587                     /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+1538e31ff000-1538e3200000 rw-p 00006000 08:01 142587                     /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+1538e3200000-1538e3400000 rw-p 00000000 00:00 0 
+1538e3400000-1538e3600000 rw-p 00000000 00:00 0 
+1538e3600000-1538e3800000 rw-p 00000000 00:00 0 
+1538e3800000-1538e3a00000 rw-p 00000000 00:00 0 
+1538e3a00000-1538e3c00000 rw-p 00000000 00:00 0 
+1538e3c00000-1538e3e00000 rw-p 00000000 00:00 0 
+1538e3e00000-1538e4000000 rw-p 00000000 00:00 0 
+1538e4000000-1538e4021000 rw-p 00000000 00:00 0 
+1538e4021000-1538e8000000 ---p 00000000 00:00 0 
+1538e8000000-1538e8021000 rw-p 00000000 00:00 0 
+1538e8021000-1538ec000000 ---p 00000000 00:00 0 
+1538ec000000-1538ec021000 rw-p 00000000 00:00 0 
+1538ec021000-1538f0000000 ---p 00000000 00:00 0 
+1538f0000000-1538f0021000 rw-p 00000000 00:00 0 
+1538f0021000-1538f4000000 ---p 00000000 00:00 0 
+1538f4000000-1538f4021000 rw-p 00000000 00:00 0 
+1538f4021000-1538f8000000 ---p 00000000 00:00 0 
+1538f8000000-1538f8737000 rw-p 00000000 00:00 0 
+1538f8737000-1538fc000000 ---p 00000000 00:00 0 
+1538fc000000-1538fc021000 rw-p 00000000 00:00 0 
+1538fc021000-153900000000 ---p 00000000 00:00 0 
+153900000000-153900021000 rw-p 00000000 00:00 0 
+153900021000-153904000000 ---p 00000000 00:00 0 
+153904000000-153904119000 rw-p 00000000 00:00 0 
+153904119000-153908000000 ---p 00000000 00:00 0 
+1539080fd000-153908101000 ---p 00000000 00:00 0 
+153908101000-15390811f000 rw-p 00000000 00:00 0 
+15390811f000-153908121000 r--p 00000000 f34:1f072 342274107947121370     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement_ext.so
+153908121000-153908124000 r-xp 00002000 f34:1f072 342274107947121370     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement_ext.so
+153908124000-153908125000 r--p 00005000 f34:1f072 342274107947121370     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement_ext.so
+153908125000-153908126000 ---p 00006000 f34:1f072 342274107947121370     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement_ext.so
+153908126000-153908127000 r--p 00006000 f34:1f072 342274107947121370     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement_ext.so
+153908127000-153908128000 rw-p 00007000 f34:1f072 342274107947121370     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement_ext.so
+153908128000-153908328000 rw-p 00000000 00:00 0 
+153908328000-153908528000 rw-p 00000000 00:00 0 
+153908528000-153908728000 rw-p 00000000 00:00 0 
+153908728000-153908759000 rw-p 00000000 00:00 0 
+153908759000-15390875d000 r--p 00000000 f34:1f072 342274107947121372     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnet.so
+15390875d000-15390876c000 r-xp 00004000 f34:1f072 342274107947121372     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnet.so
+15390876c000-153908770000 r--p 00013000 f34:1f072 342274107947121372     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnet.so
+153908770000-153908771000 r--p 00016000 f34:1f072 342274107947121372     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnet.so
+153908771000-153908772000 rw-p 00017000 f34:1f072 342274107947121372     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnet.so
+153908772000-153908779000 r--p 00000000 f34:1f072 342274107947121373     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnio.so
+153908779000-153908781000 r-xp 00007000 f34:1f072 342274107947121373     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnio.so
+153908781000-153908784000 r--p 0000f000 f34:1f072 342274107947121373     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnio.so
+153908784000-153908785000 r--p 00011000 f34:1f072 342274107947121373     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnio.so
+153908785000-153908786000 rw-p 00012000 f34:1f072 342274107947121373     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libnio.so
+153908786000-153908787000 ---p 00000000 00:00 0 
+153908787000-153908888000 rw-p 00000000 00:00 0 
+153908888000-15390888c000 ---p 00000000 00:00 0 
+15390888c000-153908989000 rw-p 00000000 00:00 0 
+153908989000-15390898d000 ---p 00000000 00:00 0 
+15390898d000-153908a8a000 rw-p 00000000 00:00 0 
+153908a8a000-153908a8e000 ---p 00000000 00:00 0 
+153908a8e000-153908b8b000 rw-p 00000000 00:00 0 
+153908b8b000-153908b8f000 ---p 00000000 00:00 0 
+153908b8f000-153908c8c000 rw-p 00000000 00:00 0 
+153908c8c000-153908c90000 ---p 00000000 00:00 0 
+153908c90000-153908d8d000 rw-p 00000000 00:00 0 
+153908d8d000-15390906b000 r--p 00000000 08:01 1835561                    /usr/lib/locale/locale-archive
+15390906b000-15390906f000 ---p 00000000 00:00 0 
+15390906f000-15390916c000 rw-p 00000000 00:00 0 
+15390916c000-153909170000 ---p 00000000 00:00 0 
+153909170000-15390926d000 rw-p 00000000 00:00 0 
+15390926d000-15390926e000 ---p 00000000 00:00 0 
+15390926e000-153909d1a000 rw-p 00000000 00:00 0 
+153909d1a000-15390a6de000 ---p 00000000 00:00 0 
+15390a6de000-15390a732000 rw-p 00000000 00:00 0 
+15390a732000-15390ac13000 ---p 00000000 00:00 0 
+15390ac13000-15390acba000 rw-p 00000000 00:00 0 
+15390acba000-15390b67e000 ---p 00000000 00:00 0 
+15390b67e000-15390b68c000 rw-p 00000000 00:00 0 
+15390b68c000-15390b853000 ---p 00000000 00:00 0 
+15390b853000-15390bac3000 rwxp 00000000 00:00 0 
+15390bac3000-15390be6d000 ---p 00000000 00:00 0 
+15390be6d000-15390c49d000 rwxp 00000000 00:00 0 
+15390c49d000-15391a853000 ---p 00000000 00:00 0 
+15391a853000-153922fba000 r--s 00000000 f34:1f072 342274107947121383     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/modules
+153922fba000-1539237bf000 r--s 00000000 08:01 1185114                    /var/lib/sss/mc/passwd
+1539237bf000-1539237c7000 r-xp 00000000 08:01 131134                     /lib/x86_64-linux-gnu/libnss_sss.so.2
+1539237c7000-1539239c6000 ---p 00008000 08:01 131134                     /lib/x86_64-linux-gnu/libnss_sss.so.2
+1539239c6000-1539239c7000 r--p 00007000 08:01 131134                     /lib/x86_64-linux-gnu/libnss_sss.so.2
+1539239c7000-1539239c8000 rw-p 00008000 08:01 131134                     /lib/x86_64-linux-gnu/libnss_sss.so.2
+1539239c8000-1539239d3000 r-xp 00000000 08:01 142588                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+1539239d3000-153923bd2000 ---p 0000b000 08:01 142588                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+153923bd2000-153923bd3000 r--p 0000a000 08:01 142588                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+153923bd3000-153923bd4000 rw-p 0000b000 08:01 142588                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+153923bd4000-153923bda000 rw-p 00000000 00:00 0 
+153923bda000-153923bf1000 r-xp 00000000 08:01 142585                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+153923bf1000-153923df0000 ---p 00017000 08:01 142585                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+153923df0000-153923df1000 r--p 00016000 08:01 142585                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+153923df1000-153923df2000 rw-p 00017000 08:01 142585                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+153923df2000-153923df4000 rw-p 00000000 00:00 0 
+153923df4000-153923dff000 r-xp 00000000 08:01 142590                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+153923dff000-153923ffe000 ---p 0000b000 08:01 142590                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+153923ffe000-153923fff000 r--p 0000a000 08:01 142590                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+153923fff000-153924000000 rw-p 0000b000 08:01 142590                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+153924000000-153924cc9000 rw-p 00000000 00:00 0 
+153924cc9000-153928000000 ---p 00000000 00:00 0 
+153928004000-153928007000 r--p 00000000 f34:1f072 342274107947121368     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement.so
+153928007000-153928008000 r-xp 00003000 f34:1f072 342274107947121368     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement.so
+153928008000-153928009000 r--p 00004000 f34:1f072 342274107947121368     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement.so
+153928009000-15392800a000 r--p 00004000 f34:1f072 342274107947121368     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement.so
+15392800a000-15392800b000 rw-p 00005000 f34:1f072 342274107947121368     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libmanagement.so
+15392800b000-153928013000 r-xp 00000000 08:01 142586                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+153928013000-153928213000 ---p 00008000 08:01 142586                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+153928213000-153928214000 r--p 00008000 08:01 142586                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+153928214000-153928215000 rw-p 00009000 08:01 142586                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+153928215000-15392821c000 r-xp 00000000 08:01 142595                     /lib/x86_64-linux-gnu/librt-2.27.so
+15392821c000-15392841b000 ---p 00007000 08:01 142595                     /lib/x86_64-linux-gnu/librt-2.27.so
+15392841b000-15392841c000 r--p 00006000 08:01 142595                     /lib/x86_64-linux-gnu/librt-2.27.so
+15392841c000-15392841d000 rw-p 00007000 08:01 142595                     /lib/x86_64-linux-gnu/librt-2.27.so
+15392841d000-1539285ba000 r-xp 00000000 08:01 142582                     /lib/x86_64-linux-gnu/libm-2.27.so
+1539285ba000-1539287b9000 ---p 0019d000 08:01 142582                     /lib/x86_64-linux-gnu/libm-2.27.so
+1539287b9000-1539287ba000 r--p 0019c000 08:01 142582                     /lib/x86_64-linux-gnu/libm-2.27.so
+1539287ba000-1539287bb000 rw-p 0019d000 08:01 142582                     /lib/x86_64-linux-gnu/libm-2.27.so
+1539287bb000-153928860000 r--p 00000000 f34:1f072 342274107947101722     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libstdc++.so.6.0.29
+153928860000-1539288ef000 r-xp 000a5000 f34:1f072 342274107947101722     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libstdc++.so.6.0.29
+1539288ef000-153928954000 r--p 00134000 f34:1f072 342274107947101722     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libstdc++.so.6.0.29
+153928954000-15392895f000 r--p 00198000 f34:1f072 342274107947101722     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libstdc++.so.6.0.29
+15392895f000-153928963000 rw-p 001a3000 f34:1f072 342274107947101722     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libstdc++.so.6.0.29
+153928963000-153928966000 rw-p 00000000 00:00 0 
+153928966000-153928bcc000 r--p 00000000 f34:1f072 342274107947121392     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/server/libjvm.so
+153928bcc000-153929738000 r-xp 00266000 f34:1f072 342274107947121392     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/server/libjvm.so
+153929738000-153929937000 r--p 00dd2000 f34:1f072 342274107947121392     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/server/libjvm.so
+153929937000-153929938000 ---p 00fd1000 f34:1f072 342274107947121392     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/server/libjvm.so
+153929938000-1539299f2000 r--p 00fd1000 f34:1f072 342274107947121392     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/server/libjvm.so
+1539299f2000-153929a2b000 rw-p 0108b000 f34:1f072 342274107947121392     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/server/libjvm.so
+153929a2b000-153929a82000 rw-p 00000000 00:00 0 
+153929a82000-153929a9c000 r-xp 00000000 08:01 142593                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+153929a9c000-153929c9b000 ---p 0001a000 08:01 142593                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+153929c9b000-153929c9c000 r--p 00019000 08:01 142593                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+153929c9c000-153929c9d000 rw-p 0001a000 08:01 142593                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+153929c9d000-153929ca1000 rw-p 00000000 00:00 0 
+153929ca1000-153929ca4000 r-xp 00000000 08:01 142581                     /lib/x86_64-linux-gnu/libdl-2.27.so
+153929ca4000-153929ea3000 ---p 00003000 08:01 142581                     /lib/x86_64-linux-gnu/libdl-2.27.so
+153929ea3000-153929ea4000 r--p 00002000 08:01 142581                     /lib/x86_64-linux-gnu/libdl-2.27.so
+153929ea4000-153929ea5000 rw-p 00003000 08:01 142581                     /lib/x86_64-linux-gnu/libdl-2.27.so
+153929ea5000-15392a08c000 r-xp 00000000 08:01 136723                     /lib/x86_64-linux-gnu/libc-2.27.so
+15392a08c000-15392a28c000 ---p 001e7000 08:01 136723                     /lib/x86_64-linux-gnu/libc-2.27.so
+15392a28c000-15392a290000 r--p 001e7000 08:01 136723                     /lib/x86_64-linux-gnu/libc-2.27.so
+15392a290000-15392a292000 rw-p 001eb000 08:01 136723                     /lib/x86_64-linux-gnu/libc-2.27.so
+15392a292000-15392a296000 rw-p 00000000 00:00 0 
+15392a296000-15392a2bf000 r-xp 00000000 08:01 131274                     /lib/x86_64-linux-gnu/ld-2.27.so
+15392a2c3000-15392a30a000 rw-p 00000000 00:00 0 
+15392a30a000-15392a312000 ---p 00000000 00:00 0 
+15392a312000-15392a314000 r--p 00000000 f34:1f072 342274107947121382     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libzip.so
+15392a314000-15392a318000 r-xp 00002000 f34:1f072 342274107947121382     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libzip.so
+15392a318000-15392a31a000 r--p 00006000 f34:1f072 342274107947121382     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libzip.so
+15392a31a000-15392a31b000 r--p 00007000 f34:1f072 342274107947121382     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libzip.so
+15392a31b000-15392a31c000 rw-p 00008000 f34:1f072 342274107947121382     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libzip.so
+15392a31c000-15392a324000 rw-s 00000000 00:2e 652478                     /tmp/hsperfdata_nm18/42243
+15392a324000-15392a332000 r--p 00000000 f34:1f072 342274107947121359     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjava.so
+15392a332000-15392a347000 r-xp 0000e000 f34:1f072 342274107947121359     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjava.so
+15392a347000-15392a34d000 r--p 00023000 f34:1f072 342274107947121359     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjava.so
+15392a34d000-15392a34e000 ---p 00029000 f34:1f072 342274107947121359     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjava.so
+15392a34e000-15392a34f000 r--p 00029000 f34:1f072 342274107947121359     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjava.so
+15392a34f000-15392a350000 rw-p 0002a000 f34:1f072 342274107947121359     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjava.so
+15392a350000-15392a351000 rw-p 00000000 00:00 0 
+15392a351000-15392a355000 ---p 00000000 00:00 0 
+15392a355000-15392a452000 rw-p 00000000 00:00 0 
+15392a452000-15392a455000 r--p 00000000 f34:1f072 342274107947105772     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libgcc_s.so.1
+15392a455000-15392a462000 r-xp 00003000 f34:1f072 342274107947105772     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libgcc_s.so.1
+15392a462000-15392a465000 r--p 00010000 f34:1f072 342274107947105772     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libgcc_s.so.1
+15392a465000-15392a466000 r--p 00012000 f34:1f072 342274107947105772     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libgcc_s.so.1
+15392a466000-15392a467000 rw-p 00013000 f34:1f072 342274107947105772     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libgcc_s.so.1
+15392a467000-15392a46c000 rw-p 00000000 00:00 0 
+15392a46c000-15392a46f000 r--p 00000000 f34:1f072 342274107947106818     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libz.so.1.2.11
+15392a46f000-15392a47d000 r-xp 00003000 f34:1f072 342274107947106818     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libz.so.1.2.11
+15392a47d000-15392a483000 r--p 00011000 f34:1f072 342274107947106818     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libz.so.1.2.11
+15392a483000-15392a484000 ---p 00017000 f34:1f072 342274107947106818     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libz.so.1.2.11
+15392a484000-15392a485000 r--p 00017000 f34:1f072 342274107947106818     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libz.so.1.2.11
+15392a485000-15392a486000 rw-p 00018000 f34:1f072 342274107947106818     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libz.so.1.2.11
+15392a48b000-15392a48c000 r--p 00000000 00:00 0 
+15392a48c000-15392a48d000 r--p 00000000 08:01 1970149                    /usr/share/locale-langpack/en_GB/LC_MESSAGES/libc.mo
+15392a48d000-15392a48e000 ---p 00000000 00:00 0 
+15392a48e000-15392a48f000 r--p 00000000 00:00 0 
+15392a48f000-15392a491000 r--p 00000000 f34:1f072 342274107947121363     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjimage.so
+15392a491000-15392a494000 r-xp 00002000 f34:1f072 342274107947121363     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjimage.so
+15392a494000-15392a495000 r--p 00005000 f34:1f072 342274107947121363     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjimage.so
+15392a495000-15392a496000 ---p 00006000 f34:1f072 342274107947121363     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjimage.so
+15392a496000-15392a497000 r--p 00006000 f34:1f072 342274107947121363     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjimage.so
+15392a497000-15392a498000 rw-p 00007000 f34:1f072 342274107947121363     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjimage.so
+15392a498000-15392a49d000 r--p 00000000 f34:1f072 342274107947121381     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libverify.so
+15392a49d000-15392a4a4000 r-xp 00005000 f34:1f072 342274107947121381     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libverify.so
+15392a4a4000-15392a4a6000 r--p 0000c000 f34:1f072 342274107947121381     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libverify.so
+15392a4a6000-15392a4a7000 ---p 0000e000 f34:1f072 342274107947121381     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libverify.so
+15392a4a7000-15392a4a9000 r--p 0000e000 f34:1f072 342274107947121381     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libverify.so
+15392a4a9000-15392a4aa000 rw-p 00010000 f34:1f072 342274107947121381     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libverify.so
+15392a4aa000-15392a4ad000 r--p 00000000 f34:1f072 342274107947121364     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjli.so
+15392a4ad000-15392a4b7000 r-xp 00003000 f34:1f072 342274107947121364     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjli.so
+15392a4b7000-15392a4ba000 r--p 0000d000 f34:1f072 342274107947121364     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjli.so
+15392a4ba000-15392a4bb000 ---p 00010000 f34:1f072 342274107947121364     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjli.so
+15392a4bb000-15392a4bc000 r--p 00010000 f34:1f072 342274107947121364     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjli.so
+15392a4bc000-15392a4bd000 rw-p 00011000 f34:1f072 342274107947121364     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/lib/libjli.so
+15392a4bd000-15392a4bf000 rw-p 00000000 00:00 0 
+15392a4bf000-15392a4c0000 r--p 00029000 08:01 131274                     /lib/x86_64-linux-gnu/ld-2.27.so
+15392a4c0000-15392a4c1000 rw-p 0002a000 08:01 131274                     /lib/x86_64-linux-gnu/ld-2.27.so
+15392a4c1000-15392a4c2000 rw-p 00000000 00:00 0 
+55f73375a000-55f73375b000 r--p 00000000 f34:1f072 342274107947120947     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/bin/java
+55f73375b000-55f73375c000 r-xp 00001000 f34:1f072 342274107947120947     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/bin/java
+55f73375c000-55f73375d000 r--p 00002000 f34:1f072 342274107947120947     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/bin/java
+55f73375d000-55f73375e000 r--p 00002000 f34:1f072 342274107947120947     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/bin/java
+55f73375e000-55f73375f000 rw-p 00003000 f34:1f072 342274107947120947     /lustre/scratch119/realdata/mdt3/projects/gains_team282/nikhil/conda/colocalization/bin/java
+55f734cf0000-55f734d32000 rw-p 00000000 00:00 0                          [heap]
+7ffeeb91c000-7ffeeb942000 rw-p 00000000 00:00 0                          [stack]
+7ffeeb9f7000-7ffeeb9fa000 r--p 00000000 00:00 0                          [vvar]
+7ffeeb9fa000-7ffeeb9fc000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+jvm_args: --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.nio=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.nio.file.spi=ALL-UNNAMED --add-opens=java.base/sun.nio.ch=ALL-UNNAMED --add-opens=java.base/sun.nio.fs=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.http=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.ftp=ALL-UNNAMED --add-opens=java.base/sun.net.www.protocol.file=ALL-UNNAMED --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED --illegal-access=deny -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Djava.library.path=/usr/local/lsf/10.1/linux3.10-glibc2.17-x86_64/lib:/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib -Dfile.encoding=UTF-8 -Dcapsule.app=nextflow_21.04.0 -Djava.awt.headless=true -Dcapsule.jar=/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/dist/21.04.0/nextflow-21.04.0-one.jar 
+java_command: nextflow.cli.Launcher prepare_eqtl_data_for_coloc.nf
+java_class_path (initial): /nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/dist/21.04.0/nextflow-21.04.0-one.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/io/nextflow/nextflow/21.04.0/nextflow-21.04.0.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/apache/ivy/ivy/2.3.0/ivy-2.3.0.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/io/nextflow/nf-httpfs/21.04.0/nf-httpfs-21.04.0.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/io/nextflow/nf-commons/21.04.0/nf-commons-21.04.0.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/codehaus/groovy/groovy-nio/3.0.7/groovy-nio-3.0.7.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/codehaus/groovy/groovy-templates/3.0.7/groovy-templates-3.0.7.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/codehaus/groovy/groovy-xml/3.0.7/groovy-xml-3.0.7.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/codehaus/groovy/groovy-json/3.0.7/groovy-json-3.0.7.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/codehaus/groovy/groovy/3.0.7/groovy-3.0.7.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/slf4j/jul-to-slf4j/1.7.25/jul-to-slf4j-1.7.25.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsule/deps/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/share/nextflow/capsul
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 2                                         {product} {ergonomic}
+   size_t InitialHeapSize                          = 524288000                                 {product} {ergonomic}
+   size_t MaxHeapSize                              = 8388608000                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2796158976                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 196608                                    {product} {ergonomic}
+   size_t NewSize                                  = 174718976                                 {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 6396312                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 245261928                              {pd product} {ergonomic}
+   size_t OldSize                                  = 349569024                                 {product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool TieredCompilation                        = true                                   {pd product} {command line}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseSerialGC                              = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization
+PATH=/usr/local/lsf/10.1/linux3.10-glibc2.17-x86_64/bin:/nfs/users/nfs_n/nm18/.vscode-server/bin/7f6ab5485bbc008386c4386d08766667e155244e/bin:/usr/local/lsf/10.1/linux3.10-glibc2.17-x86_64/etc:/nfs/users/nfs_n/nm18/.vscode-server/bin/7f6ab5485bbc008386c4386d08766667e155244e/bin:/nfs/users/nfs_n/nm18/gains_team282/nikhil/conda/colocalization/bin:/software/hgi/installs/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/bin:/software/bin:/bin:/software/bin
+LD_LIBRARY_PATH=/usr/local/lsf/10.1/linux3.10-glibc2.17-x86_64/lib
+SHELL=/bin/bash
+HOSTTYPE=X86_64
+LANG=en_GB.utf8
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xd66470], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xd66470], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xd66470], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0xb6f5b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0xb6f5b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xd66470], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xb6f420], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: [libjvm.so+0xb6f930], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0xb6f930], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0xb6f930], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.6 LTS"
+uname:Linux 4.15.0-142-generic #146-Ubuntu SMP Tue Apr 13 01:11:19 UTC 2021 x86_64
+OS uptime: 195 days 15:34 hours
+libc:glibc 2.27 NPTL 2.27 
+rlimit (soft/hard): STACK infinity/infinity , CORE 0k/0k , NPROC 3090475/3090475 , NOFILE 131072/131072 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 65536k/65536k
+load average:177.21 188.00 192.07
+
+/proc/meminfo:
+MemTotal:       791210620 kB
+MemFree:        467243412 kB
+MemAvailable:   490803156 kB
+Buffers:          453536 kB
+Cached:         24233120 kB
+SwapCached:      5052084 kB
+Active:         22796828 kB
+Inactive:       14706220 kB
+Active(anon):    9418400 kB
+Inactive(anon):  6355768 kB
+Active(file):   13378428 kB
+Inactive(file):  8350452 kB
+Unevictable:       20252 kB
+Mlocked:           20252 kB
+SwapTotal:      1825041744 kB
+SwapFree:       944302744 kB
+Dirty:               204 kB
+Writeback:       7430396 kB
+AnonPages:       8351904 kB
+Mapped:           213696 kB
+Shmem:           2953224 kB
+Slab:           274570704 kB
+SReclaimable:    6795188 kB
+SUnreclaim:     267775516 kB
+KernelStack:       23712 kB
+PageTables:        61960 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    2220647052 kB
+Committed_AS:   906726340 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:    162457048 kB
+DirectMap2M:    630931456 kB
+DirectMap1G:    12582912 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled:
+always [madvise] never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter):
+always defer defer+madvise [madvise] never
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+6180951
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+65536
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 48
+cpu_memory_nodes: 0-1
+active_processor_count: 1
+cpu_quota: -1
+cpu_period: 100000
+cpu_shares: -1
+memory_limit_in_bytes: 33554432000
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 313438208
+memory_max_usage_in_bytes: 398716928
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU:total 64 (initial active 1) (16 cores per cpu, 2 threads per core) family 6 model 85 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, evex, fma
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Xeon(R) Gold 6226R CPU @ 2.90GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+Online cpus:
+0-63
+Offline cpus:
+
+BIOS frequency limitation:
+<Not Available>
+Frequency switch latency (ns):
+<Not Available>
+Available cpu frequencies:
+<Not Available>
+Current governor:
+<Not Available>
+Core performance/turbo boost:
+<Not Available>
+
+Memory: 4k page, physical 32768000k(32461908k free), swap 1825041744k(944302744k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.9.1-internal+0-adhoc..src) for linux-amd64 JRE (11.0.9.1-internal+0-adhoc..src), built on Mar 19 2021 22:30:45 by "" with gcc 9.3.0
+
+END.
