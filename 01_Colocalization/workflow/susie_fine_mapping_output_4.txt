@@ -1,0 +1,811 @@
+N E X T F L O W  ~  version 21.04.0
+Launching `susie_fine_mapping.nf` [curious_wozniak] - revision: 6757cdaf1d
+[-        ] process > SPLIT_LOCI               [  0%] 0 of 1
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[fa/5f096b] process > SPLIT_LOCI               [  0%] 0 of 1
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[fa/5f096b] process > SPLIT_LOCI               [  0%] 0 of 1
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[-        ] process > SUSIE_FINE_MAPPING       [  0%] 0 of 13
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[-        ] process > SUSIE_FINE_MAPPING       [  0%] 0 of 28
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[-        ] process > SUSIE_FINE_MAPPING       [  0%] 0 of 39
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 48
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 55
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 63
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 69
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 72
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 83
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 91
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 98
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 108
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (2)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c4/582158] process > SUSIE_FINE_MAPPING (1)   [  0%] 0 of 118
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (3)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/f5ed80] process > SUSIE_FINE_MAPPING (2)   [  0%] 0 of 126
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (3)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/f5ed80] process > SUSIE_FINE_MAPPING (2)   [  0%] 0 of 129
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (3)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/f5ed80] process > SUSIE_FINE_MAPPING (2)   [  0%] 0 of 132
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (3)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/f5ed80] process > SUSIE_FINE_MAPPING (2)   [  0%] 0 of 138
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (3)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/f5ed80] process > SUSIE_FINE_MAPPING (2)   [  0%] 0 of 155
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (4)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[79/b0c571] process > SUSIE_FINE_MAPPING (3)   [  0%] 0 of 167
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (4)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[79/b0c571] process > SUSIE_FINE_MAPPING (3)   [  0%] 0 of 183
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (4)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[79/b0c571] process > SUSIE_FINE_MAPPING (3)   [  0%] 0 of 189
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (4)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[79/b0c571] process > SUSIE_FINE_MAPPING (3)   [  0%] 0 of 209
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[79/b0c571] process > SUSIE_FINE_MAPPING (3)   [  0%] 0 of 227
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 239
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 253
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 261
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 273
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 283
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 293
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 302
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 309
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 316
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 335
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 352
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 366
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 378
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 388
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 404
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 420
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 441
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 451
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (5)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  0%] 0 of 463
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (6)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/b12e8c] process > SUSIE_FINE_MAPPING (4)   [  0%] 0 of 470
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (6)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/b12e8c] process > SUSIE_FINE_MAPPING (4)   [  0%] 0 of 474
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (6)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/b12e8c] process > SUSIE_FINE_MAPPING (4)   [  0%] 0 of 495
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (6)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/b12e8c] process > SUSIE_FINE_MAPPING (4)   [  0%] 0 of 518
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (7)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 0 of 532
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (7)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 0 of 543
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (7)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 0 of 555
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (7)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 0 of 557
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (7)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 0 of 568
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (8)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[2b/bbebcf] process > SUSIE_FINE_MAPPING (7)   [  0%] 0 of 575
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (8)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[2b/bbebcf] process > SUSIE_FINE_MAPPING (7)   [  0%] 0 of 588
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (9)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c6/427a09] process > SUSIE_FINE_MAPPING (8)   [  0%] 0 of 606
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (9)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c6/427a09] process > SUSIE_FINE_MAPPING (8)   [  0%] 0 of 613
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (10)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[b2/cdcb56] process > SUSIE_FINE_MAPPING (9)   [  0%] 0 of 624
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (10)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[b2/cdcb56] process > SUSIE_FINE_MAPPING (9)   [  0%] 0 of 633
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (10)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[b2/cdcb56] process > SUSIE_FINE_MAPPING (9)   [  0%] 0 of 640
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (11)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[1a/53d2b5] process > SUSIE_FINE_MAPPING (10)  [  0%] 0 of 645
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (11)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[1a/53d2b5] process > SUSIE_FINE_MAPPING (10)  [  0%] 0 of 652
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (11)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[1a/53d2b5] process > SUSIE_FINE_MAPPING (10)  [  0%] 0 of 660
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (11)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[1a/53d2b5] process > SUSIE_FINE_MAPPING (10)  [  0%] 0 of 664
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (11)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[1a/53d2b5] process > SUSIE_FINE_MAPPING (10)  [  0%] 0 of 668
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (11)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[1a/53d2b5] process > SUSIE_FINE_MAPPING (10)  [  0%] 0 of 691
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (12)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[e4/007469] process > SUSIE_FINE_MAPPING (11)  [  0%] 0 of 712
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (12)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[e4/007469] process > SUSIE_FINE_MAPPING (11)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (13)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[2f/3fe3f2] process > SUSIE_FINE_MAPPING (12)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (14)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[22/829a12] process > SUSIE_FINE_MAPPING (13)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (15)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[bd/1698ee] process > SUSIE_FINE_MAPPING (14)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (16)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[90/385c11] process > SUSIE_FINE_MAPPING (16)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (17)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f5/32602d] process > SUSIE_FINE_MAPPING (17)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (18)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[9a/a12b5d] process > SUSIE_FINE_MAPPING (15)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (19)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[0b/bd6ff4] process > SUSIE_FINE_MAPPING (19)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (20)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[66/d2619d] process > SUSIE_FINE_MAPPING (20)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (21)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[87/209335] process > SUSIE_FINE_MAPPING (21)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (22)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f9/fccb94] process > SUSIE_FINE_MAPPING (18)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (22)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f9/fccb94] process > SUSIE_FINE_MAPPING (18)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (23)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[77/06d619] process > SUSIE_FINE_MAPPING (22)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (24)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[58/aeea29] process > SUSIE_FINE_MAPPING (23)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (25)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[e1/7d3647] process > SUSIE_FINE_MAPPING (25)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (26)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[29/61a26a] process > SUSIE_FINE_MAPPING (24)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (27)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[70/37a85f] process > SUSIE_FINE_MAPPING (26)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (28)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f2/c54c1a] process > SUSIE_FINE_MAPPING (28)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (29)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[6d/c71d67] process > SUSIE_FINE_MAPPING (29)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (30)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[49/ce4fba] process > SUSIE_FINE_MAPPING (27)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (31)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/de8527] process > SUSIE_FINE_MAPPING (30)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (32)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a8/3ae5f5] process > SUSIE_FINE_MAPPING (31)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (33)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c3/f8eeae] process > SUSIE_FINE_MAPPING (32)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (34)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[49/6ce9e5] process > SUSIE_FINE_MAPPING (33)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (35)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[49/c18c8f] process > SUSIE_FINE_MAPPING (34)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (36)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[ba/71c774] process > SUSIE_FINE_MAPPING (35)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (37)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[46/3cf2ce] process > SUSIE_FINE_MAPPING (36)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (38)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[14/421f27] process > SUSIE_FINE_MAPPING (37)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (39)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[5b/0289c5] process > SUSIE_FINE_MAPPING (38)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (40)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[2e/00dbdd] process > SUSIE_FINE_MAPPING (39)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (41)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[41/2e808f] process > SUSIE_FINE_MAPPING (41)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (42)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[cb/8f2ee2] process > SUSIE_FINE_MAPPING (42)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (43)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[ee/c5f67c] process > SUSIE_FINE_MAPPING (40)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (44)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[63/fe0217] process > SUSIE_FINE_MAPPING (44)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (45)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[63/fe0217] process > SUSIE_FINE_MAPPING (44)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (45)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f3/5b25e3] process > SUSIE_FINE_MAPPING (43)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (46)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[b3/c32c9c] process > SUSIE_FINE_MAPPING (46)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (47)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[27/dd147a] process > SUSIE_FINE_MAPPING (45)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (47)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[27/dd147a] process > SUSIE_FINE_MAPPING (45)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (48)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[56/626815] process > SUSIE_FINE_MAPPING (47)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (49)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f2/0809d2] process > SUSIE_FINE_MAPPING (48)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (50)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[ee/5437be] process > SUSIE_FINE_MAPPING (49)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (51)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[c7/30ef1c] process > SUSIE_FINE_MAPPING (50)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (52)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[86/5ec15d] process > SUSIE_FINE_MAPPING (52)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (52)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[86/5ec15d] process > SUSIE_FINE_MAPPING (52)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (53)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[29/a19055] process > SUSIE_FINE_MAPPING (53)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (54)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[ba/c668ff] process > SUSIE_FINE_MAPPING (51)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (55)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f6/55ad6c] process > SUSIE_FINE_MAPPING (54)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (56)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[9d/2581db] process > SUSIE_FINE_MAPPING (55)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (57)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/daf81e] process > SUSIE_FINE_MAPPING (56)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (58)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[11/a686aa] process > SUSIE_FINE_MAPPING (57)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (59)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[72/807daa] process > SUSIE_FINE_MAPPING (59)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (60)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[0f/7e38ca] process > SUSIE_FINE_MAPPING (58)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (61)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[23/fd0d67] process > SUSIE_FINE_MAPPING (60)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (61)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[23/fd0d67] process > SUSIE_FINE_MAPPING (60)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (61)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[23/fd0d67] process > SUSIE_FINE_MAPPING (60)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (62)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[2a/b8ac9a] process > SUSIE_FINE_MAPPING (61)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (63)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[81/b6d95b] process > SUSIE_FINE_MAPPING (62)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (64)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[e7/e77245] process > SUSIE_FINE_MAPPING (63)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (65)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[e8/a255b1] process > SUSIE_FINE_MAPPING (64)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (66)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[55/3ddcfc] process > SUSIE_FINE_MAPPING (65)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (67)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a6/2ff999] process > SUSIE_FINE_MAPPING (66)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (68)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[ce/e03aa3] process > SUSIE_FINE_MAPPING (67)  [  0%] 0 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (68)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (68)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (68)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a3/d835c4] process > SUSIE_FINE_MAPPING (6)   [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (69)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[10/4e8432] process > SUSIE_FINE_MAPPING (69)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (70)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[67/bdc067] process > SUSIE_FINE_MAPPING (68)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (71)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a0/8287fe] process > SUSIE_FINE_MAPPING (70)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (72)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[4c/f8dba2] process > SUSIE_FINE_MAPPING (71)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (73)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a0/8167b6] process > SUSIE_FINE_MAPPING (72)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (74)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[41/62c19e] process > SUSIE_FINE_MAPPING (74)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (75)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[2a/1b8cdc] process > SUSIE_FINE_MAPPING (73)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (76)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[d9/e89304] process > SUSIE_FINE_MAPPING (75)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (77)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[4a/49f767] process > SUSIE_FINE_MAPPING (76)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (78)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f1/3b2ccf] process > SUSIE_FINE_MAPPING (77)  [  0%] 1 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (78)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[60/f5ed80] process > SUSIE_FINE_MAPPING (2)   [  0%] 3 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (78)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[79/b0c571] process > SUSIE_FINE_MAPPING (3)   [  1%] 4 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (79)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[98/a24260] process > SUSIE_FINE_MAPPING (5)   [  1%] 5 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (79)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/b12e8c] process > SUSIE_FINE_MAPPING (4)   [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (79)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[48/b12e8c] process > SUSIE_FINE_MAPPING (4)   [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (80)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[63/ea4fc2] process > SUSIE_FINE_MAPPING (79)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (81)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[7b/639f7e] process > SUSIE_FINE_MAPPING (80)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (82)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[3b/7abc22] process > SUSIE_FINE_MAPPING (81)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (83)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[f2/7fbdab] process > SUSIE_FINE_MAPPING (82)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (84)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[0e/6e6229] process > SUSIE_FINE_MAPPING (83)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (85)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[63/81ebb4] process > SUSIE_FINE_MAPPING (84)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (85)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[63/81ebb4] process > SUSIE_FINE_MAPPING (84)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (85)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[63/81ebb4] process > SUSIE_FINE_MAPPING (84)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (86)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[a6/2c4e16] process > SUSIE_FINE_MAPPING (86)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (87)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[6a/1f0e25] process > SUSIE_FINE_MAPPING (85)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (88)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[ad/5e93a5] process > SUSIE_FINE_MAPPING (87)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (89)
+[fa/5f096b] process > SPLIT_LOCI               [100%] 1 of 1 ✔
+[13/ae7208] process > SUSIE_FINE_MAPPING (88)  [  1%] 6 of 716
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+

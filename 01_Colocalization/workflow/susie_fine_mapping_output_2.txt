@@ -1,0 +1,15 @@
+N E X T F L O W  ~  version 21.04.0
+Launching `susie_fine_mapping.nf` [insane_brahmagupta] - revision: 6757cdaf1d
+[-        ] process > SPLIT_LOCI               [  0%] 0 of 1
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[42/59f8a3] process > SPLIT_LOCI               [  0%] 0 of 1
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -
+
+executor >  lsf (1)
+[42/59f8a3] process > SPLIT_LOCI               [  0%] 0 of 1
+[-        ] process > SUSIE_FINE_MAPPING       -
+[-        ] process > AGGREGATE_CREDIBILE_SETS -

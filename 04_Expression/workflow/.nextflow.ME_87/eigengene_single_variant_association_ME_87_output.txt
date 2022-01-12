@@ -1,0 +1,161 @@
+N E X T F L O W  ~  version 21.10.0
+Launching `../eigengene_single_variant_association.nf` [sharp_dalembert] - revision: 4795591c3b
+[-        ] process > PERFORM_ASSOCIATION_TESTS     -
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+[-        ] process > PERFORM_ASSOCIATION_TESTS     [  0%] 0 of 2
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+[-        ] process > PERFORM_ASSOCIATION_TESTS     [  0%] 0 of 14
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+[-        ] process > PERFORM_ASSOCIATION_TESTS     [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (1)
+[33/d3e549] process > PERFORM_ASSOCIATION_TESTS (2) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (2)
+[b3/1a847a] process > PERFORM_ASSOCIATION_TESTS (1) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (3)
+[32/f0c031] process > PERFORM_ASSOCIATION_TESTS (4) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (5)
+[ac/fbf253] process > PERFORM_ASSOCIATION_TESTS (6) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (7)
+[35/c3cafa] process > PERFORM_ASSOCIATION_TESTS (7) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (8)
+[32/4e96c7] process > PERFORM_ASSOCIATION_TESTS (8) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (9)
+[7a/ee59ad] process > PERFORM_ASSOCIATION_TESTS (9) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (10)
+[8a/aca563] process > PERFORM_ASSOCIATION_TESTS (10) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (11)
+[b9/f0c14b] process > PERFORM_ASSOCIATION_TESTS (11) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (12)
+[77/fe3fb4] process > PERFORM_ASSOCIATION_TESTS (12) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (13)
+[a2/7b6c5d] process > PERFORM_ASSOCIATION_TESTS (14) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (14)
+[86/7b755f] process > PERFORM_ASSOCIATION_TESTS (13) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (16)
+[2c/a58085] process > PERFORM_ASSOCIATION_TESTS (16) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (17)
+[3d/54223e] process > PERFORM_ASSOCIATION_TESTS (17) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (18)
+[1e/d2d4de] process > PERFORM_ASSOCIATION_TESTS (18) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (19)
+[e0/b29595] process > PERFORM_ASSOCIATION_TESTS (19) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (21)
+[26/f05070] process > PERFORM_ASSOCIATION_TESTS (20) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (22)
+[a8/fa3cab] process > PERFORM_ASSOCIATION_TESTS (23) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[05/51533f] process > PERFORM_ASSOCIATION_TESTS (22) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[05/51533f] process > PERFORM_ASSOCIATION_TESTS (22) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[05/51533f] process > PERFORM_ASSOCIATION_TESTS (22) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[05/51533f] process > PERFORM_ASSOCIATION_TESTS (22) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[05/51533f] process > PERFORM_ASSOCIATION_TESTS (22) [  0%] 0 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[b9/f0c14b] process > PERFORM_ASSOCIATION_TESTS (11) [  4%] 1 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[b3/1a847a] process > PERFORM_ASSOCIATION_TESTS (1) [  8%] 2 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (23)
+[e7/67a66f] process > PERFORM_ASSOCIATION_TESTS (5) [ 13%] 3 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (23)
+[1e/d2d4de] process > PERFORM_ASSOCIATION_TESTS (18) [ 17%] 4 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[32/f0c031] process > PERFORM_ASSOCIATION_TESTS (4) [ 21%] 5 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (23)
+[86/7b755f] process > PERFORM_ASSOCIATION_TESTS (13) [ 26%] 6 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[35/c3cafa] process > PERFORM_ASSOCIATION_TESTS (7) [ 30%] 7 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (23)
+[b5/ea06db] process > PERFORM_ASSOCIATION_TESTS (15) [ 34%] 8 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[26/f05070] process > PERFORM_ASSOCIATION_TESTS (20) [ 39%] 9 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[e0/b29595] process > PERFORM_ASSOCIATION_TESTS (19) [ 43%] 10 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[77/fe3fb4] process > PERFORM_ASSOCIATION_TESTS (12) [ 47%] 11 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[32/4e96c7] process > PERFORM_ASSOCIATION_TESTS (8) [ 52%] 12 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS -
+
+executor >  lsf (23)
+[05/51533f] process > PERFORM_ASSOCIATION_TESTS (22) [ 56%] 13 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -
+
+executor >  lsf (23)
+[2c/a58085] process > PERFORM_ASSOCIATION_TESTS (16) [ 60%] 14 of 23
+[-        ] process > AGGREGATE_ASSOCIATION_RESULTS  -

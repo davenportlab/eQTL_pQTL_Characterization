@@ -11,8 +11,12 @@ rm(list=ls())
 
 library(tidyverse)
 library(data.table)
+library(parallel)
 
 options(stringsAsFactors = FALSE)
+
+args = commandArgs(trailingOnly = TRUE)
+chr = args[1]
 
 #----------------------------------------------------------
 # Load LD Data
@@ -21,13 +25,13 @@ options(stringsAsFactors = FALSE)
 cis.eqtl.sdY <- readRDS("~/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.sdY.RDS")
 locus.data.files <- list.files("locus_data/", pattern="*.csv")
 
-cis.eqtl.loci <- lapply(locus.data.files, function(locus.data.file) {
+cis.eqtl.loci <- mclapply(locus.data.files, function(locus.data.file) {
 
   locus.name = strsplit(locus.data.file, "\\.")[[1]][1]
 
   # Read locus data (SNP list) and locus LD matrix
   locus.data = fread(paste0("locus_data/", locus.name, ".csv"), sep=",")
-  locus.ld = fread(paste0("locus_ld/", locus.name, "_ld.csv"), sep="\t", header=TRUE)[,-1]
+  locus.ld = fread(paste0("locus_ld/", locus.name, "_ld.tsv"), sep="\t", header=TRUE)[,-1]
 
   # SNPs may be pruned when LD matrix is calculated
   #   Ensure that the SNP list reflects this pruning
@@ -59,4 +63,4 @@ cis.eqtl.loci <- lapply(locus.data.files, function(locus.data.file) {
 
 names(cis.eqtl.loci) <- sapply(strsplit(locus.data.files, "\\."), function(x) x[1])
 
-saveRDS(cis.eqtl.loci, "~/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.loci.RDS")
+saveRDS(cis.eqtl.loci, paste0("~/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.loci.chr", chr, ".RDS"))

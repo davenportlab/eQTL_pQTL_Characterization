@@ -87,4 +87,4 @@ lapply(results, unlist) %>% as.data.frame %>%
   dplyr::mutate(PP.Ratio = PP.H4 / PP.H3) %>%
   dplyr::filter(PP.H3.and.H4 >= 0.15) %>%
   dplyr::arrange(desc(PP.Ratio)) %>%
-  head(n=20) %>% View
+  head(n=20)

@@ -14,18 +14,8 @@ library(data.table)
 
 options(stringsAsFactors = FALSE)
 
-#----------------------------------------------------------
-# Load Gene Expression Data
-#----------------------------------------------------------
-
-gene.exp <- read.table("/nfs/team282/data/gains_team282/logcpm_864_20397_hla.txt")
-
-gene.exp.sd <- data.frame(
-  Gene=rownames(gene.exp),
-  SD=apply(gene.exp, 1, sd)
-)
-
-saveRDS(gene.exp.sd, "~/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.sdY.RDS")
+args = commandArgs(trailingOnly = TRUE)
+chr.input = args[1]
 
 #----------------------------------------------------------
 # Load eQTL Data
@@ -42,15 +32,17 @@ setnames(cis.eqtl, "snps", "snp")
 setnames(cis.eqtl, "SNPpos", "position")
 
 cis.eqtl <- merge(cis.eqtl, geno.bim, by="snp")
-
 cis.eqtl[, chr := replace(chr.y, chr.y == 23, "X")]
+
+cis.eqtl <- subset(cis.eqtl, chr == chr.input)
+
 cis.eqtl[, varbeta := se^2]
 
 cis.eqtl.loci <- split(cis.eqtl[,c("snp", "position", "beta", "varbeta", "chr", "minor_allele", "major_allele")], cis.eqtl$gene)
 
 cat("Cis-eQTL Data Separated by Locus", "\n")
 
-for (locus in names(cis.eqtl.loci)[1:100]) {
+for (locus in names(cis.eqtl.loci)) {
   fwrite(cis.eqtl.loci[[locus]], paste0(locus, ".csv"), quote=FALSE)
 }
 

@@ -28,9 +28,11 @@ process PREQC_FASTQC {
 
     script:
 
+        def cores = (task.cpus as int) / 8
+
         """
         fastqc $fastq_file_1 $fastq_file_2 \\
-            --threads $task.cpus \\
+            --threads $cores \\
             --quiet
         """
 }
@@ -55,12 +57,10 @@ process PREQC_TRIMGALORE {
         path("*.{zip,html}"),               emit: mqc_trim_galore_fastqc
 
     script:
-
-        def cores = (task.cpus as int) - 4
         
         """
         trim_galore $fastq_file_1 $fastq_file_2 \\
-            --cores $cores \\
+            --cores 1 \\
             --paired \\
             --fastqc \\
             --gzip
@@ -136,6 +136,8 @@ process A_BOWTIE2 {
         bowtie2 \\
             -x $params.bowtie2_genome_dir/Homo_sapiens.GRCh38.99 \\
             -1 $fastq_file_1 -2 $fastq_file_2 \\
+            --no-mixed \\
+            --no-discordant \\
             --threads $cores \\
             --met-file ${name}.bowtie2.log \\
             | samtools view --bam > ${name}.aligned.bam
@@ -248,24 +250,24 @@ process POSTQC_FILTERING {
         path(bam_index_file)
 
     output:
-        val(name),                                  emit: name
-        path("${name}.filtered.sorted.bam"),        emit: bam_file
-        path("${name}.filtered.sorted.bam.bai"),    emit: bam_index_file
-        path("*.{stats,idxstats,flagstat}"),        emit: mqc_post_filtering
+        val(name),                           emit: name
+        path("${name}.filtered.bam"),        emit: bam_file
+        path("${name}.filtered.bam.bai"),    emit: bam_index_file
+        path("*.{stats,idxstats,flagstat}"), emit: mqc_post_filtering
 
     script:
 
-        // -f 0x0001 - Keep reads that are paired.
-        // -F 0x0004 - Filter out reads that are unmapped.
-        // -F 0x0200 -F 0x0400 - Filter out reads that are marked as duplicates.
-        // -q 1 - Only keeps reads with MAPQ Score >= 1. MAPQ is only 0 when read is multi-mapped.
+        // --require-flags 0x0001 - Keep reads that are paired.
+        // --exclude-flags 0x0004 - Filter out reads that are unmapped.
+        // --exclude-flags 0x0200 -F 0x0400 - Filter out reads that are marked as duplicates.
+        // --remove-tag XS - XS is the score of the second best alignment, which implies that the read mapped to multiple locations
 
         """
         samtools view $bam_file \\
-            -f 0x0001 \\
-            -F 0x0004 \\
-            -F 0x0200 -F 0x0400 \\
-            -q 1 \\
+            --require-flags 0x0001 \\
+            --exclude-flags 0x0004 \\
+            --exclude-flags 0x0200 --exclude-flags 0x0400 \\
+            --remove-tag XS \\
             --bam \\
             -@ $task.cpus > ${name}.filtered.bam
         
@@ -277,11 +279,10 @@ process POSTQC_FILTERING {
         # Filter reads in blacklisted region from ENCODE
         bedtools intersect -abam ${name}.filtered.noMT.bam -b $params.genome_black_list -v > ${name}.filtered.bam
 
-        samtools sort -m 1G -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.sorted.bam
-        samtools index -@ $task.cpus ${name}.filtered.sorted.bam
-        samtools idxstats -@ $task.cpus ${name}.filtered.sorted.bam > ${name}.filtered.sorted.bam.idxstats
-        samtools flagstat -@ $task.cpus ${name}.filtered.sorted.bam > ${name}.filtered.sorted.bam.flagstat
-        samtools stats -@ $task.cpus ${name}.filtered.sorted.bam > ${name}.filtered.sorted.bam.stats
+        samtools index -@ $task.cpus ${name}.filtered.bam
+        samtools idxstats -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.idxstats
+        samtools flagstat -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.flagstat
+        samtools stats -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.stats
         """
 }
 

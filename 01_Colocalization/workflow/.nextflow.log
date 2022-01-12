@@ -1,57 +1,345 @@
-Nov-08 14:54:26.445 [main] DEBUG nextflow.cli.Launcher - $> nextflow prepare_eqtl_data_for_coloc.nf
-Nov-08 14:54:26.670 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.0
-Nov-08 14:54:26.695 [main] INFO  nextflow.cli.CmdRun - Launching `prepare_eqtl_data_for_coloc.nf` [trusting_bassi] - revision: dc881b1e7d
-Nov-08 14:54:26.707 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
-Nov-08 14:54:26.708 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
-Nov-08 14:54:26.730 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
-Nov-08 14:54:27.344 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/nfs/users/nfs_n/nm18/.nextflow/plugins
-Nov-08 14:54:27.345 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Nov-08 14:54:27.347 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
-Nov-08 14:54:27.354 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Nov-08 14:54:27.355 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Nov-08 14:54:27.357 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
-Nov-08 14:54:27.378 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Nov-08 14:54:27.416 [main] DEBUG nextflow.Session - Session uuid: eee1878f-f338-4dde-918f-4ba48473ed41
-Nov-08 14:54:27.416 [main] DEBUG nextflow.Session - Run name: trusting_bassi
-Nov-08 14:54:27.417 [main] DEBUG nextflow.Session - Executor pool size: 2
-Nov-08 14:54:27.452 [main] DEBUG nextflow.cli.CmdRun - 
+Jan-12 14:46:29.537 [main] DEBUG nextflow.cli.Launcher - $> nextflow susie_fine_mapping.nf --chr 4
+Jan-12 14:46:29.533 [main] DEBUG nextflow.cli.Launcher - $> nextflow susie_fine_mapping.nf --chr 2
+Jan-12 14:46:29.468 [main] DEBUG nextflow.cli.Launcher - $> nextflow susie_fine_mapping.nf --chr 3
+Jan-12 14:46:29.726 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.0
+Jan-12 14:46:29.756 [main] INFO  nextflow.cli.CmdRun - Launching `susie_fine_mapping.nf` [curious_wozniak] - revision: 6757cdaf1d
+Jan-12 14:46:29.771 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Jan-12 14:46:29.772 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Jan-12 14:46:29.796 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jan-12 14:46:29.824 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.0
+Jan-12 14:46:29.844 [main] INFO  nextflow.cli.CmdRun - Launching `susie_fine_mapping.nf` [insane_brahmagupta] - revision: 6757cdaf1d
+Jan-12 14:46:29.859 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Jan-12 14:46:29.859 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Jan-12 14:46:29.881 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jan-12 14:46:29.921 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 21.04.0
+Jan-12 14:46:29.944 [main] INFO  nextflow.cli.CmdRun - Launching `susie_fine_mapping.nf` [thirsty_cori] - revision: 6757cdaf1d
+Jan-12 14:46:29.957 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Jan-12 14:46:29.957 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/nextflow.config
+Jan-12 14:46:29.982 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Jan-12 14:46:30.420 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/nfs/users/nfs_n/nm18/.nextflow/plugins
+Jan-12 14:46:30.422 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jan-12 14:46:30.424 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Jan-12 14:46:30.436 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jan-12 14:46:30.439 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jan-12 14:46:30.442 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jan-12 14:46:30.455 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jan-12 14:46:30.482 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/nfs/users/nfs_n/nm18/.nextflow/plugins
+Jan-12 14:46:30.484 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jan-12 14:46:30.485 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Jan-12 14:46:30.491 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jan-12 14:46:30.491 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jan-12 14:46:30.493 [main] DEBUG nextflow.Session - Session uuid: 20a4e6d4-2d33-4a6c-9bd5-42c2c8c8613d
+Jan-12 14:46:30.493 [main] DEBUG nextflow.Session - Run name: curious_wozniak
+Jan-12 14:46:30.493 [main] DEBUG nextflow.Session - Executor pool size: 2
+Jan-12 14:46:30.494 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jan-12 14:46:30.503 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jan-12 14:46:30.536 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 21.04.0 build 5552
   Created: 02-05-2021 16:22 UTC (17:22 BST)
-  System: Linux 4.15.0-142-generic
+  System: Linux 5.4.0-91-generic
   Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 11.0.9.1-internal+0-adhoc..src
   Encoding: UTF-8 (UTF-8)
-  Process: 42243@node-12-4-4 [10.160.12.47]
-  CPUs: 1 - Mem: 31.2 GB (30.9 GB) - Swap: 0 (816 GB)
-Nov-08 14:54:27.495 [main] DEBUG nextflow.Session - Work-dir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work [lustre]
-Nov-08 14:54:27.496 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/bin
-Nov-08 14:54:27.505 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Nov-08 14:54:27.515 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Nov-08 14:54:27.638 [main] DEBUG nextflow.Session - Session start invoked
-Nov-08 14:54:27.642 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/execution_trace.txt
-Nov-08 14:54:27.978 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Nov-08 14:54:28.047 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: GENERATE_LOCUS_DATA, AGGREGATE, CALCULATE_LD
-Nov-08 14:54:28.083 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name GENERATE_LOCUS_DATA
-Nov-08 14:54:28.173 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Nov-08 14:54:28.173 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Nov-08 14:54:28.180 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
-Nov-08 14:54:28.185 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
-Nov-08 14:54:28.193 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
-Nov-08 14:54:28.197 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
-Nov-08 14:54:28.303 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:vcftools` matches label `vcftools` for process with name CALCULATE_LD
-Nov-08 14:54:28.305 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Nov-08 14:54:28.305 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Nov-08 14:54:28.324 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name AGGREGATE
-Nov-08 14:54:28.325 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
-Nov-08 14:54:28.325 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
-Nov-08 14:54:28.329 [main] DEBUG nextflow.Session - Ignite dataflow network (3)
-Nov-08 14:54:28.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > GENERATE_LOCUS_DATA
-Nov-08 14:54:28.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > CALCULATE_LD
-Nov-08 14:54:28.329 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > AGGREGATE
-Nov-08 14:54:28.330 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
-Nov-08 14:54:28.330 [main] DEBUG nextflow.Session - Session await
-Nov-08 14:54:28.398 [Actor Thread 4] DEBUG nextflow.conda.CondaCache - Conda found local env for environment=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization; path=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization
-Nov-08 14:54:28.643 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process GENERATE_LOCUS_DATA > jobId: 270819; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/08/1bc0910f07d33a82f6ea932a5324ff
-Nov-08 14:54:28.646 [Task submitter] INFO  nextflow.Session - [08/1bc091] Submitted process > GENERATE_LOCUS_DATA
-Nov-08 14:58:08.228 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 270819; id: 1; name: GENERATE_LOCUS_DATA; status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/08/1bc0910f07d33a82f6ea932a5324ff started: 1636383273207; exited: 2021-11-08T14:58:06Z; ]
-Nov-08 14:58:08.348 [main] DEBUG nextflow.Session - Session await > all process finished
-Nov-08 14:58:08.390 [main] DEBUG nextflow.Session - Session await > all barriers passed
+  Process: 243501@node-14-13 [10.160.20.50]
+  CPUs: 1 - Mem: 64 GB (63.7 GB) - Swap: 0 (1.3 TB)
+Jan-12 14:46:30.544 [main] DEBUG nextflow.Session - Session uuid: da85e3ae-c0ac-4dde-81b1-a76ae70e644f
+Jan-12 14:46:30.544 [main] DEBUG nextflow.Session - Run name: insane_brahmagupta
+Jan-12 14:46:30.544 [main] DEBUG nextflow.Session - Executor pool size: 2
+Jan-12 14:46:30.576 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.0 build 5552
+  Created: 02-05-2021 16:22 UTC (17:22 BST)
+  System: Linux 5.4.0-91-generic
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 11.0.9.1-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 243503@node-14-13 [10.160.20.50]
+  CPUs: 1 - Mem: 64 GB (63.6 GB) - Swap: 0 (1.3 TB)
+Jan-12 14:46:30.584 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; plugins-dir=/nfs/users/nfs_n/nm18/.nextflow/plugins
+Jan-12 14:46:30.592 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Jan-12 14:46:30.593 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins local root: .nextflow/plr/empty
+Jan-12 14:46:30.596 [main] DEBUG nextflow.Session - Work-dir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work [lustre]
+Jan-12 14:46:30.597 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/bin
+Jan-12 14:46:30.601 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Jan-12 14:46:30.601 [main] INFO  org.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Jan-12 14:46:30.604 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.4.1 in 'deployment' mode
+Jan-12 14:46:30.608 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jan-12 14:46:30.614 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Jan-12 14:46:30.616 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jan-12 14:46:30.622 [main] DEBUG nextflow.Session - Work-dir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work [lustre]
+Jan-12 14:46:30.622 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/bin
+Jan-12 14:46:30.633 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jan-12 14:46:30.643 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jan-12 14:46:30.649 [main] DEBUG nextflow.Session - Session uuid: 2b692b29-d5f2-431f-b36a-5ce3f6f4a361
+Jan-12 14:46:30.649 [main] DEBUG nextflow.Session - Run name: thirsty_cori
+Jan-12 14:46:30.649 [main] DEBUG nextflow.Session - Executor pool size: 2
+Jan-12 14:46:30.680 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 21.04.0 build 5552
+  Created: 02-05-2021 16:22 UTC (17:22 BST)
+  System: Linux 5.4.0-91-generic
+  Runtime: Groovy 3.0.7 on OpenJDK 64-Bit Server VM 11.0.9.1-internal+0-adhoc..src
+  Encoding: UTF-8 (UTF-8)
+  Process: 243502@node-14-13 [10.160.20.50]
+  CPUs: 1 - Mem: 64 GB (63.7 GB) - Swap: 0 (1.3 TB)
+Jan-12 14:46:30.721 [main] DEBUG nextflow.Session - Work-dir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work [lustre]
+Jan-12 14:46:30.722 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/bin
+Jan-12 14:46:30.732 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Jan-12 14:46:30.740 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Jan-12 14:46:30.774 [main] DEBUG nextflow.Session - Session start invoked
+Jan-12 14:46:30.779 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/execution_trace.txt
+Jan-12 14:46:30.818 [main] DEBUG nextflow.Session - Session start invoked
+Jan-12 14:46:30.821 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/execution_trace.txt
+Jan-12 14:46:30.850 [main] DEBUG nextflow.Session - Session start invoked
+Jan-12 14:46:30.853 [main] DEBUG nextflow.trace.TraceFileObserver - Flow starting -- trace file: /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/workflow/execution_trace.txt
+Jan-12 14:46:31.176 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jan-12 14:46:31.203 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jan-12 14:46:31.209 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SUSIE_FINE_MAPPING, SPLIT_LOCI, AGGREGATE_CREDIBILE_SETS
+Jan-12 14:46:31.236 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SUSIE_FINE_MAPPING, SPLIT_LOCI, AGGREGATE_CREDIBILE_SETS
+Jan-12 14:46:31.248 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Jan-12 14:46:31.273 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:Rbigmem` matches label `Rbigmem` for process with name SPLIT_LOCI
+Jan-12 14:46:31.281 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: SUSIE_FINE_MAPPING, SPLIT_LOCI, AGGREGATE_CREDIBILE_SETS
+Jan-12 14:46:31.323 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:Rbigmem` matches label `Rbigmem` for process with name SPLIT_LOCI
+Jan-12 14:46:31.336 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.336 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.342 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Jan-12 14:46:31.349 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Jan-12 14:46:31.355 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Jan-12 14:46:31.358 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Jan-12 14:46:31.358 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.358 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.367 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Jan-12 14:46:31.374 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Jan-12 14:46:31.377 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Jan-12 14:46:31.382 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Jan-12 14:46:31.392 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:Rbigmem` matches label `Rbigmem` for process with name SPLIT_LOCI
+Jan-12 14:46:31.404 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.405 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.412 [main] DEBUG nextflow.executor.Executor - [warm up] executor > lsf
+Jan-12 14:46:31.418 [main] DEBUG n.processor.TaskPollingMonitor - Creating task monitor for executor 'lsf' > capacity: 100; pollInterval: 5s; dumpInterval: 5m 
+Jan-12 14:46:31.424 [main] DEBUG n.executor.AbstractGridExecutor - Creating executor 'lsf' > queue-stat-interval: 1m
+Jan-12 14:46:31.427 [main] DEBUG nextflow.executor.LsfExecutor - [LSF] Detected lsf.conf LSF_UNIT_FOR_LIMITS=MB
+Jan-12 14:46:31.453 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name SUSIE_FINE_MAPPING
+Jan-12 14:46:31.458 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.458 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.473 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name SUSIE_FINE_MAPPING
+Jan-12 14:46:31.475 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.475 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.477 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.477 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.478 [main] DEBUG nextflow.Session - Ignite dataflow network (3)
+Jan-12 14:46:31.478 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SPLIT_LOCI
+Jan-12 14:46:31.478 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SUSIE_FINE_MAPPING
+Jan-12 14:46:31.484 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > AGGREGATE_CREDIBILE_SETS
+Jan-12 14:46:31.485 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jan-12 14:46:31.485 [main] DEBUG nextflow.Session - Session await
+Jan-12 14:46:31.497 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.498 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.501 [main] DEBUG nextflow.Session - Ignite dataflow network (3)
+Jan-12 14:46:31.501 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SPLIT_LOCI
+Jan-12 14:46:31.501 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SUSIE_FINE_MAPPING
+Jan-12 14:46:31.503 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > AGGREGATE_CREDIBILE_SETS
+Jan-12 14:46:31.503 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jan-12 14:46:31.503 [main] DEBUG nextflow.Session - Session await
+Jan-12 14:46:31.517 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withLabel:R` matches label `R` for process with name SUSIE_FINE_MAPPING
+Jan-12 14:46:31.521 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.521 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.540 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: lsf
+Jan-12 14:46:31.540 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'lsf'
+Jan-12 14:46:31.543 [main] DEBUG nextflow.Session - Ignite dataflow network (3)
+Jan-12 14:46:31.543 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SPLIT_LOCI
+Jan-12 14:46:31.544 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > SUSIE_FINE_MAPPING
+Jan-12 14:46:31.545 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > AGGREGATE_CREDIBILE_SETS
+Jan-12 14:46:31.545 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Jan-12 14:46:31.545 [main] DEBUG nextflow.Session - Session await
+Jan-12 14:46:31.556 [Actor Thread 3] DEBUG nextflow.conda.CondaCache - Conda found local env for environment=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization; path=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization
+Jan-12 14:46:31.570 [Actor Thread 3] DEBUG nextflow.conda.CondaCache - Conda found local env for environment=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization; path=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization
+Jan-12 14:46:31.619 [Actor Thread 6] DEBUG nextflow.conda.CondaCache - Conda found local env for environment=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization; path=/lustre/scratch119/humgen/projects/gains_team282/nikhil/conda/colocalization
+Jan-12 14:46:32.164 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SPLIT_LOCI > jobId: 161166; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/fa/5f096bdc472195d7f0bd7ad21de282
+Jan-12 14:46:32.167 [Task submitter] INFO  nextflow.Session - [fa/5f096b] Submitted process > SPLIT_LOCI
+Jan-12 14:46:32.167 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SPLIT_LOCI > jobId: 161167; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/59f8a317ec745915241220eda970c2
+Jan-12 14:46:32.169 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SPLIT_LOCI > jobId: 161168; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/874274e361744bb51a865bce020ff8
+Jan-12 14:46:32.169 [Task submitter] INFO  nextflow.Session - [42/59f8a3] Submitted process > SPLIT_LOCI
+Jan-12 14:46:32.171 [Task submitter] INFO  nextflow.Session - [42/874274] Submitted process > SPLIT_LOCI
+Jan-12 14:51:36.402 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161166; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/fa/5f096bdc472195d7f0bd7ad21de282 started: 1641998796390; exited: -; ]
+Jan-12 14:51:36.441 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161168; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/874274e361744bb51a865bce020ff8 started: 1641998796445; exited: -; ]
+Jan-12 14:51:38.411 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161167; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/59f8a317ec745915241220eda970c2 started: 1641998796373; exited: -; ]
+Jan-12 14:56:36.427 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161166; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/fa/5f096bdc472195d7f0bd7ad21de282 started: 1641998796390; exited: -; ]
+Jan-12 14:56:36.446 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161168; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/874274e361744bb51a865bce020ff8 started: 1641998796445; exited: -; ]
+Jan-12 14:56:42.125 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161167; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/59f8a317ec745915241220eda970c2 started: 1641998796373; exited: -; ]
+Jan-12 15:01:36.463 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161168; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/874274e361744bb51a865bce020ff8 started: 1641998796445; exited: -; ]
+Jan-12 15:01:36.463 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161166; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/fa/5f096bdc472195d7f0bd7ad21de282 started: 1641998796390; exited: -; ]
+Jan-12 15:01:42.237 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161167; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/59f8a317ec745915241220eda970c2 started: 1641998796373; exited: -; ]
+Jan-12 15:06:36.480 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161166; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/fa/5f096bdc472195d7f0bd7ad21de282 started: 1641998796390; exited: -; ]
+Jan-12 15:06:36.483 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161168; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/874274e361744bb51a865bce020ff8 started: 1641998796445; exited: -; ]
+Jan-12 15:06:42.244 [Task monitor] DEBUG n.processor.TaskPollingMonitor - !! executor lsf > tasks to be completed: 1 -- submitted tasks are shown below
+~> TaskHandler[jobId: 161167; id: 1; name: SPLIT_LOCI; status: RUNNING; exit: -; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/42/59f8a317ec745915241220eda970c2 started: 1641998796373; exited: -; ]
+Jan-12 15:06:46.553 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 161166; id: 1; name: SPLIT_LOCI; status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/fa/5f096bdc472195d7f0bd7ad21de282 started: 1641998796390; exited: 2022-01-12T15:06:42Z; ]
+Jan-12 15:06:50.059 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (1) > jobId: 162656; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/c4/5821587b831ce5ff7cffe7140d0329
+Jan-12 15:06:50.059 [Task submitter] INFO  nextflow.Session - [c4/582158] Submitted process > SUSIE_FINE_MAPPING (1)
+Jan-12 15:06:51.944 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (2) > jobId: 162657; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/60/f5ed806e889eb11f75dde886278bd1
+Jan-12 15:06:51.944 [Task submitter] INFO  nextflow.Session - [60/f5ed80] Submitted process > SUSIE_FINE_MAPPING (2)
+Jan-12 15:06:53.045 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (3) > jobId: 162658; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/79/b0c57132d743fd562c87dfda84eb48
+Jan-12 15:06:53.045 [Task submitter] INFO  nextflow.Session - [79/b0c571] Submitted process > SUSIE_FINE_MAPPING (3)
+Jan-12 15:06:53.934 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (5) > jobId: 162659; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/98/a242605867fd57c1293f689af1becc
+Jan-12 15:06:53.934 [Task submitter] INFO  nextflow.Session - [98/a24260] Submitted process > SUSIE_FINE_MAPPING (5)
+Jan-12 15:06:57.813 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (4) > jobId: 162661; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/48/b12e8c950950b055635518085aec9e
+Jan-12 15:06:57.813 [Task submitter] INFO  nextflow.Session - [48/b12e8c] Submitted process > SUSIE_FINE_MAPPING (4)
+Jan-12 15:06:58.687 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (6) > jobId: 162662; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/a3/d835c4fe2cfb145bd72919bf698c79
+Jan-12 15:06:58.688 [Task submitter] INFO  nextflow.Session - [a3/d835c4] Submitted process > SUSIE_FINE_MAPPING (6)
+Jan-12 15:06:59.634 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (7) > jobId: 162663; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/2b/bbebcfc79204c9fb699d07f411ed85
+Jan-12 15:06:59.634 [Task submitter] INFO  nextflow.Session - [2b/bbebcf] Submitted process > SUSIE_FINE_MAPPING (7)
+Jan-12 15:07:00.045 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (8) > jobId: 162664; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/c6/427a09d1e10686e244b9b8ee877184
+Jan-12 15:07:00.045 [Task submitter] INFO  nextflow.Session - [c6/427a09] Submitted process > SUSIE_FINE_MAPPING (8)
+Jan-12 15:07:00.609 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (9) > jobId: 162665; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/b2/cdcb5687296f774a3eee04aff47f92
+Jan-12 15:07:00.610 [Task submitter] INFO  nextflow.Session - [b2/cdcb56] Submitted process > SUSIE_FINE_MAPPING (9)
+Jan-12 15:07:01.184 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (10) > jobId: 162666; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/1a/53d2b5bdc60bda6fd8e176580e8386
+Jan-12 15:07:01.185 [Task submitter] INFO  nextflow.Session - [1a/53d2b5] Submitted process > SUSIE_FINE_MAPPING (10)
+Jan-12 15:07:02.390 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (11) > jobId: 162667; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/e4/007469589fff6800a11f0f7308d074
+Jan-12 15:07:02.390 [Task submitter] INFO  nextflow.Session - [e4/007469] Submitted process > SUSIE_FINE_MAPPING (11)
+Jan-12 15:07:02.749 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (12) > jobId: 162668; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/2f/3fe3f259b144feb3f71ec99367a37a
+Jan-12 15:07:02.749 [Task submitter] INFO  nextflow.Session - [2f/3fe3f2] Submitted process > SUSIE_FINE_MAPPING (12)
+Jan-12 15:07:03.431 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (13) > jobId: 162669; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/22/829a12c2905aaf8b00c7fd20f4c81e
+Jan-12 15:07:03.431 [Task submitter] INFO  nextflow.Session - [22/829a12] Submitted process > SUSIE_FINE_MAPPING (13)
+Jan-12 15:07:03.766 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (14) > jobId: 162670; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/bd/1698ee0e8e076480ad439be0044d33
+Jan-12 15:07:03.766 [Task submitter] INFO  nextflow.Session - [bd/1698ee] Submitted process > SUSIE_FINE_MAPPING (14)
+Jan-12 15:07:04.333 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (16) > jobId: 162671; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/90/385c11d23745b8f3f265104a59af10
+Jan-12 15:07:04.334 [Task submitter] INFO  nextflow.Session - [90/385c11] Submitted process > SUSIE_FINE_MAPPING (16)
+Jan-12 15:07:04.580 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (17) > jobId: 162672; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f5/32602ded65dcd1682d3f8dfe2a89d5
+Jan-12 15:07:04.581 [Task submitter] INFO  nextflow.Session - [f5/32602d] Submitted process > SUSIE_FINE_MAPPING (17)
+Jan-12 15:07:04.996 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (15) > jobId: 162673; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/9a/a12b5d3413e10b51ce769a60188bd0
+Jan-12 15:07:04.996 [Task submitter] INFO  nextflow.Session - [9a/a12b5d] Submitted process > SUSIE_FINE_MAPPING (15)
+Jan-12 15:07:05.264 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (19) > jobId: 162674; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/0b/bd6ff46fd8493d155cac5e1e2f42b0
+Jan-12 15:07:05.264 [Task submitter] INFO  nextflow.Session - [0b/bd6ff4] Submitted process > SUSIE_FINE_MAPPING (19)
+Jan-12 15:07:05.656 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (20) > jobId: 162675; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/66/d2619d78dd48a662493366019fd183
+Jan-12 15:07:05.656 [Task submitter] INFO  nextflow.Session - [66/d2619d] Submitted process > SUSIE_FINE_MAPPING (20)
+Jan-12 15:07:05.877 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (21) > jobId: 162676; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/87/209335fcc9024dcc8d2b5b1d8c2c8d
+Jan-12 15:07:05.878 [Task submitter] INFO  nextflow.Session - [87/209335] Submitted process > SUSIE_FINE_MAPPING (21)
+Jan-12 15:07:06.146 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (18) > jobId: 162677; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f9/fccb94fcd8e9e9602e2a2bb9506146
+Jan-12 15:07:06.146 [Task submitter] INFO  nextflow.Session - [f9/fccb94] Submitted process > SUSIE_FINE_MAPPING (18)
+Jan-12 15:07:08.168 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (22) > jobId: 162678; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/77/06d61993bbf124f043538de5fae61a
+Jan-12 15:07:08.168 [Task submitter] INFO  nextflow.Session - [77/06d619] Submitted process > SUSIE_FINE_MAPPING (22)
+Jan-12 15:07:08.477 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (23) > jobId: 162680; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/58/aeea29906b0885b5d938310ffa4843
+Jan-12 15:07:08.477 [Task submitter] INFO  nextflow.Session - [58/aeea29] Submitted process > SUSIE_FINE_MAPPING (23)
+Jan-12 15:07:09.214 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (25) > jobId: 162681; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/e1/7d3647b321d34bad2f751f80f305c0
+Jan-12 15:07:09.214 [Task submitter] INFO  nextflow.Session - [e1/7d3647] Submitted process > SUSIE_FINE_MAPPING (25)
+Jan-12 15:07:09.478 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (24) > jobId: 162682; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/29/61a26a48a22eb5b005577ece6468ce
+Jan-12 15:07:09.478 [Task submitter] INFO  nextflow.Session - [29/61a26a] Submitted process > SUSIE_FINE_MAPPING (24)
+Jan-12 15:07:09.999 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (26) > jobId: 162683; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/70/37a85febbaed754a2fe10d1b48ef14
+Jan-12 15:07:09.999 [Task submitter] INFO  nextflow.Session - [70/37a85f] Submitted process > SUSIE_FINE_MAPPING (26)
+Jan-12 15:07:10.330 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (28) > jobId: 162684; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f2/c54c1a28d487ee27318d0439909480
+Jan-12 15:07:10.330 [Task submitter] INFO  nextflow.Session - [f2/c54c1a] Submitted process > SUSIE_FINE_MAPPING (28)
+Jan-12 15:07:10.722 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (29) > jobId: 162685; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/6d/c71d67cf3aeaf28400745b0788a95b
+Jan-12 15:07:10.723 [Task submitter] INFO  nextflow.Session - [6d/c71d67] Submitted process > SUSIE_FINE_MAPPING (29)
+Jan-12 15:07:10.990 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (27) > jobId: 162686; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/49/ce4fbab03df1fb10851f36488e1f64
+Jan-12 15:07:10.991 [Task submitter] INFO  nextflow.Session - [49/ce4fba] Submitted process > SUSIE_FINE_MAPPING (27)
+Jan-12 15:07:12.315 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (30) > jobId: 162687; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/60/de85276931b00d1edd8820ea5bc782
+Jan-12 15:07:12.315 [Task submitter] INFO  nextflow.Session - [60/de8527] Submitted process > SUSIE_FINE_MAPPING (30)
+Jan-12 15:07:12.639 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (31) > jobId: 162689; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/a8/3ae5f50d7a6d6fcfbdbddb601b95ba
+Jan-12 15:07:12.640 [Task submitter] INFO  nextflow.Session - [a8/3ae5f5] Submitted process > SUSIE_FINE_MAPPING (31)
+Jan-12 15:07:13.371 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (32) > jobId: 162690; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/c3/f8eeae59d8cdcebf9cf4efe2bd5f06
+Jan-12 15:07:13.371 [Task submitter] INFO  nextflow.Session - [c3/f8eeae] Submitted process > SUSIE_FINE_MAPPING (32)
+Jan-12 15:07:14.209 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (33) > jobId: 162691; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/49/6ce9e585bdcd5cbab7e69d954274a7
+Jan-12 15:07:14.210 [Task submitter] INFO  nextflow.Session - [49/6ce9e5] Submitted process > SUSIE_FINE_MAPPING (33)
+Jan-12 15:07:14.869 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (34) > jobId: 162692; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/49/c18c8f9496c6fa1318ee48b6ca63de
+Jan-12 15:07:14.869 [Task submitter] INFO  nextflow.Session - [49/c18c8f] Submitted process > SUSIE_FINE_MAPPING (34)
+Jan-12 15:07:15.515 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (35) > jobId: 162693; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/ba/71c774baa427c17234130f8b27eaad
+Jan-12 15:07:15.515 [Task submitter] INFO  nextflow.Session - [ba/71c774] Submitted process > SUSIE_FINE_MAPPING (35)
+Jan-12 15:07:16.343 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (36) > jobId: 162694; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/46/3cf2ce7181caefcbd7a2a48f1c8748
+Jan-12 15:07:16.343 [Task submitter] INFO  nextflow.Session - [46/3cf2ce] Submitted process > SUSIE_FINE_MAPPING (36)
+Jan-12 15:07:17.418 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (37) > jobId: 162695; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/14/421f270cd1bbf42d104755a9ee22f8
+Jan-12 15:07:17.418 [Task submitter] INFO  nextflow.Session - [14/421f27] Submitted process > SUSIE_FINE_MAPPING (37)
+Jan-12 15:07:17.674 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (38) > jobId: 162696; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/5b/0289c5a8e4fb2ebbfc2dda5d8375f4
+Jan-12 15:07:17.675 [Task submitter] INFO  nextflow.Session - [5b/0289c5] Submitted process > SUSIE_FINE_MAPPING (38)
+Jan-12 15:07:18.436 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (39) > jobId: 162697; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/2e/00dbdd9e66fac8279c7130b2734c2f
+Jan-12 15:07:18.436 [Task submitter] INFO  nextflow.Session - [2e/00dbdd] Submitted process > SUSIE_FINE_MAPPING (39)
+Jan-12 15:07:18.637 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (41) > jobId: 162698; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/41/2e808fb4841b716534caec3049e225
+Jan-12 15:07:18.637 [Task submitter] INFO  nextflow.Session - [41/2e808f] Submitted process > SUSIE_FINE_MAPPING (41)
+Jan-12 15:07:18.824 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (42) > jobId: 162699; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/cb/8f2ee25782ab63ec7c57ddf62cc51c
+Jan-12 15:07:18.824 [Task submitter] INFO  nextflow.Session - [cb/8f2ee2] Submitted process > SUSIE_FINE_MAPPING (42)
+Jan-12 15:07:19.341 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (40) > jobId: 162700; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/ee/c5f67cc68f061dfc30c823396df082
+Jan-12 15:07:19.342 [Task submitter] INFO  nextflow.Session - [ee/c5f67c] Submitted process > SUSIE_FINE_MAPPING (40)
+Jan-12 15:07:19.645 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (44) > jobId: 162701; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/63/fe0217d0c8eeea544ec1b30480d7cf
+Jan-12 15:07:19.645 [Task submitter] INFO  nextflow.Session - [63/fe0217] Submitted process > SUSIE_FINE_MAPPING (44)
+Jan-12 15:07:20.184 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (43) > jobId: 162702; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f3/5b25e3d59f71146cc15c57e0e65241
+Jan-12 15:07:20.184 [Task submitter] INFO  nextflow.Session - [f3/5b25e3] Submitted process > SUSIE_FINE_MAPPING (43)
+Jan-12 15:07:20.693 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (46) > jobId: 162703; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/b3/c32c9c73d7524868894c1187995d9f
+Jan-12 15:07:20.693 [Task submitter] INFO  nextflow.Session - [b3/c32c9c] Submitted process > SUSIE_FINE_MAPPING (46)
+Jan-12 15:07:20.986 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (45) > jobId: 162704; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/27/dd147a17f8010459169d3bd4de97a9
+Jan-12 15:07:20.986 [Task submitter] INFO  nextflow.Session - [27/dd147a] Submitted process > SUSIE_FINE_MAPPING (45)
+Jan-12 15:07:22.218 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (47) > jobId: 162705; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/56/626815b8772c9025f284ad3f57948c
+Jan-12 15:07:22.218 [Task submitter] INFO  nextflow.Session - [56/626815] Submitted process > SUSIE_FINE_MAPPING (47)
+Jan-12 15:07:23.859 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (48) > jobId: 162706; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f2/0809d2ce3163991932d072b545f971
+Jan-12 15:07:23.859 [Task submitter] INFO  nextflow.Session - [f2/0809d2] Submitted process > SUSIE_FINE_MAPPING (48)
+Jan-12 15:07:24.779 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (49) > jobId: 162707; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/ee/5437bed45248771c158cebaca54b88
+Jan-12 15:07:24.779 [Task submitter] INFO  nextflow.Session - [ee/5437be] Submitted process > SUSIE_FINE_MAPPING (49)
+Jan-12 15:07:25.522 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (50) > jobId: 162708; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/c7/30ef1c855bde5c2c01e65dde261c63
+Jan-12 15:07:25.522 [Task submitter] INFO  nextflow.Session - [c7/30ef1c] Submitted process > SUSIE_FINE_MAPPING (50)
+Jan-12 15:07:26.097 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (52) > jobId: 162709; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/86/5ec15dec5b5a1e751052f25dd44e36
+Jan-12 15:07:26.097 [Task submitter] INFO  nextflow.Session - [86/5ec15d] Submitted process > SUSIE_FINE_MAPPING (52)
+Jan-12 15:07:27.275 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (53) > jobId: 162710; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/29/a190557e145f8016429fc15251d2b6
+Jan-12 15:07:27.275 [Task submitter] INFO  nextflow.Session - [29/a19055] Submitted process > SUSIE_FINE_MAPPING (53)
+Jan-12 15:07:28.288 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (51) > jobId: 162711; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/ba/c668ffb03fa584753ae025a393693c
+Jan-12 15:07:28.288 [Task submitter] INFO  nextflow.Session - [ba/c668ff] Submitted process > SUSIE_FINE_MAPPING (51)
+Jan-12 15:07:31.664 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (54) > jobId: 162713; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f6/55ad6c0a559ef7dac5f9d8848de383
+Jan-12 15:07:31.664 [Task submitter] INFO  nextflow.Session - [f6/55ad6c] Submitted process > SUSIE_FINE_MAPPING (54)
+Jan-12 15:07:33.009 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (55) > jobId: 162714; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/9d/2581dbf4391bb5b17da3452d6770c4
+Jan-12 15:07:33.009 [Task submitter] INFO  nextflow.Session - [9d/2581db] Submitted process > SUSIE_FINE_MAPPING (55)
+Jan-12 15:07:33.317 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (56) > jobId: 162715; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/48/daf81e276e820dcc58e154a8f663e9
+Jan-12 15:07:33.317 [Task submitter] INFO  nextflow.Session - [48/daf81e] Submitted process > SUSIE_FINE_MAPPING (56)
+Jan-12 15:07:33.983 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (57) > jobId: 162716; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/11/a686aa13f371dd98114488cb88f4c0
+Jan-12 15:07:33.983 [Task submitter] INFO  nextflow.Session - [11/a686aa] Submitted process > SUSIE_FINE_MAPPING (57)
+Jan-12 15:07:34.812 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (59) > jobId: 162717; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/72/807daa643843e7f92f759abcc96de2
+Jan-12 15:07:34.813 [Task submitter] INFO  nextflow.Session - [72/807daa] Submitted process > SUSIE_FINE_MAPPING (59)
+Jan-12 15:07:35.603 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (58) > jobId: 162718; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/0f/7e38ca95dd7ee343e9bffb8b4d0f1f
+Jan-12 15:07:35.603 [Task submitter] INFO  nextflow.Session - [0f/7e38ca] Submitted process > SUSIE_FINE_MAPPING (58)
+Jan-12 15:07:36.272 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (60) > jobId: 162719; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/23/fd0d6720f5d537229a966cb7d08483
+Jan-12 15:07:36.272 [Task submitter] INFO  nextflow.Session - [23/fd0d67] Submitted process > SUSIE_FINE_MAPPING (60)
+Jan-12 15:07:37.457 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (61) > jobId: 162721; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/2a/b8ac9a509ea35efe07dc3dbbaf4af9
+Jan-12 15:07:37.458 [Task submitter] INFO  nextflow.Session - [2a/b8ac9a] Submitted process > SUSIE_FINE_MAPPING (61)
+Jan-12 15:07:37.757 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (62) > jobId: 162722; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/81/b6d95b4b7bb3f7b95f75eeac9534a4
+Jan-12 15:07:37.758 [Task submitter] INFO  nextflow.Session - [81/b6d95b] Submitted process > SUSIE_FINE_MAPPING (62)
+Jan-12 15:07:38.565 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (63) > jobId: 162723; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/e7/e7724531db40de3c3069a67350b327
+Jan-12 15:07:38.566 [Task submitter] INFO  nextflow.Session - [e7/e77245] Submitted process > SUSIE_FINE_MAPPING (63)
+Jan-12 15:07:38.969 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (64) > jobId: 162724; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/e8/a255b16218cf6cc684420dea0fa77f
+Jan-12 15:07:38.970 [Task submitter] INFO  nextflow.Session - [e8/a255b1] Submitted process > SUSIE_FINE_MAPPING (64)
+Jan-12 15:07:39.987 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (65) > jobId: 162725; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/55/3ddcfc35a96e677d4e6489c26440e7
+Jan-12 15:07:39.987 [Task submitter] INFO  nextflow.Session - [55/3ddcfc] Submitted process > SUSIE_FINE_MAPPING (65)
+Jan-12 15:07:40.315 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (66) > jobId: 162726; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/a6/2ff999b20c7d231f06ec0bfd93a6f3
+Jan-12 15:07:40.315 [Task submitter] INFO  nextflow.Session - [a6/2ff999] Submitted process > SUSIE_FINE_MAPPING (66)
+Jan-12 15:07:40.715 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (67) > jobId: 162727; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/ce/e03aa33ff9f5c8c89dba4bd50536a9
+Jan-12 15:07:40.716 [Task submitter] INFO  nextflow.Session - [ce/e03aa3] Submitted process > SUSIE_FINE_MAPPING (67)
+Jan-12 15:07:41.531 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 162662; id: 7; name: SUSIE_FINE_MAPPING (6); status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/a3/d835c4fe2cfb145bd72919bf698c79 started: 1642000026572; exited: 2022-01-12T15:07:38Z; ]
+Jan-12 15:07:42.270 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (69) > jobId: 162728; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/10/4e8432ae79aaed67f8bc8c082ce359
+Jan-12 15:07:42.270 [Task submitter] INFO  nextflow.Session - [10/4e8432] Submitted process > SUSIE_FINE_MAPPING (69)
+Jan-12 15:07:42.616 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (68) > jobId: 162729; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/67/bdc067f1fb18679b2ed5e1ba64fc0f
+Jan-12 15:07:42.616 [Task submitter] INFO  nextflow.Session - [67/bdc067] Submitted process > SUSIE_FINE_MAPPING (68)
+Jan-12 15:07:43.332 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (70) > jobId: 162730; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/a0/8287fe7d15c0b9322cc3979f2b034c
+Jan-12 15:07:43.332 [Task submitter] INFO  nextflow.Session - [a0/8287fe] Submitted process > SUSIE_FINE_MAPPING (70)
+Jan-12 15:07:43.615 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (71) > jobId: 162731; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/4c/f8dba2adcb03868ad0f07eccbda95f
+Jan-12 15:07:43.615 [Task submitter] INFO  nextflow.Session - [4c/f8dba2] Submitted process > SUSIE_FINE_MAPPING (71)
+Jan-12 15:07:44.218 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (72) > jobId: 162732; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/a0/8167b645ad659c63495d9077e74c17
+Jan-12 15:07:44.218 [Task submitter] INFO  nextflow.Session - [a0/8167b6] Submitted process > SUSIE_FINE_MAPPING (72)
+Jan-12 15:07:44.489 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (74) > jobId: 162733; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/41/62c19ec5547a003da2b8b2de495fbe
+Jan-12 15:07:44.489 [Task submitter] INFO  nextflow.Session - [41/62c19e] Submitted process > SUSIE_FINE_MAPPING (74)
+Jan-12 15:07:45.140 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (73) > jobId: 162734; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/2a/1b8cdc5527245546793657eca58954
+Jan-12 15:07:45.140 [Task submitter] INFO  nextflow.Session - [2a/1b8cdc] Submitted process > SUSIE_FINE_MAPPING (73)
+Jan-12 15:07:45.539 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (75) > jobId: 162735; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/d9/e893041ef591b955e96fb86385a0c4
+Jan-12 15:07:45.539 [Task submitter] INFO  nextflow.Session - [d9/e89304] Submitted process > SUSIE_FINE_MAPPING (75)
+Jan-12 15:07:45.731 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (76) > jobId: 162736; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/4a/49f7673cf8c278756fc2cb6fa0e756
+Jan-12 15:07:45.731 [Task submitter] INFO  nextflow.Session - [4a/49f767] Submitted process > SUSIE_FINE_MAPPING (76)
+Jan-12 15:07:46.244 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (77) > jobId: 162737; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/f1/3b2ccf53e514824d7ba33645632196
+Jan-12 15:07:46.244 [Task submitter] INFO  nextflow.Session - [f1/3b2ccf] Submitted process > SUSIE_FINE_MAPPING (77)
+Jan-12 15:07:46.536 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 162656; id: 2; name: SUSIE_FINE_MAPPING (1); status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/c4/5821587b831ce5ff7cffe7140d0329 started: 1642000016537; exited: 2022-01-12T15:07:44Z; ]
+Jan-12 15:07:46.895 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 162657; id: 3; name: SUSIE_FINE_MAPPING (2); status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/60/f5ed806e889eb11f75dde886278bd1 started: 1642000016568; exited: 2022-01-12T15:07:43Z; ]
+Jan-12 15:07:46.974 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 162658; id: 4; name: SUSIE_FINE_MAPPING (3); status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/79/b0c57132d743fd562c87dfda84eb48 started: 1642000021635; exited: 2022-01-12T15:07:41Z; ]
+Jan-12 15:07:47.297 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[jobId: 162659; id: 6; name: SUSIE_FINE_MAPPING (5); status: COMPLETED; exit: 0; error: -; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/98/a242605867fd57c1293f689af1becc started: 1642000021663; exited: 2022-01-12T15:07:45Z; ]
+Jan-12 15:07:47.438 [Task submitter] DEBUG nextflow.executor.GridTaskHandler - [LSF] submitted process SUSIE_FINE_MAPPING (78) > jobId: 162738; workDir: /nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/db/ea8b7505cb2409759c3abab7ad04b0
+Jan-12 15:07:47.438 [Task submitter] INFO  nextflow.Session - [db/ea8b75] Submitted process > SUSIE_FINE_MAPPING (78)

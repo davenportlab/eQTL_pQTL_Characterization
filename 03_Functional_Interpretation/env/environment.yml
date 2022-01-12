@@ -25,3 +25,4 @@ dependencies:
  - pandas >= 1.3.3
  - multiqc >= 1.11
  - pysam >= 0.17.0
+ - qualimap >= 2.2.2d

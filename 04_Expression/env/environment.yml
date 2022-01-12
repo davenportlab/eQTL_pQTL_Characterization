@@ -12,7 +12,10 @@ dependencies:
  - r-cowplot
  - r-svglite                                    #  Required for ggplot2 SVG
  - r-enrichr
+ - r-lme4
  - bioconductor-biomart
  - bioconductor-go.db                           #  Required for WGCNA
  - bioconductor-impute                          #  Required for WGCNA
  - bioconductor-preprocesscore                  #  Required for WGCNA
+ - nextflow >= 21.04.0
+ - plink >= 1.90b6.21
