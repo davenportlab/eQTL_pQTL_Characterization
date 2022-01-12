@@ -17,7 +17,7 @@ either R or Python. Analytical steps were coordinated on
 a computing cluster using
 [Nextflow](https://www.nextflow.io/).
 
-A minimal setup for rumnig the following analyses is a
+A minimal setup for running the following analyses is a
 Linux workstation or compute cluster with:
 
 1. An installation of Anaconda
@@ -61,8 +61,8 @@ directory for each step.
 
 Begin by installing the Anaconda environments for the
 project. The project-level Jupyter environment is stored
-in `jupyter_env/` and the environment for each step is
-stored in the `env/` directory of the step.
+in `env/` and the environment for each step is stored in
+the `env/` directory of the step.
 
 As an example, to install the Jupyter environment, start by
 checking if Anaconda is installed.

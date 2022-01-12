@@ -14467,3 +14467,8 @@ executor >  lsf (2024)
 [1b/21c8ac] process > SPLIT_LOCI                [100%] 1 of 1 ✔
 [7a/59b649] process > SUSIE_FINE_MAPPING (1094) [ 98%] 1976 of 2023
 [-        ] process > AGGREGATE_CREDIBILE_SETS  -
+
+executor >  lsf (2024)
+[1b/21c8ac] process > SPLIT_LOCI                [100%] 1 of 1 ✔
+[b1/af0f33] process > SUSIE_FINE_MAPPING (2009) [ 98%] 1977 of 2023
+[-        ] process > AGGREGATE_CREDIBILE_SETS  -
