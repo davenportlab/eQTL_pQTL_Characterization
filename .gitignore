@@ -44,3 +44,9 @@ vignettes/*.pdf
 
 # Mac Files
 .DS_Store
+
+# Nextflow
+.nextflow/
+
+# Jupyter Lab
+.ipynb_checkpoints/
