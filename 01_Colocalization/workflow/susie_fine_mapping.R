@@ -32,7 +32,11 @@ eqtl.locus <- readRDS(locus.input)
 # Identify Credible Sets
 #----------------------------------------------------------
 
-eqtl.S <- runsusie(eqtl.locus)
+eqtl.S <- runsusie(
+    eqtl.locus,
+    prior_variance=(0.15/eqtl.locus$sdY)^2,
+    estimate_prior_variance=F
+)
 
 credible.sets <- summary(eqtl.S)$vars %>%
     dplyr::filter(cs > 0) %>%

@@ -25,13 +25,18 @@ chr.input = args[1]
 # Load Data
 #----------------------------------------------------------
 
+cis.eqtl <- readRDS("/lustre/scratch119/realdata/mdt3/projects/gains_team282/eqtl/cisresults/cisqtl_all_significant.rds")
+
 chr <- readRDS(paste0("/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.loci.chr", chr.input, ".RDS"))
 
 #----------------------------------------------------------
 # Split Loci in Chromosome
 #----------------------------------------------------------
 
-foreach(locus=names(chr)) %dopar% {
+# Only perform fine mapping for significant cis-eQTL
+loci <- intersect(names(chr), cis.eqtl$gene)
+
+foreach(locus=loci) %dopar% {
 
     eqtl.locus <- chr[[locus]]
     saveRDS(eqtl.locus, paste0(locus, ".RDS"))

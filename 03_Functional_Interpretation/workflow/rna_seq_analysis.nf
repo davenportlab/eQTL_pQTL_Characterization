@@ -45,7 +45,7 @@ process AGGREGATE_FRAGMENT_COUNTS {
 // RNA-Seq QC
 //-----------------------------------------------------
 
-process RNA_SEQ_QC {
+process RNA_SEQ_QUALIMAP {
 
     errorStrategy "retry"
     maxRetries 3
@@ -166,10 +166,10 @@ workflow {
         .splitCsv(header: true)
         .map{ row -> row.Run }
 
-    RNA_SEQ_QC(samples_channel)
+    RNA_SEQ_QUALIMAP(samples_channel)
 
     AGGREGATE_RNA_SEQ_QC(
-        RNA_SEQ_QC.out.bam_qc_data.collect(),
-        RNA_SEQ_QC.out.rna_seq_qc_data.collect()
+        RNA_SEQ_QUALIMAP.out.bam_qc_data.collect(),
+        RNA_SEQ_QUALIMAP.out.rna_seq_qc_data.collect()
     )
 }

@@ -3,6 +3,7 @@ nextflow.enable.dsl = 2
 params.reads_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al/raw/rna_seq/"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al/processed/rna_seq/"
 params.star_genome_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/star_genome_index/"
+params.genome_annotation = "/lustre/scratch118/humgen/resources/rna_seq_genomes/Homo_sapiens.GRCh38.99.gtf"
 params.genome_fasta = "/lustre/scratch118/humgen/resources/rna_seq_genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 
 //-----------------------------------------------------
@@ -87,10 +88,12 @@ process A_STAR {
         path(fastq_file_2)
 
     output:
-        val(name),                                      emit: name
+        val(name),                                      emit: name_count_reads
         val(name),                                      emit: name_picard_metrics
-        path("${name}.Aligned.sortedByCoord.out.bam"),  emit: bam_file
+        val(name),                                      emit: name_picard_mark_duplicates
+        path("${name}.Aligned.sortedByCoord.out.bam"),  emit: bam_file_count_reads
         path("${name}.Aligned.sortedByCoord.out.bam"),  emit: bam_file_picard_metrics
+        path("${name}.Aligned.sortedByCoord.out.bam"),  emit: bam_file_picard_mark_duplicates
         path("*.ReadsPerGene.out.tab")
         path("*.out"),                                  emit: mqc_star
     
@@ -114,6 +117,37 @@ process A_STAR {
 //-----------------------------------------------------
 // Post-Alignment QC (POSTQC)
 //-----------------------------------------------------
+
+process POSTQC_COUNT_READS {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "featureCounts"
+
+    publishDir "$params.output_dir/$name/alignment_post_qc/", mode: "copy"
+
+    input:
+        val(name)
+        path(bam_file)
+    
+    output:
+        path("${name}.counts.tsv"),         emit: feature_counts
+        path("${name}.counts.tsv.summary"), emit: mqc_feature_counts
+    
+    script:
+
+        """
+        featureCounts \\
+            -p \\
+            -a $params.genome_annotation \\
+            -t exon \\
+            -g gene_id \\
+            -T $task.cpus \\
+            -o ${name}.counts.tsv \\
+            $bam_file
+        """
+}
 
 process POSTQC_PICARD_METRICS {
 
@@ -220,6 +254,7 @@ process SUMMARY_MULTI_QC {
         path("trim_galore/*")
         path("trim_galore/fastqc/*")
         path("alignment/*")
+        path("feature_counts/*")
         path("picard/metrics/*")
         path("picard/metrics/*")
         path("stats/*")
@@ -283,18 +318,14 @@ workflow {
     // Post-Alignment QC (POSTQC)
     //-----------------------------------------------------
 
-    // Split output from alignment into two channels
-    post_align_names = A_STAR.out.name
-        .multiMap { name -> metrics: duplicates: name }
-    
-    post_align_bam_files = A_STAR.out.bam_file
-        .multiMap { bam_file -> metrics: duplicates: bam_file }
+    // Count Fragments
+    POSTQC_COUNT_READS(A_STAR.out.name_count_reads, A_STAR.out.bam_file_count_reads)
 
     // Post-Alignment Metrics
-    POSTQC_PICARD_METRICS(post_align_names.metrics, post_align_bam_files.metrics)
+    POSTQC_PICARD_METRICS(A_STAR.out.name_picard_metrics, A_STAR.out.bam_file_picard_metrics)
 
     // Mark Duplicates
-    POSTQC_PICARD_MARK_DUPLICATES(post_align_names.duplicates, post_align_bam_files.duplicates)
+    POSTQC_PICARD_MARK_DUPLICATES(A_STAR.out.name_picard_mark_duplicates, A_STAR.out.bam_file_picard_mark_duplicates)
 
     // Determine statistics for alignment
     POSTQC_STATS(POSTQC_PICARD_MARK_DUPLICATES.out.name, POSTQC_PICARD_MARK_DUPLICATES.out.bam_file, POSTQC_PICARD_MARK_DUPLICATES.out.bam_index_file)
@@ -308,6 +339,7 @@ workflow {
         PREQC_TRIMGALORE.out.mqc_trim_galore.collect(),
         PREQC_TRIMGALORE.out.mqc_trim_galore_fastqc.collect(),
         A_STAR.out.mqc_star.collect(),
+        POSTQC_COUNT_READS.out.mqc_feature_counts.collect(),
         POSTQC_PICARD_METRICS.out.mqc_picard_metrics.collect(),
         POSTQC_PICARD_MARK_DUPLICATES.out.mqc_picard_mark_duplicates.collect(),
         POSTQC_STATS.out.mqc_post_stats.collect()
