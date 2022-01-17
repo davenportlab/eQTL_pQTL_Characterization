@@ -2,17 +2,25 @@
 
 ## Raw Data
 
-The Calderon *et al.* study generated an atlas of transcriptomic and chromatin accessibility data for primary immune cell types in the blood under both unstimulated and stimulated conditions.
+The Calderon *et al.* study generated an atlas of transcriptomic and chromatin
+accessibility data for primary immune cell types in the blood under both
+unstimulated and stimulated conditions.
 
-While 147 of the 166 RNA-Seq samples were run on an Illumina NovaSeq 6000 sequencer with 100 bp paired-end reads, 19 samples were run on an Illumina HiSeq 4000 sequencer with 76 bp paired-end reads.
+While 147 of the 166 RNA-Seq samples were run on an Illumina NovaSeq 6000
+sequencer with 100 bp paired-end reads, 19 samples were run on an Illumina HiSeq
+4000 sequencer with 76 bp paired-end reads.
 
-Although there are 25 cell types present in the RNA-Seq samples, only 21 cell types have at least three samples (necessary for statistical tests).
+Although there are 25 cell types present in the RNA-Seq samples, only 21 cell
+types have at least three samples (necessary for statistical tests).
 
 Of the 8 donors for RNA-Seq samples, 4 made outsized contributions.
 
-In the ATAC-Seq data, in contrast, 159 of the 175 samples were run on an Illumina HiSeq 4000 sequencer and 16 samples were run on an Illumina NovaSeq 6000 sequencer. All sequenced samples generated 76 bp paired-end reads.
+In the ATAC-Seq data, in contrast, 159 of the 175 samples were run on an
+Illumina HiSeq 4000 sequencer and 16 samples were run on an Illumina NovaSeq
+6000 sequencer. All sequenced samples generated 76 bp paired-end reads.
 
-Similar to the RNA-Seq data, 4 of the 7 sample donors made outsized contributions to the ATAC-Seq data.
+Similar to the RNA-Seq data, 4 of the 7 sample donors made outsized
+contributions to the ATAC-Seq data.
 
 | Covariate  | RNA-Seq | ATAC-Seq |
 |:-----------|--------:|---------:|
@@ -59,6 +67,35 @@ Similar to the RNA-Seq data, 4 of the 7 sample donors made outsized contribution
 ### RNA-Seq
 
 ### ATAC-Seq
+
+1. FASTQ files were downloaded from SRA in paired-end mode
+2. Adapter contamination from sequencing was removed from FASTQ files using Trim
+    Galore
+3. Initial QC was performed on samples using FastQC
+
+One method we used to assess the quality of samples was by measuring the 
+fraction of reads in peaks (FRiP). Briefly, peaks were called using the MACS2
+software. We created a consensus peak set from the individual peak sets called
+for each sample. The FRiP in the consensus peaks was, on average, higher than that for each sample's MACS2 peaks.
+
+![FRiP Scores for MACS2 and Consensus Peaks](results/peak_frips.svg)
+
+We could not discern any strong donor- or lineage-specific quality issues from the FRiP scores.
+
+![FRiP Scores by Donor](results/peak_frips_by_donor.svg)
+
+![FRiP Scores by Cell Lineage](results/peak_frips_by_lineage.svg)
+
+The authors of the study used TSS Enrichment Scores as a proxy for sample quality. An advantage of this score is that it is independent of the peaks set
+used in the final analysis. I calculated this score for our samples.
+
+![TSS Enrichment Scores for MACS2 and Consensus Peaks](results/tss_enrichment_scores.svg)
+
+Some donors do seem to produce better quality ATAC-Seq data. Samples from the monocyte lineage seem to suffer from quality issues in general.
+
+![TSS Enrichment Scores by Donor](results/tss_enrichment_scores_by_donor.svg)
+
+![TSS Enrichment Scores by Lineage](results/tss_enrichment_scores_by_lineage.svg)
 
 ## Data Processing
 
