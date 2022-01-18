@@ -1,0 +1,2053 @@
+N E X T F L O W  ~  version 21.10.0
+Launching `rna_seq_analysis.nf` [berserk_colden] - revision: 8919f43421
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS -
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... -
+[-        ] process > RNA_SEQC                       -
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[-        ] process > RNA_SEQC                       [  0%] 0 of 17
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[-        ] process > RNA_SEQC                       [  0%] 0 of 56
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[-        ] process > RNA_SEQC                       [  0%] 0 of 100
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[-        ] process > RNA_SEQC                       [  0%] 0 of 153
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[-        ] process > RNA_SEQC                       [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (1)
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7a/4a7158] process > RNA_SEQC (2)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (2)
+[-        ] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[-        ] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b4/76d075] process > RNA_SEQC (1)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (4)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b4/76d075] process > RNA_SEQC (1)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (5)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[3f/ae1912] process > RNA_SEQC (3)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (6)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[47/dd5692] process > RNA_SEQC (4)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (7)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[df/d53203] process > RNA_SEQC (5)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (8)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2c/632daf] process > RNA_SEQC (6)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (8)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2c/632daf] process > RNA_SEQC (6)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (8)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2c/632daf] process > RNA_SEQC (6)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (9)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9b/4e1957] process > RNA_SEQC (7)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (10)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0a/6d8bc3] process > RNA_SEQC (9)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (11)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[20/966992] process > RNA_SEQC (8)                   [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (12)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[15/6b8565] process > RNA_SEQC (10)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (13)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[54/28cefa] process > RNA_SEQC (11)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (14)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[05/7c4582] process > RNA_SEQC (13)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (15)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e4/c4d43e] process > RNA_SEQC (12)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (16)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9e/0684af] process > RNA_SEQC (14)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (17)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9d/68f983] process > RNA_SEQC (15)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (17)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9d/68f983] process > RNA_SEQC (15)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (19)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d0/a5e40c] process > RNA_SEQC (17)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (20)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[88/b9b257] process > RNA_SEQC (19)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (21)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[85/47a192] process > RNA_SEQC (18)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (22)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9e/a04068] process > RNA_SEQC (21)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (23)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[35/40e904] process > RNA_SEQC (20)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (24)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[c8/89595c] process > RNA_SEQC (22)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (25)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fc/192a8b] process > RNA_SEQC (23)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (26)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0a/8cbf80] process > RNA_SEQC (25)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (27)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a4/8530dc] process > RNA_SEQC (24)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (28)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[40/d71834] process > RNA_SEQC (26)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (29)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[1b/6e05a9] process > RNA_SEQC (27)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (30)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ae/e0e13b] process > RNA_SEQC (29)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (30)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ae/e0e13b] process > RNA_SEQC (29)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (31)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[32/0c4da7] process > RNA_SEQC (28)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (32)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[5b/248077] process > RNA_SEQC (31)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (33)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a7/f1a0db] process > RNA_SEQC (30)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (34)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[4b/880fbe] process > RNA_SEQC (32)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (35)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[48/d72d60] process > RNA_SEQC (33)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (36)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[8c/1af49f] process > RNA_SEQC (34)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (37)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ac/dabcc6] process > RNA_SEQC (35)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (38)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b8/cec6c9] process > RNA_SEQC (36)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (39)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[45/d96237] process > RNA_SEQC (37)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (40)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a1/78c152] process > RNA_SEQC (38)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (41)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7a/f1d190] process > RNA_SEQC (40)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (41)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7a/f1d190] process > RNA_SEQC (40)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (41)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7a/f1d190] process > RNA_SEQC (40)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (42)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[af/78cec8] process > RNA_SEQC (39)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (43)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[31/9e3048] process > RNA_SEQC (42)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (44)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[43/43cfe9] process > RNA_SEQC (41)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (45)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a1/76e5ad] process > RNA_SEQC (43)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (46)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[af/fe31e0] process > RNA_SEQC (45)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (47)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[6c/9c22eb] process > RNA_SEQC (44)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (48)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a4/5e583d] process > RNA_SEQC (46)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (49)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[52/e4f589] process > RNA_SEQC (47)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (50)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f6/5af0c6] process > RNA_SEQC (48)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (51)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0b/3a2dd1] process > RNA_SEQC (49)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (52)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0a/c33247] process > RNA_SEQC (51)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (54)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a0/f9beed] process > RNA_SEQC (52)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (55)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[1f/a8049c] process > RNA_SEQC (53)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (56)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fa/c5d478] process > RNA_SEQC (54)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (56)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fa/c5d478] process > RNA_SEQC (54)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (57)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0f/92f6a3] process > RNA_SEQC (55)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (58)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[74/af9d01] process > RNA_SEQC (56)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (60)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[3c/457fa1] process > RNA_SEQC (58)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (61)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b3/664b20] process > RNA_SEQC (59)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (62)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[02/93fb5f] process > RNA_SEQC (60)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (63)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[32/918960] process > RNA_SEQC (61)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (64)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[51/d63c5b] process > RNA_SEQC (62)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (65)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ca/72f4d3] process > RNA_SEQC (63)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (65)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ca/72f4d3] process > RNA_SEQC (63)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (66)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[05/ab530d] process > RNA_SEQC (65)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (67)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b5/6adb1f] process > RNA_SEQC (64)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (68)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d6/cff7a3] process > RNA_SEQC (67)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (69)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[21/7cc76d] process > RNA_SEQC (66)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (70)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[5d/b80338] process > RNA_SEQC (68)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (71)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[aa/53cb44] process > RNA_SEQC (69)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (72)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a4/0eb10a] process > RNA_SEQC (70)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (73)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e5/eb7849] process > RNA_SEQC (71)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (74)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[bf/b9fa40] process > RNA_SEQC (72)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (75)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[12/0856a8] process > RNA_SEQC (73)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (76)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d4/69f53a] process > RNA_SEQC (74)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (77)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fc/8bd2df] process > RNA_SEQC (76)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (78)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [  0%] 0 of 1
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[62/09332d] process > RNA_SEQC (75)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (78)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[62/09332d] process > RNA_SEQC (75)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (78)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[62/09332d] process > RNA_SEQC (75)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (79)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[dc/c3231e] process > RNA_SEQC (78)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (80)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f9/b12655] process > RNA_SEQC (77)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (81)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fc/30cb65] process > RNA_SEQC (80)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (82)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f9/84a642] process > RNA_SEQC (79)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (84)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a6/4e54dc] process > RNA_SEQC (81)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (85)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[92/ad59c1] process > RNA_SEQC (83)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (86)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[59/322c41] process > RNA_SEQC (84)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (87)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[20/bc2c74] process > RNA_SEQC (86)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (88)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[67/6226ea] process > RNA_SEQC (85)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (89)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[62/d317bb] process > RNA_SEQC (88)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (90)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7e/8ff39b] process > RNA_SEQC (87)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (90)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7e/8ff39b] process > RNA_SEQC (87)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (90)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7e/8ff39b] process > RNA_SEQC (87)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (92)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f7/9a7bf0] process > RNA_SEQC (90)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (93)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f5/373a92] process > RNA_SEQC (91)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (94)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[c9/1d8380] process > RNA_SEQC (92)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (95)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ee/589db3] process > RNA_SEQC (93)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (96)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d7/e01c05] process > RNA_SEQC (94)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (96)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d7/e01c05] process > RNA_SEQC (94)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (97)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[6a/63d655] process > RNA_SEQC (95)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (99)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e7/c539c6] process > RNA_SEQC (97)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (100)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[21/be0adf] process > RNA_SEQC (99)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (101)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e3/da3a9b] process > RNA_SEQC (98)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (101)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e3/da3a9b] process > RNA_SEQC (98)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (101)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e3/da3a9b] process > RNA_SEQC (98)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (101)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e3/da3a9b] process > RNA_SEQC (98)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (101)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e3/da3a9b] process > RNA_SEQC (98)                  [  0%] 0 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (101)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fc/8bd2df] process > RNA_SEQC (76)                  [  1%] 2 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (102)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fc/8bd2df] process > RNA_SEQC (76)                  [  1%] 2 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (102)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2c/1f6d8d] process > RNA_SEQC (100)                 [  1%] 2 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (103)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[3e/f00a35] process > RNA_SEQC (101)                 [  1%] 2 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (103)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[54/28cefa] process > RNA_SEQC (11)                  [  2%] 4 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (104)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[4f/f679ff] process > RNA_SEQC (102)                 [  2%] 4 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (105)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f2/705ecf] process > RNA_SEQC (103)                 [  2%] 4 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (105)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f2/705ecf] process > RNA_SEQC (103)                 [  2%] 4 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (105)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f2/705ecf] process > RNA_SEQC (103)                 [  2%] 4 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (105)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0b/3a2dd1] process > RNA_SEQC (49)                  [  3%] 5 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (106)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2b/322bab] process > RNA_SEQC (104)                 [  3%] 5 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (106)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9e/a04068] process > RNA_SEQC (21)                  [  4%] 7 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (107)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b7/1046a9] process > RNA_SEQC (105)                 [  4%] 7 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (108)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[32/6b486a] process > RNA_SEQC (106)                 [  4%] 7 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (108)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[32/6b486a] process > RNA_SEQC (106)                 [  4%] 7 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (108)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[df/d53203] process > RNA_SEQC (5)                   [  4%] 8 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (109)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[78/ed78d0] process > RNA_SEQC (108)                 [  4%] 8 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (109)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[45/d96237] process > RNA_SEQC (37)                  [  5%] 9 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (109)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[45/d96237] process > RNA_SEQC (37)                  [  5%] 9 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (110)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[de/03fc9b] process > RNA_SEQC (107)                 [  5%] 9 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (110)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[5d/b80338] process > RNA_SEQC (68)                  [  6%] 10 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (111)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[46/4c1df9] process > RNA_SEQC (109)                 [  6%] 10 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (112)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ab/e3bd54] process > RNA_SEQC (110)                 [  7%] 12 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (113)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[29/13c222] process > RNA_SEQC (111)                 [  7%] 12 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (113)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[29/13c222] process > RNA_SEQC (111)                 [  7%] 12 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (113)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[02/93fb5f] process > RNA_SEQC (60)                  [  7%] 13 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (114)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[56/8346a7] process > RNA_SEQC (113)                 [  7%] 13 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (114)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a4/0eb10a] process > RNA_SEQC (70)                  [  9%] 16 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (115)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7e/8ff39b] process > RNA_SEQC (87)                  [ 10%] 17 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (116)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[53/4bdd2d] process > RNA_SEQC (114)                 [ 10%] 17 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (117)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[03/b1dadf] process > RNA_SEQC (115)                 [ 10%] 17 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (118)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[00/3f56ae] process > RNA_SEQC (116)                 [ 10%] 17 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (118)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[1b/6e05a9] process > RNA_SEQC (27)                  [ 10%] 18 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (119)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[8b/f13f8d] process > RNA_SEQC (117)                 [ 10%] 18 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (119)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fc/192a8b] process > RNA_SEQC (23)                  [ 12%] 20 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (120)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b6/246f0e] process > RNA_SEQC (118)                 [ 12%] 20 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (121)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[43/7363f9] process > RNA_SEQC (120)                 [ 12%] 20 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (121)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[43/7363f9] process > RNA_SEQC (120)                 [ 12%] 20 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (121)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9d/68f983] process > RNA_SEQC (15)                  [ 13%] 22 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (122)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[70/f5d308] process > RNA_SEQC (119)                 [ 13%] 23 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (123)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[53/25eca7] process > RNA_SEQC (121)                 [ 13%] 23 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (124)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[6d/5e5657] process > RNA_SEQC (122)                 [ 13%] 23 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (124)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[21/7cc76d] process > RNA_SEQC (66)                  [ 14%] 24 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (125)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[bf/f76062] process > RNA_SEQC (123)                 [ 14%] 24 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (125)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e4/c4d43e] process > RNA_SEQC (12)                  [ 15%] 25 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (126)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[02/dcdd6f] process > RNA_SEQC (124)                 [ 15%] 25 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (126)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0a/c33247] process > RNA_SEQC (51)                  [ 15%] 26 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (127)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d9/0bad6e] process > RNA_SEQC (125)                 [ 15%] 26 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (127)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d9/0bad6e] process > RNA_SEQC (125)                 [ 15%] 26 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (127)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a7/f1a0db] process > RNA_SEQC (30)                  [ 16%] 27 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (128)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[74/3b210e] process > RNA_SEQC (126)                 [ 16%] 27 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (129)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[29/a7fa43] process > RNA_SEQC (127)                 [ 16%] 27 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (129)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[59/322c41] process > RNA_SEQC (84)                  [ 16%] 28 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (129)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2e/cf2bd0] process > RNA_SEQC (16)                  [ 17%] 29 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (131)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[28/4c8230] process > RNA_SEQC (129)                 [ 17%] 29 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (131)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0f/92f6a3] process > RNA_SEQC (55)                  [ 18%] 30 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (131)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[aa/53cb44] process > RNA_SEQC (69)                  [ 18%] 31 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (132)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7f/6a4b87] process > RNA_SEQC (130)                 [ 18%] 31 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (132)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[62/09332d] process > RNA_SEQC (75)                  [ 19%] 32 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (133)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fd/700a7a] process > RNA_SEQC (131)                 [ 19%] 32 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (133)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fd/700a7a] process > RNA_SEQC (131)                 [ 19%] 32 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (133)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ee/589db3] process > RNA_SEQC (93)                  [ 20%] 34 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (134)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7d/f49037] process > RNA_SEQC (132)                 [ 20%] 34 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (135)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e2/830259] process > RNA_SEQC (133)                 [ 20%] 34 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (136)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7e/154028] process > RNA_SEQC (135)                 [ 20%] 34 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (136)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a0/f9beed] process > RNA_SEQC (52)                  [ 21%] 35 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (136)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[12/0856a8] process > RNA_SEQC (73)                  [ 21%] 36 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (137)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f1/9136de] process > RNA_SEQC (134)                 [ 21%] 36 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (137)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e5/eb7849] process > RNA_SEQC (71)                  [ 22%] 37 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (138)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[04/fff7da] process > RNA_SEQC (137)                 [ 22%] 37 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (138)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b5/6adb1f] process > RNA_SEQC (64)                  [ 22%] 38 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (139)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2d/41e67e] process > RNA_SEQC (136)                 [ 22%] 38 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (139)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d6/cff7a3] process > RNA_SEQC (67)                  [ 23%] 39 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (139)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[bf/b9fa40] process > RNA_SEQC (72)                  [ 24%] 40 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (140)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[2b/629780] process > RNA_SEQC (139)                 [ 24%] 40 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (140)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[92/ad59c1] process > RNA_SEQC (83)                  [ 24%] 41 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (141)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[68/8bc92d] process > RNA_SEQC (138)                 [ 24%] 41 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (142)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[23/67969a] process > RNA_SEQC (140)                 [ 24%] 41 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (143)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f8/343760] process > RNA_SEQC (141)                 [ 24%] 41 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (143)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[74/af9d01] process > RNA_SEQC (56)                  [ 25%] 42 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (143)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[74/af9d01] process > RNA_SEQC (56)                  [ 25%] 42 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (144)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a6/4e54dc] process > RNA_SEQC (81)                  [ 26%] 44 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (144)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[a6/4e54dc] process > RNA_SEQC (81)                  [ 26%] 44 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (145)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ce/182ef8] process > RNA_SEQC (143)                 [ 26%] 44 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (145)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ce/182ef8] process > RNA_SEQC (143)                 [ 26%] 44 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (146)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[dc/e2c6c9] process > RNA_SEQC (144)                 [ 26%] 44 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (146)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ca/72f4d3] process > RNA_SEQC (63)                  [ 27%] 45 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (146)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[ca/72f4d3] process > RNA_SEQC (63)                  [ 27%] 45 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (146)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f9/84a642] process > RNA_SEQC (79)                  [ 27%] 46 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (147)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[aa/dd5c91] process > RNA_SEQC (146)                 [ 27%] 46 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (147)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[aa/dd5c91] process > RNA_SEQC (146)                 [ 27%] 46 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (147)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d0/a5e40c] process > RNA_SEQC (17)                  [ 28%] 47 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (148)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[c7/2e45d1] process > RNA_SEQC (145)                 [ 28%] 47 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (149)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b8/4478c9] process > RNA_SEQC (148)                 [ 28%] 48 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (150)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[c8/296dcd] process > RNA_SEQC (147)                 [ 28%] 48 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (150)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[20/bc2c74] process > RNA_SEQC (86)                  [ 29%] 49 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (150)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[9e/0684af] process > RNA_SEQC (14)                  [ 30%] 50 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (151)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[f2/0b01a9] process > RNA_SEQC (149)                 [ 30%] 50 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (152)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[64/190dee] process > RNA_SEQC (150)                 [ 30%] 50 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (152)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[3c/457fa1] process > RNA_SEQC (58)                  [ 30%] 51 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (152)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[3c/457fa1] process > RNA_SEQC (58)                  [ 30%] 51 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (152)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[d4/69f53a] process > RNA_SEQC (74)                  [ 31%] 52 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (153)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e8/9aa118] process > RNA_SEQC (151)                 [ 31%] 52 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (153)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[32/6b486a] process > RNA_SEQC (106)                 [ 31%] 53 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (154)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b8/24a60a] process > RNA_SEQC (153)                 [ 31%] 53 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (155)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[58/f10451] process > RNA_SEQC (152)                 [ 31%] 53 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (155)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[fa/c5d478] process > RNA_SEQC (54)                  [ 32%] 54 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (156)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[de/fea594] process > RNA_SEQC (154)                 [ 32%] 54 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (156)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[51/d63c5b] process > RNA_SEQC (62)                  [ 33%] 55 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (156)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[c8/89595c] process > RNA_SEQC (22)                  [ 33%] 56 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (156)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[c8/89595c] process > RNA_SEQC (22)                  [ 33%] 56 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (157)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[eb/c43dea] process > RNA_SEQC (155)                 [ 33%] 56 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (158)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[90/90652d] process > RNA_SEQC (156)                 [ 33%] 56 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (158)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[87/c5a522] process > RNA_SEQC (50)                  [ 34%] 57 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (158)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[46/4c1df9] process > RNA_SEQC (109)                 [ 34%] 58 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (159)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[45/1ede00] process > RNA_SEQC (158)                 [ 34%] 58 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (159)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[45/1ede00] process > RNA_SEQC (158)                 [ 34%] 58 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (159)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[45/1ede00] process > RNA_SEQC (158)                 [ 34%] 58 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (160)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[e2/c16bbd] process > RNA_SEQC (57)                  [ 35%] 59 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (161)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[7f/8614c5] process > RNA_SEQC (160)                 [ 35%] 59 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (161)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[67/6226ea] process > RNA_SEQC (85)                  [ 36%] 60 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (162)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[bc/e95a86] process > RNA_SEQC (159)                 [ 36%] 61 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (163)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[0d/c72622] process > RNA_SEQC (161)                 [ 36%] 61 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (163)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[52/e4f589] process > RNA_SEQC (47)                  [ 37%] 62 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (163)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[52/e4f589] process > RNA_SEQC (47)                  [ 37%] 62 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (163)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[5b/248077] process > RNA_SEQC (31)                  [ 37%] 63 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (164)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[8e/297b85] process > RNA_SEQC (162)                 [ 37%] 63 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (165)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[b6/478658] process > RNA_SEQC (163)                 [ 37%] 63 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (165)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1
+[62/d317bb] process > RNA_SEQC (88)                  [ 38%] 64 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (165)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [  0%] 0 of 1 ✔
+[62/d317bb] process > RNA_SEQC (88)                  [ 38%] 64 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (165)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[62/d317bb] process > RNA_SEQC (88)                  [ 38%] 64 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (165)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[62/d317bb] process > RNA_SEQC (88)                  [ 38%] 64 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (166)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[1a/b39fa9] process > RNA_SEQC (164)                 [ 38%] 64 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (166)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[1a/b39fa9] process > RNA_SEQC (164)                 [ 38%] 64 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (166)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[48/d72d60] process > RNA_SEQC (33)                  [ 39%] 65 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (167)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[36/193ea9] process > RNA_SEQC (165)                 [ 39%] 65 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[69/27c3c9] process > RNA_SEQC (166)                 [ 39%] 65 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b3/664b20] process > RNA_SEQC (59)                  [ 39%] 66 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b3/664b20] process > RNA_SEQC (59)                  [ 39%] 66 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[4b/880fbe] process > RNA_SEQC (32)                  [ 40%] 67 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[fc/30cb65] process > RNA_SEQC (80)                  [ 40%] 68 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[1f/a8049c] process > RNA_SEQC (53)                  [ 41%] 69 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[90/90652d] process > RNA_SEQC (156)                 [ 42%] 70 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[f7/9a7bf0] process > RNA_SEQC (90)                  [ 42%] 71 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[05/ab530d] process > RNA_SEQC (65)                  [ 43%] 72 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[e2/830259] process > RNA_SEQC (133)                 [ 44%] 74 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[28/4c8230] process > RNA_SEQC (129)                 [ 45%] 76 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[53/4bdd2d] process > RNA_SEQC (114)                 [ 46%] 77 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[a4/5e583d] process > RNA_SEQC (46)                  [ 46%] 78 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[16/fc6f2a] process > RNA_SEQC (157)                 [ 48%] 80 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b8/cec6c9] process > RNA_SEQC (36)                  [ 48%] 81 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[a1/76e5ad] process > RNA_SEQC (43)                  [ 49%] 82 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[88/b9b257] process > RNA_SEQC (19)                  [ 50%] 83 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[ce/182ef8] process > RNA_SEQC (143)                 [ 50%] 84 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[d7/e01c05] process > RNA_SEQC (94)                  [ 51%] 85 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[dc/e2c6c9] process > RNA_SEQC (144)                 [ 51%] 86 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[f6/5af0c6] process > RNA_SEQC (48)                  [ 52%] 87 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b6/478658] process > RNA_SEQC (163)                 [ 53%] 89 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[c7/dc64df] process > RNA_SEQC (89)                  [ 54%] 90 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[6c/9c22eb] process > RNA_SEQC (44)                  [ 54%] 91 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[43/7363f9] process > RNA_SEQC (120)                 [ 56%] 93 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[7e/154028] process > RNA_SEQC (135)                 [ 56%] 94 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[8c/1af49f] process > RNA_SEQC (34)                  [ 57%] 95 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[5c/094856] process > RNA_SEQC (142)                 [ 57%] 96 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[af/fe31e0] process > RNA_SEQC (45)                  [ 58%] 97 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[e8/9aa118] process > RNA_SEQC (151)                 [ 59%] 99 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[d9/0bad6e] process > RNA_SEQC (125)                 [ 60%] 100 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[02/dcdd6f] process > RNA_SEQC (124)                 [ 60%] 101 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[c8/296dcd] process > RNA_SEQC (147)                 [ 61%] 102 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[6d/5e5657] process > RNA_SEQC (122)                 [ 62%] 103 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[03/b1dadf] process > RNA_SEQC (115)                 [ 62%] 104 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[7a/4a7158] process > RNA_SEQC (2)                   [ 63%] 105 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b8/24a60a] process > RNA_SEQC (153)                 [ 63%] 106 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[aa/dd5c91] process > RNA_SEQC (146)                 [ 64%] 107 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[ae/e0e13b] process > RNA_SEQC (29)                  [ 65%] 108 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b4/76d075] process > RNA_SEQC (1)                   [ 65%] 109 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[29/13c222] process > RNA_SEQC (111)                 [ 66%] 110 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[64/190dee] process > RNA_SEQC (150)                 [ 66%] 111 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b7/1046a9] process > RNA_SEQC (105)                 [ 67%] 112 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[74/3b210e] process > RNA_SEQC (126)                 [ 68%] 113 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[04/fff7da] process > RNA_SEQC (137)                 [ 68%] 114 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[12/328c77] process > RNA_SEQC (128)                 [ 69%] 116 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[bf/f76062] process > RNA_SEQC (123)                 [ 70%] 117 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[a4/8530dc] process > RNA_SEQC (24)                  [ 71%] 118 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[45/1ede00] process > RNA_SEQC (158)                 [ 72%] 120 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[8e/297b85] process > RNA_SEQC (162)                 [ 72%] 121 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[43/43cfe9] process > RNA_SEQC (41)                  [ 73%] 122 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[de/fea594] process > RNA_SEQC (154)                 [ 74%] 123 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[2b/322bab] process > RNA_SEQC (104)                 [ 74%] 124 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[00/3f56ae] process > RNA_SEQC (116)                 [ 75%] 125 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[8b/f13f8d] process > RNA_SEQC (117)                 [ 75%] 126 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[f2/0b01a9] process > RNA_SEQC (149)                 [ 76%] 127 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[1a/b39fa9] process > RNA_SEQC (164)                 [ 77%] 128 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[29/a7fa43] process > RNA_SEQC (127)                 [ 77%] 129 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[2d/41e67e] process > RNA_SEQC (136)                 [ 78%] 130 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[68/8bc92d] process > RNA_SEQC (138)                 [ 78%] 131 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[58/f10451] process > RNA_SEQC (152)                 [ 79%] 132 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b6/246f0e] process > RNA_SEQC (118)                 [ 80%] 133 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[bc/e95a86] process > RNA_SEQC (159)                 [ 80%] 134 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[b8/4478c9] process > RNA_SEQC (148)                 [ 81%] 135 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[f2/705ecf] process > RNA_SEQC (103)                 [ 81%] 136 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[11/401a22] process > RNA_SEQC (112)                 [ 82%] 137 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[40/d71834] process > RNA_SEQC (26)                  [ 83%] 138 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[32/0c4da7] process > RNA_SEQC (28)                  [ 83%] 139 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[f5/373a92] process > RNA_SEQC (91)                  [ 84%] 140 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[70/f5d308] process > RNA_SEQC (119)                 [ 84%] 141 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[36/193ea9] process > RNA_SEQC (165)                 [ 85%] 142 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[e7/c539c6] process > RNA_SEQC (97)                  [ 86%] 143 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[9b/cafe86] process > RNA_SEQC (82)                  [ 86%] 144 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[0d/c72622] process > RNA_SEQC (161)                 [ 87%] 145 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[f9/b12655] process > RNA_SEQC (77)                  [ 87%] 146 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[69/27c3c9] process > RNA_SEQC (166)                 [ 88%] 147 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[53/25eca7] process > RNA_SEQC (121)                 [ 89%] 148 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[7f/8614c5] process > RNA_SEQC (160)                 [ 89%] 149 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[e3/da3a9b] process > RNA_SEQC (98)                  [ 90%] 150 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[21/be0adf] process > RNA_SEQC (99)                  [ 90%] 151 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[7d/f49037] process > RNA_SEQC (132)                 [ 91%] 152 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[4f/f679ff] process > RNA_SEQC (102)                 [ 92%] 153 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[7f/6a4b87] process > RNA_SEQC (130)                 [ 92%] 154 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[c7/2e45d1] process > RNA_SEQC (145)                 [ 93%] 155 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[fd/700a7a] process > RNA_SEQC (131)                 [ 93%] 156 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[ab/e3bd54] process > RNA_SEQC (110)                 [ 94%] 157 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[eb/c43dea] process > RNA_SEQC (155)                 [ 95%] 158 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[78/ed78d0] process > RNA_SEQC (108)                 [ 95%] 159 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[31/9e3048] process > RNA_SEQC (42)                  [ 96%] 160 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -
+
+executor >  lsf (168)
+[dc/ac39f2] process > AGGREGATE_STAR_FRAGMENT_COUNTS [100%] 1 of 1 ✔
+[c2/dbfde8] process > AGGREGATE_FEATURE_COUNTS_FR... [100%] 1 of 1 ✔
+[dc/c3231e] process > RNA_SEQC (78)                  [ 96%] 161 of 166
+[-        ] process > AGGREGATE_RNA_SEQC             -

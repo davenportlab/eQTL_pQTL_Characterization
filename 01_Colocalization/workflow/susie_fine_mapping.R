@@ -35,7 +35,7 @@ eqtl.locus <- readRDS(locus.input)
 eqtl.S <- runsusie(
     eqtl.locus,
     prior_variance=(0.15/eqtl.locus$sdY)^2,
-    estimate_prior_variance=F
+    estimate_prior_variance=T
 )
 
 credible.sets <- summary(eqtl.S)$vars %>%

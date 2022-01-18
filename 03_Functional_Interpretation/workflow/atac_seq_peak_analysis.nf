@@ -276,25 +276,22 @@ process TSS_ENRICHMENT_SCORES {
             -p \\
             -a $tss_100 -F SAF \\
             -T $task.cpus \\
-            --donotsort \\
             -o tss_counts.tsv \\
-            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.bam
+            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.sortedByName.bam
         
         featureCounts \\
             -p \\
             -a $tss_100_left -F SAF \\
             -T $task.cpus \\
-            --donotsort \\
             -o tss_left_flank_counts.tsv \\
-            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.bam
+            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.sortedByName.bam
 
         featureCounts \\
             -p \\
             -a $tss_100_right -F SAF \\
             -T $task.cpus \\
-            --donotsort \\
             -o tss_right_flank_counts.tsv \\
-            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.bam
+            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.sortedByName.bam
         
         TSS=\$(awk '{ s += \$7; } END { print s; }' tss_counts.tsv)
         LEFT=\$(awk '{ s += \$7; } END { print s; }' tss_left_flank_counts.tsv)
@@ -356,9 +353,8 @@ process COUNT_FRAGMENTS {
             -p \\
             -a $consensus_peaks -F SAF \\
             -T $task.cpus \\
-            --donotsort \\
             -o ${sample}.tsv \\
-            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.bam
+            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.sortedByName.bam
         
         echo -e "GeneID\tChr\tStart\tEnd\tStrand" > macs2_peaks.saf
         awk 'OFS="\t" { print \$1 ":" \$2 "-" \$3, \$1, \$2, \$3, "+"; }' $params.atac_seq_dir/$sample/peaks/${sample}_peaks.narrowPeak >> macs2_peaks.saf
@@ -367,9 +363,8 @@ process COUNT_FRAGMENTS {
             -p \\
             -a macs2_peaks.saf -F SAF \\
             -T $task.cpus \\
-            --donotsort \\
             -o ${sample}_macs2.tsv \\
-            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.bam
+            $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.sortedByName.bam
         """
 }
 

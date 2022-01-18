@@ -74,44 +74,6 @@ process PREQC_TRIMGALORE {
 // Alignment (A)
 //-----------------------------------------------------
 
-process A_STAR {
-
-    errorStrategy "retry"
-    maxRetries 3
-
-    label "star"
-
-    input:
-        val(name)
-        path(fastq_file_1)
-        path(fastq_file_2)
-
-    output:
-        val(name),                                          emit: name
-        path("${name}.Aligned.sortedByCoord.out.bam"),      emit: bam_file
-        path("${name}.Aligned.sortedByCoord.out.bam.bai"),  emit: bam_index_file
-        path("${name}.Log.final.out"),                      emit: mqc_alignment
-
-    script:
-
-        """
-        STAR \
-            --runThreadN $task.cpus \\
-            --genomeDir $params.star_genome_dir \\
-            --genomeLoad LoadAndRemove \\
-            --limitBAMsortRAM 20000000000 \\
-            --readFilesIn $fastq_file_1 $fastq_file_2 \\
-            --readFilesCommand zcat \\
-            --outWigType bedGraph \\
-            --outSAMtype BAM SortedByCoordinate \\
-            --outSAMunmapped Within \\
-            --quantMode GeneCounts \\
-            --outFileNamePrefix ${name}.
-
-        samtools index -@ $task.cpus ${name}.Aligned.sortedByCoord.out.bam
-        """
-}
-
 process A_BOWTIE2 {
 
     errorStrategy "retry"
@@ -250,10 +212,11 @@ process POSTQC_FILTERING {
         path(bam_index_file)
 
     output:
-        val(name),                           emit: name
-        path("${name}.filtered.bam"),        emit: bam_file
-        path("${name}.filtered.bam.bai"),    emit: bam_index_file
-        path("*.{stats,idxstats,flagstat}"), emit: mqc_post_filtering
+        val(name),                                  emit: name
+        path("${name}.filtered.bam"),               emit: bam_file
+        path("${name}.filtered.bam.bai"),           emit: bam_index_file
+        path("${name}.filtered.sortedByName.bam")
+        path("*.{stats,idxstats,flagstat}"),        emit: mqc_post_filtering
 
     script:
 
@@ -283,6 +246,9 @@ process POSTQC_FILTERING {
         samtools idxstats -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.idxstats
         samtools flagstat -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.flagstat
         samtools stats -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.stats
+
+        # Sort reads by name, making it easier to count using featureCounts
+        samtools sort -@ $task.cpus -n ${name}.filtered.bam > ${name}.filtered.sortedByName.bam
         """
 }
 
@@ -400,10 +366,6 @@ workflow {
     // Alignment (A)
     //-----------------------------------------------------
     
-    // Option 1: STAR
-    // A_STAR(PREQC_TRIMGALORE.out.name, PREQC_TRIMGALORE.out.fastq_file_1, PREQC_TRIMGALORE.out.fastq_file_2)
-
-    // Option 2: Bowtie2
     A_BOWTIE2(PREQC_TRIMGALORE.out.name, PREQC_TRIMGALORE.out.fastq_file_1, PREQC_TRIMGALORE.out.fastq_file_2)
 
     //-----------------------------------------------------

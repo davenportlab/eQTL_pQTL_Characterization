@@ -1,6 +1,6 @@
 nextflow.enable.dsl = 2
 
-params.output_dir = "~/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/"
+params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/"
 params.chr = "1"
 
 process SPLIT_LOCI {
@@ -53,7 +53,7 @@ process AGGREGATE_CREDIBILE_SETS {
     script:
 
         """
-        echo -e "Gene\tSNP\tSNP_Prob\tCredible_Set" > credible_sets.tsv
+        echo -e "Gene\tSNP\tSNP_Prob\tCredible_Set" > chr${params.chr}_credible_sets.tsv
 
         cat credible_sets/*.tsv >> chr${params.chr}_credible_sets.tsv
         """
