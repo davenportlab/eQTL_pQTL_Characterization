@@ -152,7 +152,7 @@ process CONSENSUS_PEAK_SET {
         
         chmod 444 consensus_peaks.bed
 
-        echo -e "GeneID\tChr\tStart\tEnd\tStrand" > consensus_peaks.saf
+        echo -e "PeakID\tChr\tStart\tEnd\tStrand" > consensus_peaks.saf
         awk 'OFS="\t" { print \$1 ":" \$2 "-" \$3, \$1, \$2, \$3, "+"; }' consensus_peaks.bed >> consensus_peaks.saf
         """
 }
@@ -236,17 +236,17 @@ process IDENTIFY_TSS_REGIONS {
         bedtools slop -i tss.2000.filtered.bed -g $params.genome_chr_lengths -b -99 | \\
             bedtools flank -i - -g $params.genome_chr_lengths -r 99 -l 0 > tss.100.right.flank.filtered.bed
 
-        echo -e "GeneID\tChr\tStart\tEnd\tStrand" > tss.100.saf
+        echo -e "PeakID\tChr\tStart\tEnd\tStrand" > tss.100.saf
         awk -F '\t' 'OFS="\t" {
             print \$4, \$1, \$2, \$3, \$6;
             }' tss.100.filtered.bed >> tss.100.saf
 
-        echo -e "GeneID\tChr\tStart\tEnd\tStrand" > tss.100.left.flank.saf
+        echo -e "PeakID\tChr\tStart\tEnd\tStrand" > tss.100.left.flank.saf
         awk -F '\t' 'OFS="\t" {
             print \$4, \$1, \$2, \$3, \$6;
             }' tss.100.left.flank.filtered.bed >> tss.100.left.flank.saf
         
-        echo -e "GeneID\tChr\tStart\tEnd\tStrand" > tss.100.right.flank.saf
+        echo -e "PeakID\tChr\tStart\tEnd\tStrand" > tss.100.right.flank.saf
         awk -F '\t' 'OFS="\t" {
             print \$4, \$1, \$2, \$3, \$6;
             }' tss.100.right.flank.filtered.bed >> tss.100.right.flank.saf
@@ -356,7 +356,7 @@ process COUNT_FRAGMENTS {
             -o ${sample}.tsv \\
             $params.atac_seq_dir/$sample/alignment_post_qc/${sample}.filtered.sortedByName.bam
         
-        echo -e "GeneID\tChr\tStart\tEnd\tStrand" > macs2_peaks.saf
+        echo -e "PeakID\tChr\tStart\tEnd\tStrand" > macs2_peaks.saf
         awk 'OFS="\t" { print \$1 ":" \$2 "-" \$3, \$1, \$2, \$3, "+"; }' $params.atac_seq_dir/$sample/peaks/${sample}_peaks.narrowPeak >> macs2_peaks.saf
 
         featureCounts \\

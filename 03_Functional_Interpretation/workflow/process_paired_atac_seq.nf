@@ -184,7 +184,7 @@ process POSTQC_PICARD_MARK_DUPLICATES {
     script:
 
         """
-        picard -Xmx${task.memory.toGiga()}g MarkDuplicates \\
+        picard -Xmx${task.memory.toGiga() - 1}g MarkDuplicates \\
             INPUT=$bam_file \\
             OUTPUT=${name}.duplicates.bam \\
             ASSUME_SORTED=true \\
@@ -248,7 +248,7 @@ process POSTQC_FILTERING {
         samtools stats -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.stats
 
         # Sort reads by name, making it easier to count using featureCounts
-        samtools sort -@ $task.cpus -n ${name}.filtered.bam > ${name}.filtered.sortedByName.bam
+        samtools sort -m 1G -@ $task.cpus -n ${name}.filtered.bam > ${name}.filtered.sortedByName.bam
         """
 }
 
