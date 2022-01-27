@@ -7,8 +7,8 @@ accessibility data for primary immune cell types in the blood under both
 unstimulated and stimulated conditions.
 
 While 147 of the 166 RNA-Seq samples were run on an Illumina NovaSeq 6000
-sequencer with 100 bp paired-end reads, 19 samples were run on an Illumina HiSeq
-4000 sequencer with 76 bp paired-end reads.
+sequencer with 100 bp paired-end reads, 19 samples were run on an Illumina 
+HiSeq 4000 sequencer with 76 bp paired-end reads.
 
 Although there are 25 cell types present in the RNA-Seq samples, only 21 cell
 types have at least three samples (necessary for statistical tests).
@@ -61,6 +61,10 @@ contributions to the ATAC-Seq data.
 | MYELOID | Monocytes                | 12              | 9               |
 | MYELOID | Myeloid_DCs              | 3               | 3               |
 | MYELOID | pDCs                     | 1               | 3               |
+
+Additional data for monocytes was supplemented from the Corces *et al.* study.
+This data included 6 ATAC-Seq samples and 4 RNA-Seq samples from unstimulated
+monocytes.
 
 ## Quality Control
 

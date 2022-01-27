@@ -76,15 +76,15 @@ Install the environment to some location.
 
 ```
 $ conda env create \
->   --file jupyter_env/environment.yml \
->   --prefix path/to/install/jupyter_env/
+>   --file env/environment.yml \
+>   --prefix path/to/install/env/
 ```
 
 Activate the environment when required.
 
 ```
-$ conda activate path/to/install/jupyter_env/
-(jupyter_env) $ 
+$ conda activate path/to/install/env/
+(env) $ 
 ```
 
 ### Detailed Steps for Replication

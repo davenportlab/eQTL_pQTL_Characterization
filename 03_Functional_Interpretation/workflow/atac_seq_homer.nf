@@ -83,7 +83,7 @@ process PEAK_MOTIF_ENRICHMENT {
 
     output:
         path("*.known_motifs.tsv")
-        path("*.all_motifs.tsv")
+        path("*.all_motifs.motifs")
         path("*.peaks.tsv")
 
     script:
@@ -98,12 +98,12 @@ process PEAK_MOTIF_ENRICHMENT {
             -preparsedDir ./preparsed/
         
         findMotifsGenome.pl \\
-        $down_peak_set \\
-        $params.genome \\
-        ./homer_down_motifs/ \\
-        -size given \\
-        -p $task.cpus \\
-        -preparsedDir ./preparsed/
+            $down_peak_set \\
+            $params.genome \\
+            ./homer_down_motifs/ \\
+            -size given \\
+            -p $task.cpus \\
+            -preparsedDir ./preparsed/
 
         ls -1 homer_up_motifs/homerResults/ | \\
             grep "motif[0-9]*.motif" | \\
@@ -117,7 +117,7 @@ process PEAK_MOTIF_ENRICHMENT {
             -noann -nogene > ${up_peak_set.getSimpleName()}.up.peaks.tsv
         
         ls -1 homer_down_motifs/homerResults/ | \\
-            grep "motif[0-9]*.motif | \\
+            grep "motif[0-9]*.motif" | \\
             sed 's/^/homer_down_motifs\\/homerResults\\//g' | \\
             xargs cat > homer_down_motifs/homerDownResults.motif
 
@@ -127,11 +127,23 @@ process PEAK_MOTIF_ENRICHMENT {
             -m ./homer_down_motifs/homerDownResults.motif \\
             -noann -nogene > ${down_peak_set.getSimpleName()}.down.peaks.tsv
         
-        mv ./homer_up_motifs/knownResults.txt ${up_peak_set.getSimpleName()}.up.known_motifs.tsv
-        mv ./homer_up_motifs/homerMotifs.all.motifs ${up_peak_set.getSimpleName()}.up.all_motifs.tsv
+        if [ -f "./homer_up_motifs/knownResults.txt" ];
+        then
+            mv ./homer_up_motifs/knownResults.txt ${up_peak_set.getSimpleName()}.up.known_motifs.tsv
+        else
+            touch ${up_peak_set.getSimpleName()}.up.known_motifs.tsv
+        fi
+        
+        mv ./homer_up_motifs/homerMotifs.all.motifs ${up_peak_set.getSimpleName()}.up.all_motifs.motifs
 
-        mv ./homer_down_motifs/knownResults.txt ${down_peak_set.getSimpleName()}.down.known_motifs.tsv
-        mv ./homer_down_motifs/homerMotifs.all.motifs ${down_peak_set.getSimpleName()}.down.all_motifs.tsv
+        if [ -f "./homer_down_motifs/knownResults.txt" ];
+        then
+            mv ./homer_down_motifs/knownResults.txt ${down_peak_set.getSimpleName()}.down.known_motifs.tsv
+        else
+            touch ${down_peak_set.getSimpleName()}.down.known_motifs.tsv
+        fi
+
+        mv ./homer_down_motifs/homerMotifs.all.motifs ${down_peak_set.getSimpleName()}.down.all_motifs.motifs
         """
 }
 
