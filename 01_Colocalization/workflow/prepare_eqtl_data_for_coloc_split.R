@@ -21,8 +21,8 @@ chr.input = args[1]
 # Load eQTL Data
 #----------------------------------------------------------
 
-cis.eqtl <- readRDS("~/gains_team282/eqtl/cisresults/ciseqtl_all.rds")
-geno.bim <- fread("~/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID.bim", sep="\t")
+cis.eqtl <- readRDS("/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults/ciseqtl_all.rds")
+geno.bim <- fread("/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID.bim", sep="\t")
 
 cat("Data Loaded into Memory", "\n")
 

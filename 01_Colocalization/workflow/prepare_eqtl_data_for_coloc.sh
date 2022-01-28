@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=~/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/
+export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/nextflow_work/
 
-for CHR in 17 18 19
+for CHR in 1
 do
 
     mkdir .nextflow.CHR_${CHR}/

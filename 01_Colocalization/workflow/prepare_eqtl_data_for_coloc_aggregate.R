@@ -22,7 +22,7 @@ chr = args[1]
 # Load LD Data
 #----------------------------------------------------------
 
-cis.eqtl.sdY <- readRDS("~/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.sdY.RDS")
+cis.eqtl.sdY <- readRDS("/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.sdY.RDS")
 locus.data.files <- list.files("locus_data/", pattern="*.csv")
 
 cis.eqtl.loci <- mclapply(locus.data.files, function(locus.data.file) {
@@ -63,4 +63,4 @@ cis.eqtl.loci <- mclapply(locus.data.files, function(locus.data.file) {
 
 names(cis.eqtl.loci) <- sapply(strsplit(locus.data.files, "\\."), function(x) x[1])
 
-saveRDS(cis.eqtl.loci, paste0("~/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.loci.chr", chr, ".RDS"))
+saveRDS(cis.eqtl.loci, paste0("/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.loci.chr", chr, ".RDS"))

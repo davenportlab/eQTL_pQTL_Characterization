@@ -11,7 +11,7 @@ Sepsis ([GAinS](https://ukccggains.com/)) cohort.
 
 ## Technical Details
 
-We use [Anavonda environments](https://docs.conda.io/projects/conda/en/latest/index.html)
+We use [Anaconda environments](https://docs.conda.io/projects/conda/en/latest/index.html)
 to manage dependencies. Most analyses are run using
 either R or Python. Analytical steps were coordinated on 
 a computing cluster using
@@ -57,12 +57,10 @@ not uploaded to the repository. Details on how to acquire
 this data is included in a `README.md` file in the `data/`
 directory for each step.
 
-### Install Anaconda Environments
+### Install Anaconda Environment
 
-Begin by installing the Anaconda environments for the
-project. The project-level Jupyter environment is stored
-in `env/` and the environment for each step is stored in
-the `env/` directory of the step.
+Begin by installing the Anaconda environment for the 
+project. The project-level environment is stored in `env/`.
 
 As an example, to install the Jupyter environment, start by
 checking if Anaconda is installed.
@@ -87,7 +85,15 @@ $ conda activate path/to/install/env/
 (env) $ 
 ```
 
+Some software is incompatible with the Anaconda environment
+and must be installed locally. The following software must
+be installed:
+
+1. MEME Suite [https://meme-suite.org/meme/doc/download.html](https://meme-suite.org/meme/doc/download.html)
+2. RNA-SeQC [https://github.com/getzlab/rnaseqc](https://github.com/getzlab/rnaseqc)
+
 ### Detailed Steps for Replication
 
-The steps required to replicate analyses are included in each step's directory. Please refer to the `README.md` file
+The steps required to replicate analyses are included in
+each step's directory. Please refer to the `README.md` file
 included for each step.

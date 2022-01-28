@@ -1,8 +1,8 @@
 nextflow.enable.dsl = 2
 
 params.vcf_dir = "/lustre/scratch118/humgen/resources/1000g/release/20201028"
-params.eur_samples = "~/eQTL_pQTL_Characterization/01_Colocalization/data/1000G/EUR.samples.txt"
-params.output_dir = "~/gains_team282/nikhil/colocalization/cis_eqtl/"
+params.eur_samples = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/01_Colocalization/data/1000G/EUR.samples.txt"
+params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/"
 params.chr = "1"
 
 process GENERATE_LOCUS_DATA {
