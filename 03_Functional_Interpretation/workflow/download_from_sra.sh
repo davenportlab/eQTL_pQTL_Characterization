@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=~/gains_team282/epigenetics/nextflow_work/
+export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/nextflow_work/
 
-bsub -q normal -o calderon_et_al_rna_seq_output.txt -e calderon_et_al_rna_seq_error.txt -R"select[mem>8192] rusage[mem=8192]" -M8192 \
-    "nextflow download_from_sra.nf --study calderon_et_al --assay rna_seq --library_layout paired --sra_table ../metadata/reads_calderon_et_al_rna_seq.txt"
+mkdir .nextflow.download_from_sra/
+cd .nextflow.download_from_sra/
 
-bsub -q normal -o calderon_et_al_chip_seq_output.txt -e calderon_et_al_chip_seq_error.txt -R"select[mem>8192] rusage[mem=8192]" -M8192 \
-    "nextflow download_from_sra.nf --study calderon_et_al --assay chip_seq --library_layout paired --sra_table ../metadata/reads_calderon_et_al_chip_seq.txt"
+## Download after NCBI fixes RNA-Seq Data for Ram-Mohan et al.
+# bsub \
+#     -q normal \
+#     -o rna_seq_output.txt \
+#     -e rna_seq_error.txt \
+#     -R"select[mem>8192] rusage[mem=8192]" -M8192 \
+#     "nextflow ../download_from_sra.nf --section accessibility --assay rna_seq --sra_table /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/metadata/reads_rna_seq.txt"
 
-bsub -q normal -o calderon_et_al_atac_seq_output.txt -e calderon_et_al_atac_seq_error.txt -R"select[mem>8192] rusage[mem=8192]" -M8192 \
-    "nextflow download_from_sra.nf --study calderon_et_al --assay atac_seq --library_layout paired --sra_table ../metadata/reads_calderon_et_al_atac_seq.txt"
-
-bsub -q normal -o brands_et_al_rna_seq_output.txt -e brands_et_al_rna_seq_error.txt -R"select[mem>8192] rusage[mem=8192]" -M8192 \
-    "nextflow download_from_sra.nf --study brands_et_al --assay rna_seq --library_layout single --sra_table ../metadata/reads_brands_et_al_rna_seq.txt"
-
-bsub -q normal -o brands_et_al_bisulfite_seq_output.txt -e brands_et_al_bisulfite_seq_error.txt -R"select[mem>8192] rusage[mem=8192]" -M8192 \
-    "nextflow download_from_sra.nf --study brands_et_al --assay bisulfite_seq --library_layout single --sra_table ../metadata/reads_brands_et_al_bisulfite_seq.txt"
+bsub \
+    -q normal \
+    -o atac_seq_output.txt \
+    -e atac_seq_error.txt \
+    -R"select[mem>8192] rusage[mem=8192]" -M8192 \
+    "nextflow ../download_from_sra.nf --section accessibility --assay atac_seq --sra_table /nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/metadata/reads_atac_seq.txt"

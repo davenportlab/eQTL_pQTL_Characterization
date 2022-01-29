@@ -1,74 +1,10 @@
 nextflow.enable.dsl = 2
 
-params.reads_dir = "~/gains_team282/epigenetics/calderon_et_al/raw/atac_seq/"
-params.output = "~/gains_team282/epigenetics/calderon_et_al/processed/atac_seq/"
-params.star_genome_dir = "~/gains_team282/epigenetics/star_genome_index/"
-params.bowtie2_genome_dir = "~/gains_team282/epigenetics/bowtie2_genome_index/"
+params.output = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/processed/atac_seq/"
+params.bowtie2_genome_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/bowtie2_genome_index/"
 params.genome_fasta = "/lustre/scratch118/humgen/resources/rna_seq_genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-params.genome_black_list = "~/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/hg38-blacklist.v2.bed"
+params.genome_black_list = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/hg38-blacklist.v2.bed"
 
-//-----------------------------------------------------
-// Pre-Alignment QC (PREQC)
-//-----------------------------------------------------
-
-process PREQC_FASTQC {
-
-    errorStrategy "retry"
-    maxRetries 3
-
-    label "fastqc"
-
-    input:
-        val(name)
-        file(fastq_file_1)
-        file(fastq_file_2)
-
-    output:
-        path("*.{zip,html}"), emit: mqc_fastqc
-
-    script:
-
-        def cores = (task.cpus as int) / 8
-
-        """
-        fastqc $fastq_file_1 $fastq_file_2 \\
-            --threads $cores \\
-            --quiet
-        """
-}
-
-process PREQC_TRIMGALORE {
-
-    errorStrategy "retry"
-    maxRetries 3
-
-    label "trim_galore"
-
-    input:
-        val(name)
-        file(fastq_file_1)
-        file(fastq_file_2)
-
-    output:
-        val(name),                          emit: name
-        path("${name}_1.trimmed.fastq.gz"), emit: fastq_file_1
-        path("${name}_2.trimmed.fastq.gz"), emit: fastq_file_2
-        path("*.txt"),                      emit: mqc_trim_galore
-        path("*.{zip,html}"),               emit: mqc_trim_galore_fastqc
-
-    script:
-        
-        """
-        trim_galore $fastq_file_1 $fastq_file_2 \\
-            --cores 1 \\
-            --paired \\
-            --fastqc \\
-            --gzip
-
-        mv ${name}_1_val_1.fq.gz ${name}_1.trimmed.fastq.gz
-        mv ${name}_2_val_2.fq.gz ${name}_2.trimmed.fastq.gz
-        """
-}
 
 //-----------------------------------------------------
 // Alignment (A)
@@ -301,12 +237,9 @@ process SUMMARY_MULTI_QC {
 
     label "multiqc"
 
-    publishDir "$params.output/multiqc/", mode: "move"
+    publishDir "$params.output/multiqc/alignment/", mode: "move"
 
     input:
-        path("fastqc/*")
-        path("trim_galore/*")
-        path("trim_galore/fastqc/*")
         path("alignment/*")
         path("picard/metrics/*")
         path("picard/metrics/*")
@@ -336,37 +269,19 @@ workflow {
     // Setup
     //-----------------------------------------------------
 
-    qc = Channel
-        .fromFilePairs("$params.reads_dir/*_{1,2}.fastq.gz")
-        .multiMap { name, files ->
-            name: name
-            fastq_1: files[0]
-            fastq_2: files[1]
-        }
-
     align = Channel
-        .fromFilePairs("$params.reads_dir/*_{1,2}.fastq.gz")
+        .fromFilePairs("$params.output/*/pre_processing/*_{1,2}.trimmed.fastq.gz")
         .multiMap { name, files ->
             name: name
             fastq_1: files[0]
             fastq_2: files[1]
         }
 
-    //-----------------------------------------------------
-    // Pre-Alignment QC (PREQC)
-    //-----------------------------------------------------
-
-    // Assess Read Quality
-    PREQC_FASTQC(qc.name, qc.fastq_1, qc.fastq_2)
-
-    // Trim Low Quality Reads
-    PREQC_TRIMGALORE(align.name, align.fastq_1, align.fastq_2)
-    
     //-----------------------------------------------------
     // Alignment (A)
     //-----------------------------------------------------
     
-    A_BOWTIE2(PREQC_TRIMGALORE.out.name, PREQC_TRIMGALORE.out.fastq_file_1, PREQC_TRIMGALORE.out.fastq_file_2)
+    A_BOWTIE2(align.name, align.fastq_1, align.fastq_2)
 
     //-----------------------------------------------------
     // Post-Alignment QC (POSTQC)
@@ -403,9 +318,6 @@ workflow {
     //-----------------------------------------------------
 
     SUMMARY_MULTI_QC(
-        PREQC_FASTQC.out.mqc_fastqc.collect(),
-        PREQC_TRIMGALORE.out.mqc_trim_galore.collect(),
-        PREQC_TRIMGALORE.out.mqc_trim_galore_fastqc.collect(),
         POSTQC_SORT.out.mqc_alignment.collect(),
         POSTQC_PICARD_METRICS.out.mqc_picard_metrics.collect(),
         POSTQC_PICARD_MARK_DUPLICATES.out.mqc_picard_mark_duplicates.collect(),

@@ -96,14 +96,14 @@ process PEAK_MOTIF_ENRICHMENT {
     script:
 
         """
-        if [ -s $up_peak_set ];
+        if [ -s $up_peak_set ] && [ \$(wc -l < $up_peak_set) -gt 2 ];
         then
 
             sea --seed 30023 --qvalue 0.05 --noseqs --p $up_peak_set --m $params.motifs --o up_motifs/
             
             mv up_motifs/sea.tsv ${up_peak_set.getSimpleName()}.up.enrichment.tsv
 
-            fimo $params.motifs $up_peak_set --o up_motifs_search/
+            fimo --o up_motifs_search/ $params.motifs $up_peak_set
 
             mv up_motifs_search/fimo.tsv ${up_peak_set.getSimpleName()}.up.motifs.tsv
 
@@ -114,14 +114,14 @@ process PEAK_MOTIF_ENRICHMENT {
         
         fi
 
-        if [ -s $down_peak_set ];
+        if [ -s $down_peak_set ] && [ \$(wc -l < $down_peak_set) -gt 2 ];
         then
 
             sea --seed 30023 --qvalue 0.05 --noseqs --p $down_peak_set --m $params.motifs --o down_motifs/
 
             mv down_motifs/sea.tsv ${down_peak_set.getSimpleName()}.down.enrichment.tsv
 
-            fimo $params.motifs $down_peak_set --o down_motifs_search/
+            fimo --o down_motifs_search/ $params.motifs $down_peak_set
 
             mv down_motifs_search/fimo.tsv ${down_peak_set.getSimpleName()}.down.motifs.tsv
         

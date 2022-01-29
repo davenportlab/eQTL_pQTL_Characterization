@@ -1,67 +1,80 @@
-params.study = "calderon_et_al"
+nextflow.enable.dsl=2
+
+params.section = "accessibility"
 params.assay = "rna_seq"
-params.library_layout = "paired"
-params.sra_table = "../metadata/reads_calderon_et_al_rna_seq.txt"
+params.sra_table = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/metadata/reads_rna_seq.txt"
+params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/"
 
-Channel
-    .fromPath(params.sra_table)
-    .splitCsv(header:true)
-    .map{row -> row.Run}
-    .set{accessions}
 
-process dumpFastq {
+process DUMP_FASTQ {
+
+    errorStrategy "retry"
+    maxRetries 5
 
     label "dump_fastq"
 
+    publishDir "$params.output_dir/$params.section/raw/$params.assay/", mode: "move"
+
     input:
-        val accession from accessions
+        val(run)
+        val(donor)
+        val(cell_type)
+        val(treatment)
+        val(replicate)
+        val(layout)
+
+    output:
+        path("*.fastq.gz")
 
     script:
 
-        """
-        mkdir -p ~/gains_team282/epigenetics/$params.study/raw/$params.assay/
-        """
-
-        if (params.library_layout == "single")
+        if (layout == "SINGLE")
 
             """
-            for i in {1..5}
-            do
-                fastq-dump \
-                    --outdir ~/gains_team282/epigenetics/$params.study/raw/$params.assay/ \
-                    --gzip \
-                    --read-filter pass \
-                    --dumpbase \
-                    --clip \
-                    $accession && break || sleep 15
-            done
+            fasterq-dump --threads $task.cpus $run
 
-            mv ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_pass.fastq.gz ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}.fastq.gz
+            gzip ${run}.fastq
 
-            chmod 444 ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}.fastq.gz
+            mv ${run}.fastq.gz ${donor}-${cell_type}-${treatment}-${replicate}.fastq.gz
             """
         
-        else if (params.library_layout == "paired")
+        else if (layout == "PAIRED")
 
             """
-            for i in {1..5}
-            do
-                fastq-dump \
-                    --outdir ~/gains_team282/epigenetics/$params.study/raw/$params.assay/ \
-                    --gzip \
-                    --skip-technical \
-                    --readids \
-                    --read-filter pass \
-                    --dumpbase \
-                    --split-3 \
-                    --clip \
-                    $accession && break || sleep 15
-            done
+            fasterq-dump --threads $task.cpus $run
 
-            mv ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_pass_1.fastq.gz ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_1.fastq.gz
-            mv ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_pass_2.fastq.gz ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_2.fastq.gz
+            gzip ${run}_1.fastq
+            gzip ${run}_2.fastq
 
-            chmod 444 ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_1.fastq.gz
-            chmod 444 ~/gains_team282/epigenetics/$params.study/raw/$params.assay/${accession}_2.fastq.gz
+            mv ${run}_1.fastq.gz ${donor}-${cell_type}-${treatment}-${replicate}_1.fastq.gz
+            mv ${run}_2.fastq.gz ${donor}-${cell_type}-${treatment}-${replicate}_2.fastq.gz
             """
+}
+
+//-----------------------------------------------------
+// Workflow
+//-----------------------------------------------------
+
+workflow {
+
+    accessions = Channel
+        .fromPath(params.sra_table)
+        .splitCsv(header:true)
+        .multiMap{row -> 
+            run: row.Run
+            donor: row.Donor
+            cell_type: row.Cell_type
+            treatment: row.Treatment
+            replicate: row.Replicate
+            layout: row.LibraryLayout
+        }
+
+    DUMP_FASTQ(
+        accessions.run,
+        accessions.donor,
+        accessions.cell_type,
+        accessions.treatment,
+        accessions.replicate,
+        accessions.layout
+    )
 }
