@@ -11,8 +11,6 @@ rm(list=ls())
 
 library(tidyverse)
 library(data.table)
-library(coloc)
-library(susieR)
 library(parallel)
 library(foreach)
 
@@ -25,19 +23,58 @@ chr.input = args[1]
 # Load Data
 #----------------------------------------------------------
 
+# Summary statistics from initial pass
+cis.eqtl.summary <- readRDS("/lustre/scratch119/realdata/mdt3/projects/gains_team282/eqtl/cisresults/ciseqtl_all.rds")
+
+# Significant cis-eQTL used to filter the loci tested using SuSiE
 cis.eqtl <- readRDS("/lustre/scratch119/realdata/mdt3/projects/gains_team282/eqtl/cisresults/cisqtl_all_significant.rds")
 
-chr <- readRDS(paste0("/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/cis.eqtl.loci.chr", chr.input, ".RDS"))
+# SNP information
+geno.bim <- fread("/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID.bim", sep="\t")
+colnames(geno.bim) <- c("chr", "snp", "cM", "Position", "minor_allele", "major_allele")
+
+# Rename columns in the summary statistics
+setnames(cis.eqtl.summary, "snps", "snp")
+setnames(cis.eqtl.summary, "SNPpos", "position")
+
+# Subset summary statistics based on loci with significant cis-eQTL
+cis.eqtl.summary <- subset(cis.eqtl.summary, chr == chr.input & gene %in% cis.eqtl$gene)
+
+# Merge summary statistics with SNP information
+cis.eqtl.summary <- merge(cis.eqtl.summary, geno.bim, by="snp")
+cis.eqtl.summary$chr.y <- NULL
+setnames(cis.eqtl.summary, "chr.x", "chr")
+
+# Split summary statistics by locus
+cis.eqtl.loci <- split(cis.eqtl.summary[,c("snp", "position", "beta", "se", "chr", "minor_allele", "major_allele")], cis.eqtl.summary$gene)
+
+# Load genotypes for the relevant loci
+chr.geno <- fread(paste0("/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/eqtl_genotypes_", chr.input, ".raw"), sep=" ", drop=2:6)
+colnames(chr.geno) <- gsub("X", "", colnames(chr.geno))
+colnames(chr.geno) <- sapply(strsplit(colnames(chr.geno), "_"), function(x) { x[1] })
+chr.geno[, 1] <- NULL
+chr.geno <- as.data.frame(chr.geno)
+
+# Load gene expression to calculate var(y)
+gene.exp <- read.table("/lustre/scratch119/humgen/projects/gains_team282/eqtl/data/logcpm_864_20412_hla.txt")
+n.samples <- length(unique(sapply(strsplit(colnames(gene.exp), "_"), function(x) { x[1] })))
+saveRDS(n.samples, "n_samples.RDS")
 
 #----------------------------------------------------------
 # Split Loci in Chromosome
 #----------------------------------------------------------
 
 # Only perform fine mapping for significant cis-eQTL
-loci <- intersect(names(chr), cis.eqtl$gene)
+foreach(locus=names(cis.eqtl.loci)) %dopar% {
 
-foreach(locus=loci) %dopar% {
+    eqtl.locus <- cis.eqtl.loci[[locus]] %>%
+        dplyr::arrange(position)
 
-    eqtl.locus <- chr[[locus]]
-    saveRDS(eqtl.locus, paste0(locus, ".RDS"))
+    eqtl.locus.geno <- chr.geno[, eqtl.locus$snp]
+
+    eqtl.locus.var.y <- var(as.numeric(gene.exp[locus,]), na.rm=T)
+
+    saveRDS(eqtl.locus, paste0(locus, ".summary.RDS"))
+    saveRDS(eqtl.locus.geno, paste0(locus, ".genotypes.RDS"))
+    saveRDS(eqtl.locus.var.y, paste0(locus, ".var_y.RDS"))
 }

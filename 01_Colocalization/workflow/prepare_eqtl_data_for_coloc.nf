@@ -47,7 +47,7 @@ process CALCULATE_LD {
         bcftools view \\
             -R snps.txt \\
             $params.vcf_dir/\$VCF_FILE | \\
-            $workflow.projectDir/prepare_eqtl_data_for_coloc_ld_matrix/filter_snps.py $locus_file | \\
+            $workflow.projectDir/prepare_eqtl_data_for_coloc_ld_matrix/filter_snps.py $locus_file \${NAME}.ref_maj_mismatches.txt | \\
             vcftools \\
             --vcf - \\
             --keep $params.eur_samples \\

@@ -8,7 +8,10 @@ process SPLIT_LOCI {
     label "Rbigmem"
 
     output:
-        path("*.RDS"), emit: loci
+        path("*.summary.RDS"),      emit: loci
+        path("*.genotypes.RDS"),    emit: genotypes
+        path("*.var_y.RDS"),        emit: var_y
+        path("n_samples.RDS"),      emit: n_samples
     
     script:
 
@@ -26,6 +29,9 @@ process SUSIE_FINE_MAPPING {
 
     input:
         path(locus)
+        path(genotypes)
+        path(var_y)
+        path(n_samples)
 
     output:
         path("*.tsv"), emit: credible_set
@@ -33,7 +39,7 @@ process SUSIE_FINE_MAPPING {
     script:
 
         """
-        Rscript $workflow.projectDir/susie_fine_mapping.R ${locus.getSimpleName()} $locus ${locus.getSimpleName()}.tsv
+        Rscript $workflow.projectDir/susie_fine_mapping.R ${locus.getSimpleName()} $locus $genotypes $var_y $n_samples ${locus.getSimpleName()}.tsv
         """
 }
 
@@ -64,7 +70,12 @@ workflow {
 
     SPLIT_LOCI()
 
-    SUSIE_FINE_MAPPING(SPLIT_LOCI.out.loci.flatten())
+    SUSIE_FINE_MAPPING(
+        SPLIT_LOCI.out.loci.flatten(),
+        SPLIT_LOCI.out.genotypes.flatten(),
+        SPLIT_LOCI.out.var_y.flatten(),
+        SPLIT_LOCI.out.n_samples
+    )
 
     AGGREGATE_CREDIBILE_SETS(SUSIE_FINE_MAPPING.out.credible_set.collect())
 }

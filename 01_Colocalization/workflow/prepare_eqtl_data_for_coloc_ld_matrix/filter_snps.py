@@ -38,6 +38,7 @@ def map_positions_to_alleles(locus_data_file: str) -> Mapping[int, Tuple[str, st
 def main():
 
     locus_data_file = sys.argv[1]
+    reference_major_allele_mismatch_file = sys.argv[2]
 
     position_to_alleles = map_positions_to_alleles(locus_data_file)
 
@@ -46,7 +47,11 @@ def main():
     VCF_ALT_ALLELE_INDEX = 4
 
     from signal import signal, SIGPIPE, SIG_DFL
-    signal(SIGPIPE, SIG_DFL) 
+    signal(SIGPIPE, SIG_DFL)
+
+    # Write out any SNPs where the reference allele does not match the major allele
+    mismatches_out = open(reference_major_allele_mismatch_file, 'w')
+    mismatches_out.write('SNP_Position\tReference_Allele\tAlternate_Allele\tMinor_Allele\tMajor_Allele\n')
 
     # Iterate over standard input stream
     for line in sys.stdin:
@@ -78,8 +83,15 @@ def main():
         if alt_allele not in position_to_alleles[position]:
             continue
         
+        # Report SNP if the reference allele does not match the major allele
+        minor_allele, major_allele = position_to_alleles[position]
+        if ref_allele != major_allele:
+            mismatches_out.write(f'{position}\t{ref_allele}\t{alt_allele}\t{minor_allele}\t{major_allele}\n')
+        
         # Output line to standard output
         print(line)
+
+    mismatches_out.close()
 
 
 if __name__ == '__main__':

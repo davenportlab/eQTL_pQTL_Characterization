@@ -2,7 +2,7 @@ nextflow.enable.dsl = 2
 
 params.genotypes_prefix = "~/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID"
 params.mapping_patients = "~/gains_team282/nikhil/expression/eigengene_sva/mapping_patients.txt"
-params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/genotypes/"
+params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/"
 
 process EXTRACT_GENOTYPES {
 
@@ -19,6 +19,8 @@ process EXTRACT_GENOTYPES {
     script:
 
         """
+        Rscript $workflow.projectDir/extract_genotypes.R eqtl.snps.txt
+
         for CHR in {1..23}
         do
             plink \\
@@ -29,6 +31,15 @@ process EXTRACT_GENOTYPES {
                 --allow-extra-chr \\
                 --chr \${CHR} \\
                 --maf 0.01
+            
+            plink \\
+                --bfile $params.genotypes_prefix \\
+                --keep $params.mapping_patients \\
+                --extract eqtl.snps.txt \\
+                --recode A \\
+                --out ./eqtl_genotypes_\${CHR} \\
+                --allow-extra-chr \\
+                --chr \${CHR}
         done
         """
 }

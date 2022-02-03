@@ -148,9 +148,8 @@ process POSTQC_FILTERING {
         path(bam_index_file)
 
     output:
-        val(name),                                  emit: name
-        path("${name}.filtered.bam"),               emit: bam_file
-        path("${name}.filtered.bam.bai"),           emit: bam_index_file
+        path("${name}.filtered.bam")
+        path("${name}.filtered.bam.bai")
         path("${name}.filtered.sortedByName.bam")
         path("*.{stats,idxstats,flagstat}"),        emit: mqc_post_filtering
 
@@ -185,44 +184,6 @@ process POSTQC_FILTERING {
 
         # Sort reads by name, making it easier to count using featureCounts
         samtools sort -m 1G -@ $task.cpus -n ${name}.filtered.bam > ${name}.filtered.sortedByName.bam
-        """
-}
-
-//-----------------------------------------------------
-// Peak Calling (PEAK)
-//-----------------------------------------------------
-
-process PEAK_MACS2_NARROW {
-
-    errorStrategy "retry"
-    maxRetries 3
-
-    label "macs2"
-
-    publishDir "$params.output/$name/peaks/", mode: "move"
-
-    input:
-        val(name)
-        path(bam_file)
-        path(bam_index_file)
-
-    output:
-        path("${name}_peaks.narrowPeak")
-        path("${name}_peaks.tsv")
-        path("${name}_summits.bed")
-
-    script:
-
-        """
-        macs2 callpeak \\
-            -t $bam_file \\
-            -f BAMPE \\
-            -n $name \\
-            --keep-dup all \\
-            --nomodel \\
-            --nolambda
-
-        mv ${name}_peaks.xls ${name}_peaks.tsv
         """
 }
 
@@ -305,13 +266,6 @@ workflow {
 
     // Filter Reads
     POSTQC_FILTERING(POSTQC_PICARD_MARK_DUPLICATES.out.name, POSTQC_PICARD_MARK_DUPLICATES.out.bam_file, POSTQC_PICARD_MARK_DUPLICATES.out.bam_index_file)
-
-    //-----------------------------------------------------
-    // Peak Calling (PEAK)
-    //-----------------------------------------------------
-
-    // Call Peaks
-    PEAK_MACS2_NARROW(POSTQC_FILTERING.out.name, POSTQC_FILTERING.out.bam_file, POSTQC_FILTERING.out.bam_index_file)
 
     //-----------------------------------------------------
     // Summarization (SUMMARY)

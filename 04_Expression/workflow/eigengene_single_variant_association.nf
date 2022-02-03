@@ -1,6 +1,6 @@
 nextflow.enable.dsl = 2
 
-params.genotypes_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/genotypes/"
+params.genotypes_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/"
 params.design_matrix = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mapping_data.csv"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/initial_pass/"
 params.me = "ME_1"

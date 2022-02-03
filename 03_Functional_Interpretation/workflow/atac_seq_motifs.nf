@@ -1,11 +1,11 @@
 nextflow.enable.dsl = 2
 
-params.da_peak_set = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al/analysis/atac_seq/da_peak_set.csv"
-params.consensus_peak_set = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al/analysis/atac_seq/consensus_peaks.bed"
+params.da_peak_set = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/da_peak_ia_set.csv"
+params.consensus_peak_set = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/consensus_peaks.bed"
 params.genome_annotation = "/lustre/scratch118/humgen/resources/rna_seq_genomes/Homo_sapiens.GRCh38.99.gtf"
 params.genome = "/lustre/scratch118/humgen/resources/rna_seq_genomes/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 params.motifs = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt"
-params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al/analysis/atac_seq/"
+params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/immune_atlas/"
 
 //-----------------------------------------------------
 // Annotate Peaks
