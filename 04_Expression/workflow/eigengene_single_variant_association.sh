@@ -2,7 +2,7 @@
 
 export NXF_WORK=~/gains_team282/nikhil/expression/eigengene_sva/nextflow_work/
 
-for ME_NUM in 1
+for ME_NUM in {1..10}
 do
     mkdir .nextflow.ME_${ME_NUM}/
     cd .nextflow.ME_${ME_NUM}/

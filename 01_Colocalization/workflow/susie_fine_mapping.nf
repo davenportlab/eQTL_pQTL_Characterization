@@ -59,7 +59,7 @@ process AGGREGATE_CREDIBILE_SETS {
     script:
 
         """
-        echo -e "Gene\tSNP\tSNP_Prob\tCredible_Set" > chr${params.chr}_credible_sets.tsv
+        echo -e "Gene\tSNP\tSNP_Prob\tCredible_Set\tNotes" > chr${params.chr}_credible_sets.tsv
 
         cat credible_sets/*.tsv >> chr${params.chr}_credible_sets.tsv
         """

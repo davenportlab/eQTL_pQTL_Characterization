@@ -56,7 +56,7 @@ process AGGREGATE_ASSOCIATION_RESULTS {
 
 workflow {
 
-    geno_channel = Channel.fromPath("${params.genotypes_dir}/*.raw")
+    geno_channel = Channel.fromPath("${params.genotypes_dir}/eigengene_sva_genotypes_*.raw")
 
     PERFORM_ASSOCIATION_TESTS(geno_channel)
 
