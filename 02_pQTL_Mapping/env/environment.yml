@@ -1,6 +1,0 @@
-name: pqtl_mapping
-channels:
- - conda-forge
- - bioconda
-dependencies:
- - r-base >= 4.1.0

@@ -91,6 +91,7 @@ be installed:
 
 1. MEME Suite [https://meme-suite.org/meme/doc/download.html](https://meme-suite.org/meme/doc/download.html)
 2. RNA-SeQC [https://github.com/getzlab/rnaseqc](https://github.com/getzlab/rnaseqc)
+3. FINEMAP [http://www.christianbenner.com/](http://www.christianbenner.com/)
 
 ### Detailed Steps for Replication
 

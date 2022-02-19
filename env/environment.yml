@@ -22,6 +22,7 @@ dependencies:
  - bioconductor-biomart
 
 # Bioinformatics Tools
+ - cmake >= 3.20.2
  - vcftools >= 0.1.16
  - bcftools >= 1.14
  - bedtools >= 2.30.0

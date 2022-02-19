@@ -1,6 +1,6 @@
 #----------------------------------------------------------
-# Fine Mapping with SuSiE
-# Created: 14 December 2021
+# Fine Mapping with FINEMAP
+# Created: 17 February 2022
 #----------------------------------------------------------
 
 #----------------------------------------------------------
@@ -56,24 +56,31 @@ colnames(chr.geno) <- sapply(strsplit(colnames(chr.geno), "_"), function(x) { x[
 rownames(chr.geno) <- gsub("^GA", "", chr.geno[, 1])
 chr.geno[, 1] <- NULL
 
-# Load gene expression
+# Calculate Minor Allele Frequencies (MAFs)
+maf <- as.matrix(
+    apply(
+        chr.geno, 
+        2, 
+        function(x) { sum(x, na.rm=T) }
+    ) / (2 * nrow(chr.geno))
+)
+
+# Load gene expression to get number of samples
 gene.exp <- read.table("/lustre/scratch119/humgen/projects/gains_team282/eqtl/data/logcpm_864_20412_hla.txt")
-gene.exp <- t(gene.exp)
-rownames(gene.exp) <- gsub("^GA", "", rownames(gene.exp))
+n.samples <- ncol(gene.exp)
 
-# Load covariates to regress out
-covars <- read.table("/lustre/scratch119/humgen/projects/gains_team282/eqtl/data/covs_and_peer_factors.txt")
-rownames(covars) <- gsub("^GA", "", rownames(covars))
-covars <- covars %>%
-    dplyr::mutate(GAinS.ID=sapply(strsplit(rownames(covars), "_"), function(x) { x[1] })) %>%
-    dplyr::select(everything(), -Dummy)
+# Save master file for FINEMAP
+master.file <- data.frame(Locus=names(cis.eqtl.loci)) %>% 
+    dplyr::mutate(z=paste0(Locus, ".z")) %>%
+    dplyr::mutate(ld=paste0(Locus, ".ld")) %>%
+    dplyr::mutate(snp=paste0(Locus, ".snp")) %>%
+    dplyr::mutate(config=paste0(Locus, ".config")) %>%
+    dplyr::mutate(cred=paste0(Locus, ".cred")) %>%
+    dplyr::mutate(log=paste0(Locus, ".log")) %>%
+    dplyr::mutate(n_samples=n.samples) %>%
+    dplyr::select(z, ld, snp, config, cred, log, n_samples)
 
-# Reorder all data
-gene.exp <- gene.exp[rownames(covars),]
-chr.geno <- chr.geno[covars$GAinS.ID,]
-
-# Save covariates
-saveRDS(covars, "covariates.RDS")
+write.table(master.file, "master", sep=";", quote=F, row.names=F)
 
 #----------------------------------------------------------
 # Split Loci in Chromosome
@@ -83,14 +90,13 @@ saveRDS(covars, "covariates.RDS")
 doParallel::registerDoParallel(cores=16)
 foreach(locus=names(cis.eqtl.loci)) %dopar% {
 
-    eqtl.locus <- cis.eqtl.loci[[locus]] %>%
-        dplyr::arrange(position)
+    z.file <- cis.eqtl.loci[[locus]] %>%
+        dplyr::mutate(maf=maf[snp,1]) %>%
+        dplyr::select(rsid=snp, chromosome=chr, position, allele1=minor_allele, allele2=major_allele, maf, beta, se)
 
-    eqtl.locus.geno <- chr.geno[, eqtl.locus$snp]
+    eqtl.locus.geno <- chr.geno[, z.file$rsid]
+    ld.file <- cor(eqtl.locus.geno, use="pairwise.complete.obs")
 
-    eqtl.locus.exp <- gene.exp[, locus, drop=F]
-
-    saveRDS(eqtl.locus, paste0(locus, ".summary.RDS"))
-    saveRDS(eqtl.locus.geno, paste0(locus, ".genotypes.RDS"))
-    saveRDS(eqtl.locus.exp, paste0(locus, ".expression.RDS"))
+    write.table(z.file, paste0(locus, ".z"), sep=" ", quote=F, row.names=F)
+    write.table(ld.file, paste0(locus, ".ld"), sep=" ", quote=F, row.names=F, col.names=F)
 }

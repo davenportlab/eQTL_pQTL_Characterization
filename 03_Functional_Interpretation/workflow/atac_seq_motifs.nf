@@ -114,7 +114,7 @@ process DA_PEAK_SEQUENCES {
         """
 }
 
-process PEAK_MOTIF_ENRICHMENT_IA {
+process PEAK_MOTIF_ENRICHMENT_IA_UP {
 
     errorStrategy "retry"
     maxRetries 3
@@ -126,7 +126,6 @@ process PEAK_MOTIF_ENRICHMENT_IA {
     input:
         path(control_sequences)
         path(up_peak_set)
-        path(down_peak_set)
         
     output:
         path("*.enrichment.tsv")
@@ -152,7 +151,29 @@ process PEAK_MOTIF_ENRICHMENT_IA {
             touch ${up_peak_set.getSimpleName()}.up.motifs.tsv
         
         fi
+        """
+}
 
+process PEAK_MOTIF_ENRICHMENT_IA_DOWN {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "sea"
+
+    publishDir "$params.output_ia_dir/${down_peak_set.getSimpleName()}/", mode: "move"
+
+    input:
+        path(control_sequences)
+        path(down_peak_set)
+        
+    output:
+        path("*.enrichment.tsv")
+        path("*.motifs.tsv")
+    
+    script:
+
+        """
         if [ -s $down_peak_set ] && [ \$(wc -l < $down_peak_set) -gt 2 ];
         then
 
@@ -173,7 +194,7 @@ process PEAK_MOTIF_ENRICHMENT_IA {
         """
 }
 
-process PEAK_MOTIF_ENRICHMENT_RM {
+process PEAK_MOTIF_ENRICHMENT_RM_UP {
 
     errorStrategy "retry"
     maxRetries 3
@@ -185,7 +206,6 @@ process PEAK_MOTIF_ENRICHMENT_RM {
     input:
         path(control_sequences)
         path(up_peak_set)
-        path(down_peak_set)
         
     output:
         path("*.enrichment.tsv")
@@ -211,7 +231,29 @@ process PEAK_MOTIF_ENRICHMENT_RM {
             touch ${up_peak_set.getSimpleName()}.up.motifs.tsv
         
         fi
+        """
+}
 
+process PEAK_MOTIF_ENRICHMENT_RM_DOWN {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "sea"
+
+    publishDir "$params.output_na_dir/${down_peak_set.getSimpleName()}/", mode: "move"
+
+    input:
+        path(control_sequences)
+        path(down_peak_set)
+        
+    output:
+        path("*.enrichment.tsv")
+        path("*.motifs.tsv")
+    
+    script:
+
+        """
         if [ -s $down_peak_set ] && [ \$(wc -l < $down_peak_set) -gt 2 ];
         then
 
@@ -243,16 +285,24 @@ workflow {
     DA_PEAK_SEQUENCES()
 
     // Immune Atlas
-    PEAK_MOTIF_ENRICHMENT_IA(
+    PEAK_MOTIF_ENRICHMENT_IA_UP(
         DA_PEAK_SEQUENCES.out.control_sequences,
-        DA_PEAK_SEQUENCES.out.ia_up_peaks.flatten(),
+        DA_PEAK_SEQUENCES.out.ia_up_peaks.flatten()
+    )
+
+    PEAK_MOTIF_ENRICHMENT_IA_DOWN(
+        DA_PEAK_SEQUENCES.out.control_sequences,
         DA_PEAK_SEQUENCES.out.ia_down_peaks.flatten()
     )
 
     // Neutrophil Atlas
-    PEAK_MOTIF_ENRICHMENT_RM(
+    PEAK_MOTIF_ENRICHMENT_RM_UP(
         DA_PEAK_SEQUENCES.out.control_sequences,
-        DA_PEAK_SEQUENCES.out.rm_up_peaks.flatten(),
+        DA_PEAK_SEQUENCES.out.rm_up_peaks.flatten()
+    )
+
+    PEAK_MOTIF_ENRICHMENT_RM_DOWN(
+        DA_PEAK_SEQUENCES.out.control_sequences,
         DA_PEAK_SEQUENCES.out.rm_down_peaks.flatten()
     )
 }
