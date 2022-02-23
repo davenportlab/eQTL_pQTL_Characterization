@@ -1,5 +1,3 @@
-UniProt data retrieved from https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/ on October 25 2021
-
 Ensembl Assembly retrieved from http://ftp.ensembl.org/pub/assembly_mapping/homo_sapiens/ on October 28 2021
 
 integrated_call_samples_v3.20200731.ALL.ped retrieved from http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/ on November 2 2021 

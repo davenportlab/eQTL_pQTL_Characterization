@@ -25,6 +25,9 @@ cred_output = {
     'k': list(),
     'Post_Prob_k': list(),
     'Credibility_Set': list(),
+    'Credibility_Set_Min_LD': list(),
+    'Credibility_Set_Mean_LD': list(),
+    'Credibility_Set_Median_LD': list(),
     'SNP': list(),
     'Prob_SNP_in_CS': list()
 }
@@ -35,11 +38,25 @@ for file_name in os.listdir('credible_sets/'):
 
     gene_name = re.sub('\\.cred.*', '', file_name)
 
+    cred_min_ld = list()
+    cred_mean_ld = list()
+    cred_median_ld = list()
+
     with open(file_path, 'r') as file_in:
         
         first_line = file_in.readline().strip()
         k = int(re.sub('\).*', '', re.sub('.* is ', '', first_line)))
         k_post_prob = float(re.sub('.*= ', '', first_line))
+
+        file_in.readline()  # Skip second line containing log(Bayes Factor)
+
+        min_ld_line = file_in.readline().strip()
+        mean_ld_line = file_in.readline().strip()
+        median_ld_line = file_in.readline().strip()
+
+        cred_min_ld = [float(x) for i, x in enumerate(re.sub('.*\) ', '', min_ld_line).split()) if i % 2 == 0]
+        cred_mean_ld = [float(x) for i, x in enumerate(re.sub('.*\) ', '', mean_ld_line).split()) if i % 2 == 0]
+        cred_median_ld = [float(x) for i, x in enumerate(re.sub('.*\) ', '', median_ld_line).split()) if i % 2 == 0]
 
     cred = pd.read_csv(file_path, sep=' ', skiprows=5, index_col=0)
 
@@ -52,6 +69,9 @@ for file_name in os.listdir('credible_sets/'):
         cred_output['k'] += [k] * n_snps
         cred_output['Post_Prob_k'] += [k_post_prob] * n_snps
         cred_output['Credibility_Set'] += [signal + 1] * n_snps
+        cred_output['Credibility_Set_Min_LD'] += [cred_min_ld[signal]] * n_snps
+        cred_output['Credibility_Set_Mean_LD'] += [cred_mean_ld[signal]] * n_snps
+        cred_output['Credibility_Set_Median_LD'] += [cred_median_ld[signal]] * n_snps
         cred_output['SNP'] += signal_cred.iloc[:, 0].tolist()
         cred_output['Prob_SNP_in_CS'] += signal_cred.iloc[:, 1].tolist()
 

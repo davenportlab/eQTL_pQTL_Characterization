@@ -45,6 +45,10 @@ cis.eqtl.summary <- merge(cis.eqtl.summary, geno.bim, by="snp")
 cis.eqtl.summary$chr.y <- NULL
 setnames(cis.eqtl.summary, "chr.x", "chr")
 
+# Filter cis-eQTL to those that are significant
+cis.eqtl.summary <- cis.eqtl.summary %>%
+    dplyr::filter(gene %in% cis.eqtl$gene)
+
 # Split summary statistics by locus
 cis.eqtl.loci <- split(cis.eqtl.summary[,c("snp", "position", "beta", "se", "chr", "minor_allele", "major_allele")], cis.eqtl.summary$gene)
 
@@ -69,19 +73,6 @@ maf <- as.matrix(
 gene.exp <- read.table("/lustre/scratch119/humgen/projects/gains_team282/eqtl/data/logcpm_864_20412_hla.txt")
 n.samples <- ncol(gene.exp)
 
-# Save master file for FINEMAP
-master.file <- data.frame(Locus=names(cis.eqtl.loci)) %>% 
-    dplyr::mutate(z=paste0(Locus, ".z")) %>%
-    dplyr::mutate(ld=paste0(Locus, ".ld")) %>%
-    dplyr::mutate(snp=paste0(Locus, ".snp")) %>%
-    dplyr::mutate(config=paste0(Locus, ".config")) %>%
-    dplyr::mutate(cred=paste0(Locus, ".cred")) %>%
-    dplyr::mutate(log=paste0(Locus, ".log")) %>%
-    dplyr::mutate(n_samples=n.samples) %>%
-    dplyr::select(z, ld, snp, config, cred, log, n_samples)
-
-write.table(master.file, "master", sep=";", quote=F, row.names=F)
-
 #----------------------------------------------------------
 # Split Loci in Chromosome
 #----------------------------------------------------------
@@ -97,6 +88,17 @@ foreach(locus=names(cis.eqtl.loci)) %dopar% {
     eqtl.locus.geno <- chr.geno[, z.file$rsid]
     ld.file <- cor(eqtl.locus.geno, use="pairwise.complete.obs")
 
+    master.file <- data.frame(
+        z=paste0(locus, ".z"),
+        ld=paste0(locus, ".ld"),
+        snp=paste0(locus, ".snp"),
+        config=paste0(locus, ".config"),
+        cred=paste0(locus, ".cred"),
+        log=paste0(locus, ".log"),
+        n_samples=n.samples
+    )
+
     write.table(z.file, paste0(locus, ".z"), sep=" ", quote=F, row.names=F)
     write.table(ld.file, paste0(locus, ".ld"), sep=" ", quote=F, row.names=F, col.names=F)
+    write.table(master.file, paste0(locus, ".master"), sep=";", quote=F, row.names=F)
 }

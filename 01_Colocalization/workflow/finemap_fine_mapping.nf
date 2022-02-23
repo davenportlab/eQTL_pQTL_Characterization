@@ -8,9 +8,9 @@ process SPLIT_LOCI {
     label "Rbigmem"
 
     output:
-        path("master"), emit: master_file
-        path("*.z"),    emit: z_files
-        path("*.ld"),   emit: ld_files
+        path("*.master"),   emit: master_files
+        path("*.z"),        emit: z_files
+        path("*.ld"),       emit: ld_files
     
     script:
 
@@ -27,7 +27,7 @@ process FINE_MAPPING {
     label "finemap"
 
     input:
-        path(master_file)
+        path(master_files)
         path(z_files)
         path(ld_files)
 
@@ -39,12 +39,25 @@ process FINE_MAPPING {
     script:
 
         """
-        finemap \\
-            --sss \\
-            --in-files $master_file \\
-            --n-causal-snps 10 \\
-            --log \\
-            --n-threads $task.cpus
+        ls -1 | grep ".*\\.master" | sed s/\\.master//g > genes
+
+        while read gene; do
+
+            N_SNPS=\$(echo "\$(wc -l < \${gene}.z) - 1" | bc)
+
+            N_CAUSAL_SNPS=10
+            if [ \$N_SNPS -lt 10 ]; then
+                N_CAUSAL_SNPS=\$N_SNPS
+            fi
+
+            finemap \\
+                --sss \\
+                --in-files \${gene}.master \\
+                --n-causal-snps \$N_CAUSAL_SNPS \\
+                --log \\
+                --n-threads $task.cpus
+        
+        done <genes
         """
 }
 
@@ -78,7 +91,7 @@ workflow {
     SPLIT_LOCI()
 
     FINE_MAPPING(
-        SPLIT_LOCI.out.master_file,
+        SPLIT_LOCI.out.master_files,
         SPLIT_LOCI.out.z_files,
         SPLIT_LOCI.out.ld_files
     )
