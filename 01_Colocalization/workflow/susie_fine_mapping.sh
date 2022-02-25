@@ -2,7 +2,7 @@
 
 export NXF_WORK=~/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/SuSiE/nextflow_work/
 
-for CHR in {1..22}
+for CHR in {1..3}
 do
 
     mkdir .nextflow.CHR_${CHR}/

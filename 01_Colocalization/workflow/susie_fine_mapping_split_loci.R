@@ -61,19 +61,8 @@ gene.exp <- read.table("/lustre/scratch119/humgen/projects/gains_team282/eqtl/da
 gene.exp <- t(gene.exp)
 rownames(gene.exp) <- gsub("^GA", "", rownames(gene.exp))
 
-# Load covariates to regress out
-covars <- read.table("/lustre/scratch119/humgen/projects/gains_team282/eqtl/data/covs_and_peer_factors.txt")
-rownames(covars) <- gsub("^GA", "", rownames(covars))
-covars <- covars %>%
-    dplyr::mutate(GAinS.ID=sapply(strsplit(rownames(covars), "_"), function(x) { x[1] })) %>%
-    dplyr::select(everything(), -Dummy)
-
-# Reorder all data
-gene.exp <- gene.exp[rownames(covars),]
-chr.geno <- chr.geno[covars$GAinS.ID,]
-
-# Save covariates
-saveRDS(covars, "covariates.RDS")
+n.samples <- length(unique(sapply(strsplit(rownames(gene.exp), "_"), function(x) { x[1] })))
+saveRDS(n.samples, "n_samples.RDS")
 
 #----------------------------------------------------------
 # Split Loci in Chromosome
@@ -88,9 +77,9 @@ foreach(locus=names(cis.eqtl.loci)) %dopar% {
 
     eqtl.locus.geno <- chr.geno[, eqtl.locus$snp]
 
-    eqtl.locus.exp <- gene.exp[, locus, drop=F]
+    eqtl.locus.var.y <- var(as.numeric(gene.exp[, locus]), na.rm=T)
 
     saveRDS(eqtl.locus, paste0(locus, ".summary.RDS"))
     saveRDS(eqtl.locus.geno, paste0(locus, ".genotypes.RDS"))
-    saveRDS(eqtl.locus.exp, paste0(locus, ".expression.RDS"))
+    saveRDS(eqtl.locus.var.y, paste0(locus, ".var.y.RDS"))
 }

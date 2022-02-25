@@ -1,9 +1,29 @@
 nextflow.enable.dsl = 2
 
-params.genotypes_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/"
+params.genotypes = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/eigengene_sva_genotypes.raw"
+params.mapping_eigengenes = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mapping_eigengenes.txt"
 params.design_matrix = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mapping_data.csv"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/initial_pass/"
-params.me = "ME_1"
+
+process REGRESS_CIS_ESNPS {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "R"
+
+    output:
+        path("regressed.eigengenes.RDS"), emit: regressed_eigengenes
+    
+    script:
+
+        """
+        Rscript \\
+            $workflow.projectDir/eigengene_single_variant_association_regress_cis_esnps.R \\
+            $params.genotypes \\
+            $params.design_matrix
+        """
+}
 
 process PERFORM_ASSOCIATION_TESTS {
 
@@ -12,53 +32,39 @@ process PERFORM_ASSOCIATION_TESTS {
 
     label "R"
 
-    input:
-        path(genotypes_file)
-
-    output:
-        path("*.tsv"), emit: module_associations
-    
-    script:
-
-        """
-        CHR=\$(basename $genotypes_file .raw | cut -c25-26)
-
-        Rscript \\
-            $workflow.projectDir/eigengene_single_variant_association.R \\
-            $genotypes_file \\
-            $params.design_matrix \\
-            $params.me \\
-            ${params.me}_\${CHR}.tsv
-        """
-}
-
-process AGGREGATE_ASSOCIATION_RESULTS {
-
-    errorStrategy "retry"
-    maxRetries 3
-
-    label "multi_cpu_bash"
-
     publishDir "$params.output_dir/", mode: "move"
 
     input:
-        path("associations/*.tsv")
-    
-    output:
-        path("${params.me}.tsv")
+        val(me)
+        path(regressed_eigengenes)
 
+    output:
+        path("${me}.tsv"), emit: module_associations
+    
     script:
 
         """
-        cat associations/*.tsv > ${params.me}.tsv
+        Rscript \\
+            $workflow.projectDir/eigengene_single_variant_association.R \\
+            $params.genotypes \\
+            $params.design_matrix \\
+            $regressed_eigengenes \\
+            $me \\
+            ${me}.tsv
         """
 }
 
 workflow {
 
-    geno_channel = Channel.fromPath("${params.genotypes_dir}/eigengene_sva_genotypes_*.raw")
+    REGRESS_CIS_ESNPS()
 
-    PERFORM_ASSOCIATION_TESTS(geno_channel)
+    me_channel = Channel
+        .fromPath("$params.mapping_eigengenes")
+        .splitText()
+        .map{ me -> me.strip() }
 
-    AGGREGATE_ASSOCIATION_RESULTS(PERFORM_ASSOCIATION_TESTS.out.module_associations.collect())
+    PERFORM_ASSOCIATION_TESTS(
+        me_channel,
+        REGRESS_CIS_ESNPS.out.regressed_eigengenes
+    )
 }

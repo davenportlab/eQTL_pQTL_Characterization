@@ -10,8 +10,8 @@ process SPLIT_LOCI {
     output:
         path("*.summary.RDS"),      emit: loci
         path("*.genotypes.RDS"),    emit: genotypes
-        path("*.expression.RDS"),   emit: expression
-        path("covariates.RDS"),     emit: covariates
+        path("*.var.y.RDS"),        emit: var_y
+        path("n_samples.RDS"),      emit: n_samples
     
     script:
 
@@ -30,8 +30,8 @@ process SUSIE_FINE_MAPPING {
     input:
         path(locus)
         path(genotypes)
-        path(expression)
-        path(covariates)
+        path(var_y)
+        path(n_samples)
 
     output:
         path("*.tsv"), emit: credible_set
@@ -39,7 +39,13 @@ process SUSIE_FINE_MAPPING {
     script:
 
         """
-        Rscript $workflow.projectDir/susie_fine_mapping.R ${locus.getSimpleName()} $locus $genotypes $expression $covariates ${locus.getSimpleName()}.tsv
+        Rscript $workflow.projectDir/susie_fine_mapping.R \\
+            ${locus.getSimpleName()} \\
+            $locus \\
+            $genotypes \\
+            $var_y \\
+            $n_samples \\
+            ${locus.getSimpleName()}.tsv
         """
 }
 
@@ -73,8 +79,8 @@ workflow {
     SUSIE_FINE_MAPPING(
         SPLIT_LOCI.out.loci.flatten(),
         SPLIT_LOCI.out.genotypes.flatten(),
-        SPLIT_LOCI.out.expression.flatten(),
-        SPLIT_LOCI.out.covariates
+        SPLIT_LOCI.out.var_y.flatten(),
+        SPLIT_LOCI.out.n_samples
     )
 
     AGGREGATE_CREDIBILE_SETS(SUSIE_FINE_MAPPING.out.credible_set.collect())

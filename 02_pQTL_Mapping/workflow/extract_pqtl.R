@@ -47,14 +47,64 @@ colnames(geno.bim) <- c("Chr", "SNP", "cM", "Position", "minor_allele", "major_a
 # Integrate SNP information with summary statistics
 summary.full <- merge(summary, geno.bim, by="SNP") %>%
     dplyr::select(SNP, Chr, Position, pQTL_beta, pQTL_SE, pQTL_t, pQTL_pval, pQTL_Protein=Protein) %>%
-    dplyr::arrange(Chr, Position)
+    dplyr::mutate(Chr = as.integer(Chr)) %>%
+    dplyr::arrange(Chr, Position) %>%
+    dplyr::filter(Chr != 23)
+
+# Save processed pQTL mapping results
+protein.uniprot <- summary.full$Protein[1]
+saveRDS(summary.full, paste0("/nfs/users/nfs_n/nm18/gains_team282/proteomics/pqtl/pqtl_ms2019/processed/", protein.uniprot, ".RDS"))
+
+#----------------------------------------------------------
+# Extract cis-pQTL Region
+#----------------------------------------------------------
+
+protein.metadata <- metadata %>%
+    dplyr::filter(Accession == summary$Protein[1]) %>%
+    dplyr::filter(!is.na(tss))
+
+if (nrow(protein.metadata) > 0) {
+    
+    window.size <- 2e6
+
+    cis.pqtl.summary <- do.call(rbind, mclapply(1:nrow(protein.metadata), function(i) {
+
+        summary.full %>%
+            dplyr::filter(Chr == protein.metadata$seqname[i]) %>%
+            dplyr::filter(Position >= protein.metadata$tss[i] - (window.size / 2) + 1) %>%
+            dplyr::filter(Position <= protein.metadata$tss[i] + (window.size / 2)) %>%
+            dplyr::mutate(Gene = protein.metadata$gene_id[i])
+    }, mc.cores=16))
+} else {
+
+    cis.pqtl.summary <- data.frame()
+}
+
+saveRDS(cis.pqtl.summary, "cis.pqtl.summary.RDS")
 
 #----------------------------------------------------------
 # Identify pQTL
 #----------------------------------------------------------
 
-threshold <- 0.05 / (n.proteins * nrow(summary.full))
-window.size <- 1e6
+# If the gene has a TSS, remove 5 Mb region flanking TSS to avoid cis associations
+if (nrow(protein.metadata) > 0) {
+
+    window.size <- 5e6
+
+    tss.flanks <- data.frame(chr=protein.metadata$seqname, tss=protein.metadata$tss) %>%
+        dplyr::mutate(start=tss - (window.size / 2) + 1) %>%
+        dplyr::mutate(end=tss + (window.size / 2)) %>%
+        makeGRangesFromDataFrame(keep.extra.columns=TRUE)
+    
+    summary.full.overlaps <- summary.full %>%
+        makeGRangesFromDataFrame(start.field="Position", end.field="Position", keep.extra.columns=TRUE) %>%
+        findOverlaps(., tss.flanks)
+    
+    summary.full <- summary.full[-summary.full.overlaps@from,]
+}
+
+threshold <- 5e-8 / n.proteins
+window.size <- 2e6
 
 pqtl.loci <- summary.full[summary.full$pQTL_pval < threshold,] %>%
     dplyr::mutate(start=Position - (window.size / 2) + 1) %>%
@@ -82,31 +132,4 @@ if (nrow(pqtl.loci) > 0) {
     pqtl.summary <- data.frame()
 }
 
-saveRDS(pqtl.summary, "pqtl.summary.RDS")
-
-#----------------------------------------------------------
-# Extract cis-pQTL Region
-#----------------------------------------------------------
-
-protein.metadata <- metadata %>%
-    dplyr::filter(Accession == summary$Protein[1]) %>%
-    dplyr::filter(!is.na(tss))
-
-if (nrow(protein.metadata) > 0) {
-    
-    window.size <- 1e6
-
-    cis.pqtl.summary <- do.call(rbind, mclapply(1:nrow(protein.metadata), function(i) {
-
-        summary.full %>%
-            dplyr::filter(Chr == protein.metadata$seqname[i]) %>%
-            dplyr::filter(Position >= protein.metadata$tss[i] - (window.size / 2) + 1) %>%
-            dplyr::filter(Position <= protein.metadata$tss[i] + (window.size / 2)) %>%
-            dplyr::mutate(Gene = protein.metadata$gene_id[i])
-    }, mc.cores=16))
-} else {
-
-    cis.pqtl.summary <- data.frame()
-}
-
-saveRDS(cis.pqtl.summary, "cis.pqtl.summary.RDS")
+saveRDS(pqtl.summary, "trans.pqtl.summary.RDS")

@@ -20,11 +20,11 @@ options(stringsAsFactors = FALSE)
 # Load Data
 #----------------------------------------------------------
 
-wg.pqtl <- do.call(rbind, mclapply(list.files("wg_pqtl/"), function(file.name) {
-    readRDS(paste0("wg_pqtl/", file.name))
+wg.pqtl <- do.call(rbind, mclapply(list.files("trans_pqtl/"), function(file.name) {
+    readRDS(paste0("trans_pqtl/", file.name))
 }, mc.cores=16))
 
-saveRDS(wg.pqtl, "whole_genome_pqtl_all.RDS")
+saveRDS(wg.pqtl, "trans_pqtl_all.RDS")
 
 cis.pqtl <- do.call(rbind, mclapply(list.files("cis_pqtl/"), function(file.name) {
     readRDS(paste0("cis_pqtl/", file.name))

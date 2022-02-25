@@ -12,7 +12,7 @@ process FIND_PQTL {
         tuple(val(protein_name), path("summary_stats/*"))
 
     output:
-        path("pqtl.summary.RDS"),       emit: wg_pqtl_summary
+        path("trans.pqtl.summary.RDS"), emit: trans_pqtl_summary
         path("cis.pqtl.summary.RDS"),   emit: cis_pqtl_summary
 
     script:
@@ -29,11 +29,11 @@ process AGGREGATE_PQTL {
     publishDir "$params.output_dir/", mode: "move"
 
     input:
-        path("wg_pqtl/*.RDS")
+        path("trans_pqtl/*.RDS")
         path("cis_pqtl/*.RDS")
     
     output:
-        path("whole_genome_pqtl_all.RDS")
+        path("trans_pqtl_all.RDS")
         path("cis_pqtl_all.RDS")
 
     script:
@@ -50,7 +50,7 @@ workflow {
     FIND_PQTL(summary_files)
 
     AGGREGATE_PQTL(
-        FIND_PQTL.out.wg_pqtl_summary.collect(),
+        FIND_PQTL.out.trans_pqtl_summary.collect(),
         FIND_PQTL.out.cis_pqtl_summary.collect()
     )
 }
