@@ -5,26 +5,6 @@ params.mapping_eigengenes = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expressi
 params.design_matrix = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mapping_data.csv"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/initial_pass/"
 
-process REGRESS_CIS_ESNPS {
-
-    errorStrategy "retry"
-    maxRetries 3
-
-    label "R"
-
-    output:
-        path("regressed.eigengenes.RDS"), emit: regressed_eigengenes
-    
-    script:
-
-        """
-        Rscript \\
-            $workflow.projectDir/eigengene_single_variant_association_regress_cis_esnps.R \\
-            $params.genotypes \\
-            $params.design_matrix
-        """
-}
-
 process PERFORM_ASSOCIATION_TESTS {
 
     errorStrategy "retry"
@@ -36,7 +16,6 @@ process PERFORM_ASSOCIATION_TESTS {
 
     input:
         val(me)
-        path(regressed_eigengenes)
 
     output:
         path("${me}.tsv"), emit: module_associations
@@ -48,7 +27,6 @@ process PERFORM_ASSOCIATION_TESTS {
             $workflow.projectDir/eigengene_single_variant_association.R \\
             $params.genotypes \\
             $params.design_matrix \\
-            $regressed_eigengenes \\
             $me \\
             ${me}.tsv
         """
@@ -56,15 +34,10 @@ process PERFORM_ASSOCIATION_TESTS {
 
 workflow {
 
-    REGRESS_CIS_ESNPS()
-
     me_channel = Channel
         .fromPath("$params.mapping_eigengenes")
         .splitText()
         .map{ me -> me.strip() }
 
-    PERFORM_ASSOCIATION_TESTS(
-        me_channel,
-        REGRESS_CIS_ESNPS.out.regressed_eigengenes
-    )
+    PERFORM_ASSOCIATION_TESTS(me_channel)
 }

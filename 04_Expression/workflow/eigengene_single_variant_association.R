@@ -18,9 +18,8 @@ library(parallel)
 args = commandArgs(trailingOnly=TRUE)
 genotypes.file <- args[1]
 design.matrix.file <- args[2]
-regressed.eigengenes.file <- args[3]
-ME <- args[4]
-output <- args[5]
+ME <- args[3]
+output <- args[4]
 
 #----------------------------------------------------------
 # Load mQTL Data
@@ -31,9 +30,6 @@ design.matrix <- read.csv(design.matrix.file)
 
 # Genotype Matrix
 genotypes <- fread(genotypes.file, sep=" ", drop=2:6)
-
-# Regressed Eigengenes
-regressed.eigengenes <- readRDS(regressed.eigengenes.file)
 
 # Clean Genotype Matrix
 patient.sample.match <- match(design.matrix$GAinS.ID, genotypes$FID)
@@ -51,10 +47,10 @@ genotype.ids <- colnames(genotypes)
 #----------------------------------------------------------
 
 # Create a full design matrix with all genotypes
-genotypes <- cbind(design.matrix, regressed.eigengenes, genotypes)
+genotypes <- cbind(design.matrix, genotypes)
 
 all.vars <- colnames(design.matrix)
-eigens <- colnames(regressed.eigengenes)
+eigens <- colnames(design.matrix)[grepl("^ME", colnames(design.matrix))]
 covs <- setdiff(setdiff(all.vars, eigens), c("Sample.ID", "GAinS.ID"))
 
 results <- rbindlist(mclapply(genotype.ids, function(snp) {

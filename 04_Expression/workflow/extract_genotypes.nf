@@ -20,8 +20,6 @@ process EXTRACT_GENOTYPES {
     script:
 
         """
-        Rscript $workflow.projectDir/extract_genotypes.R eqtl.snps.txt
-
         awk -F "," 'NR > 1 { print \$1; }' $params.mqtl_snps > mqtl.snps.txt
 
         plink \\
@@ -32,18 +30,6 @@ process EXTRACT_GENOTYPES {
             --out ./eigengene_sva_genotypes \\
             --allow-extra-chr \\
             --maf 0.01
-
-        for CHR in {1..22}
-        do  
-            plink \\
-                --bfile $params.genotypes_prefix \\
-                --keep $params.mapping_patients \\
-                --extract eqtl.snps.txt \\
-                --recode A \\
-                --out ./eqtl_genotypes_\${CHR} \\
-                --allow-extra-chr \\
-                --chr \${CHR}
-        done
         """
 }
 

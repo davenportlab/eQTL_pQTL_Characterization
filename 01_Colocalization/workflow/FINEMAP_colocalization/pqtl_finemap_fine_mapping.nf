@@ -1,7 +1,6 @@
 nextflow.enable.dsl = 2
 
-params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/FINEMAP/"
-params.chr = "1"
+params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/pqtl/fine_mapping/FINEMAP/"
 
 process SPLIT_LOCI {
 
@@ -15,7 +14,7 @@ process SPLIT_LOCI {
     script:
 
         """
-        Rscript $workflow.projectDir/finemap_fine_mapping_split_loci.R $params.chr
+        Rscript $workflow.projectDir/pqtl_finemap_fine_mapping_split_loci.R
         """
 }
 
@@ -75,13 +74,13 @@ process AGGREGATE_CREDIBILE_SETS {
         path("snps/*")
 
     output:
-        path("chr${params.chr}_credible_sets.tsv")
-        path("chr${params.chr}_pips.tsv")
+        path("*_credible_sets.tsv")
+        path("*_pips.tsv")
 
     script:
 
         """
-        python3 $workflow.projectDir/finemap_fine_mapping_aggregate.py $params.chr
+        python3 $workflow.projectDir/pqtl_finemap_fine_mapping_aggregate.py $params.chr
         """
 }
 
