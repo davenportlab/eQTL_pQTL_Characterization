@@ -18,6 +18,11 @@ dependencies:
  - r-rcolorbrewer
  - r-svglite                                    #  Required for ggplot2 SVG
 
+# Python Packages for Data Analysis
+ - numpy
+ - pandas
+ - scipy
+
 # BioConductor
  - bioconductor-biomart
 

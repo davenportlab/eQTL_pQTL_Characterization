@@ -3,6 +3,8 @@ nextflow.enable.dsl = 2
 params.geno_bim = "/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID.bim"
 params.lead_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/LD/lead_snps.80r2.tags.tsv"
 params.conditional_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/LD/conditional_snps.80r2.tags.tsv"
+params.sepsis_snps = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/sepsis_specific_gains_lead_mashr.txt"
+params.mashr_results = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/gains_gtex_mashr_results.txt"
 params.peak_counts = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/GSE118189_ATAC_counts.txt.gz"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/"
 
@@ -12,13 +14,17 @@ process PREPARE_SNP_LIST {
     label "simple_bash"
 
     output:
-        path("*_snps.txt"), emit: snps_lists
+        path("snps_lists/*.txt"), emit: snps_lists
     
     script:
 
         """
+        mkdir snps_lists/
+
         # Sort genotype information for merging in next steps
         sort -k 2,2 $params.geno_bim > sorted_genotypes.bim
+
+        ### Lead SNPs
 
         # Extract lead SNPs identified from initial cis-eQTL pass
         awk -F "\t" 'NR > 1 { print \$1; }' $params.lead_snps > lead_snp_IDs.txt
@@ -28,7 +34,9 @@ process PREPARE_SNP_LIST {
 
         # Merge with SNP information
         sort lead_snp_IDs.txt | uniq > sorted_lead_snps.txt
-        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_lead_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > lead_snps.txt
+        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_lead_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/lead_snps.txt
+
+        ### Lead SNPs from Conditional Analysis
 
         # Extract lead SNPs identified from conditional cis-eQTL pass
         awk -F "\t" 'NR > 1 { print \$1; }' $params.conditional_snps > conditional_snp_IDs.txt
@@ -38,7 +46,42 @@ process PREPARE_SNP_LIST {
 
         # Merge with SNP information
         sort conditional_snp_IDs.txt | uniq > sorted_conditional_snps.txt
-        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_conditional_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > conditional_snps.txt
+        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_conditional_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/conditional_snps.txt
+
+        ### Sepsis-Specific eSNPs
+
+        # Extract SNPs from mashR results
+        awk 'NR > 1 { print \$16; }' $params.sepsis_snps | sort | uniq > sepsis_snps.txt
+
+        # Merge with SNP LD information
+        awk 'NR > 1 { print \$0; }' $params.lead_snps | sort -k 1,1 > sorted_lead_snps.txt
+        join -2 1 -t \$'\t' sepsis_snps.txt sorted_lead_snps.txt > sepsis_snps_ld.txt
+
+        # Append SNPs that tag the lead SNPs
+        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' sepsis_snps_ld.txt | sed 's/|/\\n/g' >> sepsis_snps.txt
+
+        # Merge with SNP information
+        sort sepsis_snps.txt | uniq > sorted_sepsis_snps.txt
+        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/sepsis_snps.txt
+
+        ### Sepsis-Specific eSNPs stronger in GAinS
+
+        # Get SNP regions that are stronger in sepsis from the mashR results
+        awk 'NR > 1 { if (\$5 == "TRUE" && (\$2)^2 > (\$3)^2) { print \$1; } }' $params.mashr_results | sort > sepsis_up_snp_regions.txt
+
+        # Filter sepsis snps based on mashR results
+        grep -wFf sepsis_up_snp_regions.txt $params.sepsis_snps | awk '{ print \$16; }' | sort | uniq > sepsis_up_snps.txt
+
+        # Merge with SNP LD information
+        awk 'NR > 1 { print \$0; }' $params.lead_snps | sort -k 1,1 > sorted_lead_snps.txt
+        join -2 1 -t \$'\t' sepsis_up_snps.txt sorted_lead_snps.txt > sepsis_up_snps_ld.txt
+
+        # Append SNPs that tag the lead SNPs
+        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' sepsis_up_snps_ld.txt | sed 's/|/\\n/g' >> sepsis_up_snps.txt
+
+        # Merge with SNP information
+        sort sepsis_up_snps.txt | uniq > sorted_sepsis_up_snps.txt
+        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_sepsis_up_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/sepsis_up_snps.txt
         """
 }
 
@@ -47,7 +90,7 @@ process PREPARE_PEAKS {
     label "multi_cpu_bash"
 
     output:
-        path("*_ReadsInPeaks.txt"), emit: merged_peak_counts
+        path("peaks/*.txt"), emit: merged_peak_counts
     
     script:
 
@@ -74,6 +117,8 @@ process PREPARE_PEAKS {
 
         # Merge peak counts for each cell type
 
+        mkdir peaks/
+
         function process_cell_type {
 
             awk -v c="\${1}" '
@@ -93,7 +138,7 @@ process PREPARE_PEAKS {
                     gsub("_", "\t", \$1);
                     print \$1, sum;
                 }
-                ' peak_counts_filtered.txt > \${1}_ReadsInPeaks.txt
+                ' peak_counts_filtered.txt > peaks/\${1}.txt
         }
 
         export -f process_cell_type
@@ -119,10 +164,7 @@ process CHEERS_NORMALIZE {
 
         mkdir normalized/
 
-        python \$cheers_normalize \\
-            --input peaks/ \\
-            --prefix Calderon_et_al \\
-            --outdir normalized/
+        python \$cheers_normalize Calderon_et_al normalized/ peaks/*.txt
         """
 }
 
@@ -138,6 +180,7 @@ process CHEERS {
 
     output:
         path("cheers/*.txt")
+        path("cheers/*.log")
     
     script:
 
@@ -147,10 +190,10 @@ process CHEERS {
         mkdir cheers/
 
         python \$cheers_enrichment \\
-            --input normalized/Calderon_et_al_counts_normToMax_quantileNorm_euclideanNorm.txt \\
-            --snp_list $snps_to_test \\
-            --trait ${snps_to_test.getSimpleName()} \\
-            --outdir cheers/
+            ${snps_to_test.getSimpleName()} \\
+            cheers/ \\
+            normalized/Calderon_et_al_counts_normToMax_quantileNorm_euclideanNorm.txt \\
+            --snp_list $snps_to_test
         """
 }
 
