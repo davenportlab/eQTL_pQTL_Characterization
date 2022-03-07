@@ -5,7 +5,6 @@ export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/ne
 mkdir .nextflow.download_from_sra/
 cd .nextflow.download_from_sra/
 
-## Download after NCBI fixes RNA-Seq Data for Ram-Mohan et al.
 bsub \
     -q normal \
     -o rna_seq_output.txt \

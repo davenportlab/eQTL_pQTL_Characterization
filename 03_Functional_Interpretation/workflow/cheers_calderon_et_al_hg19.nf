@@ -1,8 +1,10 @@
 nextflow.enable.dsl = 2
 
-params.geno_bim = "/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID.bim"
+params.lead_snps_hg19 = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/lead_and_tag_snps_hg19.tsv"
+params.conditional_snps_hg19 = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/conditional_and_tag_snps_hg19.tsv"
 params.lead_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/LD/lead_snps.80r2.tags.tsv"
 params.conditional_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/LD/conditional_snps.80r2.tags.tsv"
+params.conditional_results = "/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults/conditionalanalysis/conditional_eQTL_results_final.txt"
 params.sepsis_snps = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/sepsis_specific_gains_lead_mashr.txt"
 params.mashr_results = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/gains_gtex_mashr_results.txt"
 params.peak_counts = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/GSE118189_ATAC_counts.txt.gz"
@@ -22,7 +24,8 @@ process PREPARE_SNP_LIST {
         mkdir snps_lists/
 
         # Sort genotype information for merging in next steps
-        sort -k 2,2 $params.geno_bim > sorted_genotypes.bim
+        awk 'NR > 1 { print \$0; }' $params.lead_snps_hg19 | awk 'OFS="\t" { print \$2, \$3, \$4; }' | sort -k 1,1 | uniq > sorted_lead_positions.tsv
+        awk 'NR > 1 { print \$0; }' $params.conditional_snps_hg19 | awk 'OFS="\t" { print \$2, \$3, \$4; }' | sort -k 1,1 | uniq > sorted_conditional_positions.tsv
 
         ### Lead SNPs
 
@@ -34,7 +37,7 @@ process PREPARE_SNP_LIST {
 
         # Merge with SNP information
         sort lead_snp_IDs.txt | uniq > sorted_lead_snps.txt
-        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_lead_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/lead_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_lead_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/lead_snps.txt
 
         ### Lead SNPs from Conditional Analysis
 
@@ -46,7 +49,45 @@ process PREPARE_SNP_LIST {
 
         # Merge with SNP information
         sort conditional_snp_IDs.txt | uniq > sorted_conditional_snps.txt
-        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_conditional_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/conditional_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_conditional_positions.tsv sorted_conditional_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/conditional_snps.txt
+
+        ### Lead SNPs from Conditional Analysis w/o Primary Effect
+
+        # Extract lead SNPs identified from conditional cis-eQTL pass that are not the primary effect
+        sed 's/"//g' $params.conditional_results | awk 'NR > 1 { if (\$7 > 1) { print \$2; } }' | sort | uniq > conditional_snp_IDs.txt
+
+        # Merge with SNP LD information
+        awk 'NR > 1 { print \$0; }' $params.conditional_snps | sort -k 1,1 > sorted_conditional_snps.txt
+        join -2 1 -t \$'\t' conditional_snp_IDs.txt sorted_conditional_snps.txt > conditional_snps_ld.txt
+
+        # Append SNPs that tag the lead SNPs
+        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' conditional_snps_ld.txt | sed 's/|/\\n/g' >> conditional_snp_IDs.txt
+
+        # Merge with SNP information
+        sort conditional_snp_IDs.txt | uniq > sorted_conditional_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_conditional_positions.tsv sorted_conditional_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/conditional_secondary_snps.txt
+
+        ### Lead SNPs w/o Sepsis-Specific eSNPs
+
+        # Extract lead SNPs identified from initial cis-eQTL pass
+        awk -F "\t" 'NR > 1 { print \$1; }' $params.lead_snps > lead_snp_IDs.txt
+
+        # Extract SNPs from mashR results
+        awk 'NR > 1 { print \$16; }' $params.sepsis_snps | sort | uniq > sepsis_snps.txt
+
+        # Filter lead SNPs to non-sepsis-specific eSNPs
+        grep -vwFf sepsis_snps.txt lead_snp_IDs.txt | sort | uniq > non_sepsis_snps.txt
+
+        # Merge with SNP LD information
+        awk 'NR > 1 { print \$0; }' $params.lead_snps | sort -k 1,1 > sorted_lead_snps.txt
+        join -2 1 -t \$'\t' non_sepsis_snps.txt sorted_lead_snps.txt > lead_snps_ld.txt
+
+        # Append SNPs that tag the lead SNPs
+        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' lead_snps_ld.txt | sed 's/|/\\n/g' >> non_sepsis_snps.txt
+
+        # Merge with SNP information
+        sort non_sepsis_snps.txt | uniq > sorted_non_sepsis_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_non_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/non_sepsis_snps.txt
 
         ### Sepsis-Specific eSNPs
 
@@ -62,7 +103,7 @@ process PREPARE_SNP_LIST {
 
         # Merge with SNP information
         sort sepsis_snps.txt | uniq > sorted_sepsis_snps.txt
-        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/sepsis_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/sepsis_snps.txt
 
         ### Sepsis-Specific eSNPs stronger in GAinS
 
@@ -81,7 +122,7 @@ process PREPARE_SNP_LIST {
 
         # Merge with SNP information
         sort sepsis_up_snps.txt | uniq > sorted_sepsis_up_snps.txt
-        join -1 2 -2 1 -t \$'\t' sorted_genotypes.bim sorted_sepsis_up_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$4; }' > snps_lists/sepsis_up_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_sepsis_up_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/sepsis_up_snps.txt
         """
 }
 
@@ -165,6 +206,10 @@ process CHEERS_NORMALIZE {
         mkdir normalized/
 
         python \$cheers_normalize Calderon_et_al normalized/ peaks/*.txt
+
+        python \$cheers_normalize Calderon_et_al_stimulated normalized/ peaks/*-S.txt
+
+        python \$cheers_normalize Calderon_et_al_unstimulated normalized/ peaks/*-U.txt
         """
 }
 
@@ -193,6 +238,18 @@ process CHEERS {
             ${snps_to_test.getSimpleName()} \\
             cheers/ \\
             normalized/Calderon_et_al_counts_normToMax_quantileNorm_euclideanNorm.txt \\
+            --snp_list $snps_to_test
+        
+        python \$cheers_enrichment \\
+            ${snps_to_test.getSimpleName()}_stimulated \\
+            cheers/ \\
+            normalized/Calderon_et_al_stimulated_counts_normToMax_quantileNorm_euclideanNorm.txt \\
+            --snp_list $snps_to_test
+        
+        python \$cheers_enrichment \\
+            ${snps_to_test.getSimpleName()}_unstimulated \\
+            cheers/ \\
+            normalized/Calderon_et_al_unstimulated_counts_normToMax_quantileNorm_euclideanNorm.txt \\
             --snp_list $snps_to_test
         """
 }
