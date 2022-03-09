@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=~/gains_team282/nikhil/colocalization/pqtl/fine_mapping/FINEMAP/nextflow_work/
+export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/pqtl/fine_mapping/FINEMAP/nextflow_work/
 
 
 mkdir .nextflow.pqtl_finemap_fine_mapping/

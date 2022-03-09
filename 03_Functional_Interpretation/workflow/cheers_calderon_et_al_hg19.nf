@@ -2,6 +2,7 @@ nextflow.enable.dsl = 2
 
 params.lead_snps_hg19 = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/lead_and_tag_snps_hg19.tsv"
 params.conditional_snps_hg19 = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/conditional_and_tag_snps_hg19.tsv"
+params.tss_regions_hg19 = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/tss_regions_hg19.tsv"
 params.lead_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/LD/lead_snps.80r2.tags.tsv"
 params.conditional_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/LD/conditional_snps.80r2.tags.tsv"
 params.conditional_results = "/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults/conditionalanalysis/conditional_eQTL_results_final.txt"
@@ -153,8 +154,16 @@ process PREPARE_PEAKS {
                 }
             }' peak_counts.txt > peak_counts_filtered.txt
 
+        # Filter peak count data so that only peaks in 1 Mb of an expressed gene's TSS are included
+        awk 'NR > 1 { print \$1; }' peak_counts_filtered.txt | sed 's/_/\\t/g' > filtered_peaks.bed
+        awk 'NR > 1 { print \$1 "\t" \$2 "\t" \$3; }' $params.tss_regions_hg19 > tss_regions.bed
+        bedtools intersect -a filtered_peaks.bed -b tss_regions.bed -wa -u | awk '{ print \$1 "_" \$2 "_" \$3; }' > filtered_peaks_in_cis.txt
+
+        head -n 1 peak_counts_filtered.txt > peak_counts_filtered_in_cis.txt
+        grep -wFf filtered_peaks_in_cis.txt peak_counts_filtered.txt >> peak_counts_filtered_in_cis.txt
+
         # Extract cell types
-        head peak_counts_filtered.txt -n 1 | sed 's/\\t/\\n/g' | sed 's/[0-9]\\+-//g' | sort | uniq > cell_types.txt
+        head peak_counts_filtered_in_cis.txt -n 1 | sed 's/\\t/\\n/g' | sed 's/[0-9]\\+-//g' | sort | uniq > cell_types.txt
 
         # Merge peak counts for each cell type
 
@@ -179,7 +188,7 @@ process PREPARE_PEAKS {
                     gsub("_", "\t", \$1);
                     print \$1, sum;
                 }
-                ' peak_counts_filtered.txt > peaks/\${1}.txt
+                ' peak_counts_filtered_in_cis.txt > peaks/\${1}.txt
         }
 
         export -f process_cell_type
@@ -189,6 +198,8 @@ process PREPARE_PEAKS {
 }
 
 process CHEERS_NORMALIZE {
+
+    publishDir "$params.output_dir/cheers/", mode: "copy"
 
     label "cheers"
 

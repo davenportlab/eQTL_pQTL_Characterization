@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=~/gains_team282/nikhil/data/nextflow_work/
+export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/nextflow_work/
 
 mkdir .nextflow.extract_genotypes/
 cd .nextflow.extract_genotypes/

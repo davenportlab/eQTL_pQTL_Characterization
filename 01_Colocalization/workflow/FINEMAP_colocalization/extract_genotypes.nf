@@ -27,8 +27,7 @@ process EXTRACT_GENOTYPES {
             --extract cis.pqtl.snps.txt \\
             --recode A \\
             --out ./cis_pqtl_genotypes \\
-            --allow-extra-chr \\
-            --maf 0.01
+            --allow-extra-chr
 
         plink \\
             --bfile $params.genotypes_prefix \\
@@ -36,8 +35,7 @@ process EXTRACT_GENOTYPES {
             --extract trans.pqtl.snps.txt \\
             --recode A \\
             --out ./trans_pqtl_genotypes \\
-            --allow-extra-chr \\
-            --maf 0.01
+            --allow-extra-chr
 
         for CHR in {1..22}
         do  

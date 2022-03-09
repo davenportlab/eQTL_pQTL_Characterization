@@ -56,14 +56,14 @@ trans.pqtl.loci <- split(
 cis.geno <- fread("/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/cis_pqtl_genotypes.raw", sep=" ", drop=2:6)
 cis.geno <- as.data.frame(cis.geno)
 colnames(cis.geno) <- gsub("X", "", colnames(cis.geno))
-colnames(cis.geno) <- sapply(strsplit(colnames(cis.geno), "_"), function(x) { x[1] })
+colnames(cis.geno) <- substr(colnames(cis.geno), 1, nchar(colnames(cis.geno)) - 2)
 rownames(cis.geno) <- gsub("^GA", "", cis.geno[, 1])
 cis.geno[, 1] <- NULL
 
 trans.geno <- fread("/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/trans_pqtl_genotypes.raw", sep=" ", drop=2:6)
 trans.geno <- as.data.frame(trans.geno)
 colnames(trans.geno) <- gsub("X", "", colnames(trans.geno))
-colnames(trans.geno) <- sapply(strsplit(colnames(trans.geno), "_"), function(x) { x[1] })
+colnames(trans.geno) <- substr(colnames(trans.geno), 1, nchar(colnames(trans.geno)) - 2)
 rownames(trans.geno) <- gsub("^GA", "", trans.geno[, 1])
 trans.geno[, 1] <- NULL
 
@@ -85,14 +85,17 @@ trans.maf <- as.matrix(
 )
 
 # Load gene expression to get number of samples
-protein.sample.info <- read.csv("/nfs/users/nfs_n/nm18/gains_team282/proteomics/MS2019_processed_data/sample_info_1860_MS2019.csv")
+protein.sample.info <- read.csv("/nfs/users/nfs_n/nm18/gains_team282/proteomics/MS2019_processed_data/sample_info_1860_MS2019.csv") %>%
+    dplyr::mutate(Patient = gsub("^GA", "", Patient)) %>%
+    dplyr::filter(Patient %in% rownames(cis.geno))
 n.samples <- nrow(protein.sample.info)
 
 #----------------------------------------------------------
 # Write Out Cis-pQTL Information
 #----------------------------------------------------------
 
-# Only perform fine mapping for significant cis-eQTL
+dir.create("cis_pqtl/")
+
 doParallel::registerDoParallel(cores=16)
 foreach(locus=names(cis.pqtl.loci)) %dopar% {
 
@@ -113,16 +116,17 @@ foreach(locus=names(cis.pqtl.loci)) %dopar% {
         n_samples=n.samples
     )
 
-    write.table(z.file, paste0(locus, ".z"), sep=" ", quote=F, row.names=F)
-    write.table(ld.file, paste0(locus, ".ld"), sep=" ", quote=F, row.names=F, col.names=F)
-    write.table(master.file, paste0(locus, ".master"), sep=";", quote=F, row.names=F)
+    write.table(z.file, paste0("cis_pqtl/", locus, ".z"), sep=" ", quote=F, row.names=F)
+    write.table(ld.file, paste0("cis_pqtl/", locus, ".ld"), sep=" ", quote=F, row.names=F, col.names=F)
+    write.table(master.file, paste0("cis_pqtl/", locus, ".master"), sep=";", quote=F, row.names=F)
 }
 
 #----------------------------------------------------------
 # Write Out Trans-pQTL Information
 #----------------------------------------------------------
 
-# Only perform fine mapping for significant cis-eQTL
+dir.create("trans_pqtl/")
+
 doParallel::registerDoParallel(cores=16)
 foreach(locus=names(trans.pqtl.loci)) %dopar% {
 
@@ -143,7 +147,7 @@ foreach(locus=names(trans.pqtl.loci)) %dopar% {
         n_samples=n.samples
     )
 
-    write.table(z.file, paste0(locus, ".z"), sep=" ", quote=F, row.names=F)
-    write.table(ld.file, paste0(locus, ".ld"), sep=" ", quote=F, row.names=F, col.names=F)
-    write.table(master.file, paste0(locus, ".master"), sep=";", quote=F, row.names=F)
+    write.table(z.file, paste0("trans_pqtl/", locus, ".z"), sep=" ", quote=F, row.names=F)
+    write.table(ld.file, paste0("trans_pqtl/", locus, ".ld"), sep=" ", quote=F, row.names=F, col.names=F)
+    write.table(master.file, paste0("trans_pqtl/", locus, ".master"), sep=";", quote=F, row.names=F)
 }

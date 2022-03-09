@@ -7,9 +7,12 @@ process SPLIT_LOCI {
     label "Rbigmem"
 
     output:
-        path("*.master"),   emit: master_files
-        path("*.z"),        emit: z_files
-        path("*.ld"),       emit: ld_files
+        path("cis_pqtl/*.master"),      emit: cis_master_files
+        path("cis_pqtl/*.z"),           emit: cis_z_files
+        path("cis_pqtl/*.ld"),          emit: cis_ld_files
+        path("trans_pqtl/*.master"),    emit: trans_master_files
+        path("trans_pqtl/*.z"),         emit: trans_z_files
+        path("trans_pqtl/*.ld"),        emit: trans_ld_files
     
     script:
 
@@ -26,14 +29,16 @@ process FINE_MAPPING {
     label "finemap"
 
     input:
+        val(cis_trans)
         path(master_files)
         path(z_files)
         path(ld_files)
 
     output:
-        path("*.config"), emit: config_files
-        path("*.cred*"), emit: credible_set_files
-        path("*.snp"), emit: snp_files
+        val(cis_trans),     emit: cis_trans
+        path("*.config"),   emit: config_files
+        path("*.cred*"),    emit: credible_set_files
+        path("*.snp"),      emit: snp_files
 
     script:
 
@@ -70,6 +75,7 @@ process AGGREGATE_CREDIBILE_SETS {
     label "R"
 
     input:
+        val(cis_trans)
         path("credible_sets/*")
         path("snps/*")
 
@@ -80,7 +86,7 @@ process AGGREGATE_CREDIBILE_SETS {
     script:
 
         """
-        python3 $workflow.projectDir/pqtl_finemap_fine_mapping_aggregate.py $params.chr
+        python3 $workflow.projectDir/pqtl_finemap_fine_mapping_aggregate.py $cis_trans
         """
 }
 
@@ -89,13 +95,15 @@ workflow {
 
     SPLIT_LOCI()
 
-    FINE_MAPPING(
-        SPLIT_LOCI.out.master_files,
-        SPLIT_LOCI.out.z_files,
-        SPLIT_LOCI.out.ld_files
-    )
+    cis_trans = Channel.from("cis", "trans")
+    master_files = SPLIT_LOCI.out.cis_master_files.concat(SPLIT_LOCI.out.trans_master_files)
+    z_files = SPLIT_LOCI.out.cis_z_files.concat(SPLIT_LOCI.out.trans_z_files)
+    ld_files = SPLIT_LOCI.out.cis_ld_files.concat(SPLIT_LOCI.out.trans_ld_files)
+
+    FINE_MAPPING(cis_trans, master_files, z_files, ld_files)
 
     AGGREGATE_CREDIBILE_SETS(
+        FINE_MAPPING.out.cis_trans,
         FINE_MAPPING.out.credible_set_files,
         FINE_MAPPING.out.snp_files
     )

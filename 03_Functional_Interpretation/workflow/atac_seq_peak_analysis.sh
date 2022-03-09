@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/nextflow_work/
-
 for atlas in combined immune neutrophil
 do
+
+    export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/$atlas/nextflow_work/
 
     mkdir .nextflow.atac_seq_${atlas}_peak_analysis/
     cd .nextflow.atac_seq_${atlas}_peak_analysis/
