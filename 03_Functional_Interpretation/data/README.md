@@ -8,11 +8,14 @@ included within this folder.
 ## Expected Directory Structure
 
 1. `hg38-blacklist.v2.bed` - Retrieved from [https://github.com/Boyle-Lab/Blacklist](https://github.com/Boyle-Lab/Blacklist)
-2. `41588_2019_505_MOESM6_ESM` - Retrieved from [https://www.nature.com/articles/s41588-019-0505-9#Sec30](https://www.nature.com/articles/s41588-019-0505-9#Sec30) - Supplementary Table 3
-3. `41588_2019_505_MOESM8_ESM` - Retrieved from [https://www.nature.com/articles/s41588-019-0505-9#Sec30](https://www.nature.com/articles/s41588-019-0505-9#Sec30) - Supplementary Table 5
+2. `41588_2012_BFng2205_MOESM2_ESM.xls` - Retrieved from [https://www.nature.com/articles/ng.2205](https://www.nature.com/articles/ng.2205) - Supplementary Table 1
+3. `41588_2019_505_MOESM6_ESM` - Retrieved from [https://www.nature.com/articles/s41588-019-0505-9#Sec30](https://www.nature.com/articles/s41588-019-0505-9#Sec30) - Supplementary Table 3
+4. `41588_2019_505_MOESM8_ESM` - Retrieved from [https://www.nature.com/articles/s41588-019-0505-9#Sec30](https://www.nature.com/articles/s41588-019-0505-9#Sec30) - Supplementary Table 5
+5. `1246949stables2.xlsx` - Retrieved from [https://www.science.org/doi/full/10.1126/science.1246949](https://www.science.org/doi/full/10.1126/science.1246949) - Supplementary Table 2
 4. `Ram_Mohan_et_al_2022_Table_S1.xlsx` - Retrieved from [https://www.life-science-alliance.org/content/4/8/e202000976/tab-figures-data](https://www.life-science-alliance.org/content/4/8/e202000976/tab-figures-data) - Supplementary Table 1
 5. The `collapse_annotation.py` script from GTEx (Retrieved from [https://github.com/broadinstitute/gtex-pipeline/tree/master/gene_model](https://github.com/broadinstitute/gtex-pipeline/tree/master/gene_model)) was used to collapse the Ensembl 99 annotation file. This generated the `Homo_sapiens.GRCh38.99.collapsed.gtf` file.
-6. `hg19ToHg38.over.chain` - Retrieved from [http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/). Used `gunzip hg19ToHg38.over.chain.gz` to unzip the file.
-7. `hg38ToHg19.over.chain` - Retrieved from [https://hgdownload.soe.ucsc.edu/goldenPath/hg38/liftOver/](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/liftOver/). Used `gunzip hg38ToHg19.over.chain.gz` to unzip the file.
-8. `GSE118189_ATAC_counts.txt.gz` - Retrieved from [https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118189](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118189).
-9. `JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt` - Retrieved from [https://jaspar.genereg.net/download/data/2022/CORE/JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt](https://jaspar.genereg.net/download/data/2022/CORE/JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt).
+6. `hg18ToHg19.over.chain` - Retrieved from [https://hgdownload.cse.ucsc.edu/goldenPath/hg18/liftOver/](https://hgdownload.cse.ucsc.edu/goldenPath/hg18/liftOver/). Used `gunzip hg18ToHg19.over.chain.gz` to unzip the file.
+7. `hg19ToHg38.over.chain` - Retrieved from [http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/](http://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/). Used `gunzip hg19ToHg38.over.chain.gz` to unzip the file.
+8. `hg38ToHg19.over.chain` - Retrieved from [https://hgdownload.soe.ucsc.edu/goldenPath/hg38/liftOver/](https://hgdownload.soe.ucsc.edu/goldenPath/hg38/liftOver/). Used `gunzip hg38ToHg19.over.chain.gz` to unzip the file.
+9. `GSE118189_ATAC_counts.txt.gz` - Retrieved from [https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118189](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118189).
+10. `JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt` - Retrieved from [https://jaspar.genereg.net/download/data/2022/CORE/JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt](https://jaspar.genereg.net/download/data/2022/CORE/JASPAR2022_CORE_vertebrates_non-redundant_pfms_meme.txt).

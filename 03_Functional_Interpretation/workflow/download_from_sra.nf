@@ -43,6 +43,9 @@ process DUMP_FASTQ {
             """
             fasterq-dump --threads $task.cpus $run
 
+            sed -i -r 's/(^[\\@\\+]SRR\\S+)/\\1\\.1/' ${run}_1.fastq
+            sed -i -r 's/(^[\\@\\+]SRR\\S+)/\\1\\.2/' ${run}_2.fastq
+
             gzip ${run}_1.fastq
             gzip ${run}_2.fastq
 

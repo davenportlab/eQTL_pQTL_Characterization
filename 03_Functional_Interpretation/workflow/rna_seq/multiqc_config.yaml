@@ -1,0 +1,6 @@
+fn_clean_exts:
+  - ".bam"
+  - ".fastq"
+  - ".filtered"
+  - "_val_1"
+  - "_val_2"

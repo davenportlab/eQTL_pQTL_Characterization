@@ -12,6 +12,22 @@ params.peak_counts = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functi
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/"
 
 
+process POSITIVE_CONTROL_EQTL_STUDIES {
+
+    label "R"
+
+    output:
+        path("snps_lists/*.txt"), emit: snps_lists
+    
+    script:
+
+        """
+        mkdir snps_lists/
+
+        Rscript $workflow.projectDir/cheers_calderon_et_al_hg19_positive_controls.R
+        """
+}
+
 process PREPARE_SNP_LIST {
 
     label "simple_bash"
@@ -33,9 +49,6 @@ process PREPARE_SNP_LIST {
         # Extract lead SNPs identified from initial cis-eQTL pass
         awk -F "\t" 'NR > 1 { print \$1; }' $params.lead_snps > lead_snp_IDs.txt
 
-        # Append SNPs that tag the lead SNPs with R^2 > 0.8
-        awk -F "\t" 'NR > 1 { if (\$4 > 0) { print \$8; } }' $params.lead_snps | sed 's/|/\\n/g' >> lead_snp_IDs.txt
-
         # Merge with SNP information
         sort lead_snp_IDs.txt | uniq > sorted_lead_snps.txt
         join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_lead_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/lead_snps.txt
@@ -45,9 +58,6 @@ process PREPARE_SNP_LIST {
         # Extract lead SNPs identified from conditional cis-eQTL pass
         awk -F "\t" 'NR > 1 { print \$1; }' $params.conditional_snps > conditional_snp_IDs.txt
 
-        # Append SNPs that tag the lead SNPs with R^2 > 0.8
-        awk -F "\t" 'NR > 1 { if (\$4 > 0) { print \$8; } }' $params.conditional_snps | sed 's/|/\\n/g' >> conditional_snp_IDs.txt
-
         # Merge with SNP information
         sort conditional_snp_IDs.txt | uniq > sorted_conditional_snps.txt
         join -1 1 -2 1 -t \$'\t' sorted_conditional_positions.tsv sorted_conditional_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/conditional_snps.txt
@@ -56,13 +66,6 @@ process PREPARE_SNP_LIST {
 
         # Extract lead SNPs identified from conditional cis-eQTL pass that are not the primary effect
         sed 's/"//g' $params.conditional_results | awk 'NR > 1 { if (\$7 > 1) { print \$2; } }' | sort | uniq > conditional_snp_IDs.txt
-
-        # Merge with SNP LD information
-        awk 'NR > 1 { print \$0; }' $params.conditional_snps | sort -k 1,1 > sorted_conditional_snps.txt
-        join -2 1 -t \$'\t' conditional_snp_IDs.txt sorted_conditional_snps.txt > conditional_snps_ld.txt
-
-        # Append SNPs that tag the lead SNPs
-        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' conditional_snps_ld.txt | sed 's/|/\\n/g' >> conditional_snp_IDs.txt
 
         # Merge with SNP information
         sort conditional_snp_IDs.txt | uniq > sorted_conditional_snps.txt
@@ -79,32 +82,16 @@ process PREPARE_SNP_LIST {
         # Filter lead SNPs to non-sepsis-specific eSNPs
         grep -vwFf sepsis_snps.txt lead_snp_IDs.txt | sort | uniq > non_sepsis_snps.txt
 
-        # Merge with SNP LD information
-        awk 'NR > 1 { print \$0; }' $params.lead_snps | sort -k 1,1 > sorted_lead_snps.txt
-        join -2 1 -t \$'\t' non_sepsis_snps.txt sorted_lead_snps.txt > lead_snps_ld.txt
-
-        # Append SNPs that tag the lead SNPs
-        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' lead_snps_ld.txt | sed 's/|/\\n/g' >> non_sepsis_snps.txt
-
         # Merge with SNP information
-        sort non_sepsis_snps.txt | uniq > sorted_non_sepsis_snps.txt
-        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_non_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/non_sepsis_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv non_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/non_sepsis_snps.txt
 
         ### Sepsis-Specific eSNPs
 
         # Extract SNPs from mashR results
         awk 'NR > 1 { print \$16; }' $params.sepsis_snps | sort | uniq > sepsis_snps.txt
 
-        # Merge with SNP LD information
-        awk 'NR > 1 { print \$0; }' $params.lead_snps | sort -k 1,1 > sorted_lead_snps.txt
-        join -2 1 -t \$'\t' sepsis_snps.txt sorted_lead_snps.txt > sepsis_snps_ld.txt
-
-        # Append SNPs that tag the lead SNPs
-        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' sepsis_snps_ld.txt | sed 's/|/\\n/g' >> sepsis_snps.txt
-
         # Merge with SNP information
-        sort sepsis_snps.txt | uniq > sorted_sepsis_snps.txt
-        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/sepsis_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sepsis_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/sepsis_snps.txt
 
         ### Sepsis-Specific eSNPs stronger in GAinS
 
@@ -114,16 +101,41 @@ process PREPARE_SNP_LIST {
         # Filter sepsis snps based on mashR results
         grep -wFf sepsis_up_snp_regions.txt $params.sepsis_snps | awk '{ print \$16; }' | sort | uniq > sepsis_up_snps.txt
 
-        # Merge with SNP LD information
-        awk 'NR > 1 { print \$0; }' $params.lead_snps | sort -k 1,1 > sorted_lead_snps.txt
-        join -2 1 -t \$'\t' sepsis_up_snps.txt sorted_lead_snps.txt > sepsis_up_snps_ld.txt
+        # Merge with SNP information
+        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sepsis_up_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/sepsis_up_snps.txt
+        """
+}
 
-        # Append SNPs that tag the lead SNPs
-        awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' sepsis_up_snps_ld.txt | sed 's/|/\\n/g' >> sepsis_up_snps.txt
+process PREPARE_SNP_LIST_IN_LD {
+
+    label "simple_bash"
+
+    input:
+        path(snp_list)
+
+    output:
+        path("snps_lists/*.txt"), emit: snps_lists
+    
+    script:
+
+        """
+        mkdir snps_lists/
+        cp $snp_list snps_lists/$snp_list
+
+        # Sort genotype information for merging in next steps
+        awk 'NR > 1 { print \$0; }' $params.lead_snps_hg19 $params.conditional_snps_hg19 | awk 'OFS="\t" { print \$2, \$3, \$4; }' | sort -k 1,1 | uniq > sorted_positions.tsv
+
+        # Merge LD information from lead and conditional analyses
+        awk 'NR > 1 { print \$0; }' $params.lead_snps $params.conditional_snps | sort -k 1,1 | uniq > snp_ld_info.txt
+
+        # Extract only the SNPs from the SNP list
+        awk '{ print \$1; }' $snp_list | sort | uniq > snps.txt
+
+        # Append SNPs that tag the lead SNPs with R^2 > 0.8
+        join -1 1 -2 1 -t \$'\t' snps.txt snp_ld_info.txt | awk -F "\t" '{ if (\$4 > 0) { print \$8; } }' | sed 's/|/\\n/g' | sort | uniq > snps_with_tags.txt
 
         # Merge with SNP information
-        sort sepsis_up_snps.txt | uniq > sorted_sepsis_up_snps.txt
-        join -1 1 -2 1 -t \$'\t' sorted_lead_positions.tsv sorted_sepsis_up_snps.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/sepsis_up_snps.txt
+        join -1 1 -2 1 -t \$'\t' sorted_positions.tsv snps_with_tags.txt | awk -F "\t" 'OFS="\t" { print \$1, "chr" \$2, \$3; }' > snps_lists/${snp_list.getSimpleName()}_ld.txt
         """
 }
 
@@ -268,14 +280,22 @@ process CHEERS {
 
 workflow {
 
+    POSITIVE_CONTROL_EQTL_STUDIES()
+
     PREPARE_SNP_LIST()
+
+    PREPARE_SNP_LIST_IN_LD(PREPARE_SNP_LIST.out.snps_lists.flatten())
 
     PREPARE_PEAKS()
 
     CHEERS_NORMALIZE(PREPARE_PEAKS.out.merged_peak_counts)
 
+    all_snp_lists = PREPARE_SNP_LIST_IN_LD.out.snps_lists
+        .concat(POSITIVE_CONTROL_EQTL_STUDIES.out.snps_lists)
+        .flatten()
+
     CHEERS(
-        PREPARE_SNP_LIST.out.snps_lists.flatten(),
+        all_snp_lists,
         CHEERS_NORMALIZE.out.normalized_data
     )
 }
