@@ -7,7 +7,7 @@ cd .nextflow.04_atac_seq_sample_peak_analysis/
 
 bsub \
     -q long \
-    -o calderon_et_al_atac_seq_sample_peak_analysis_output.txt \
-    -e calderon_et_al_atac_seq_sample_peak_analysis_error.txt \
+    -o atac_seq_sample_peak_analysis_output.txt \
+    -e atac_seq_sample_peak_analysis_error.txt \
     -R"select[mem>8192] rusage[mem=8192]" -M8192 \
     "nextflow ../04_atac_seq_sample_peak_analysis.nf"

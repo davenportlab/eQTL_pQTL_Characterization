@@ -34,7 +34,7 @@ process MERGE_REPLICATES {
         samtools index -@ $task.cpus ${name}.bam
 
         # Sort reads by name, making it easier to count using featureCounts
-        samtools sort -m 1G -@ $task.cpus ${name}.bam > ${name}.sortedByName.bam
+        repair -i ${name}.bam -o ${name}.sortedByName.bam -t -T 4
         """
 }
 

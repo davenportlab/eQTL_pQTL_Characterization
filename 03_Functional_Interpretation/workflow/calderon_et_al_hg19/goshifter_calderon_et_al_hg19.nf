@@ -8,7 +8,8 @@ params.conditional_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocaliza
 params.conditional_results = "/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults/conditionalanalysis/conditional_eQTL_results_final.txt"
 params.sepsis_snps = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/sepsis_specific_gains_lead_mashr.txt"
 params.mashr_results = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/gains_gtex_mashr_results.txt"
-params.peak_counts = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/GSE118189_ATAC_counts.txt.gz"
+params.da_peaks = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/data/41588_2019_505_MOESM6_ESM"
+params.goshifter_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/bin/goshifter/"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/calderon_et_al_hg19/"
 
 
@@ -24,7 +25,7 @@ process POSITIVE_CONTROL_EQTL_STUDIES {
         """
         mkdir snps_lists/
 
-        Rscript $workflow.projectDir/cheers_calderon_et_al_hg19_positive_controls.R
+        Rscript $workflow.projectDir/calderon_et_al_hg19_positive_controls.R
         """
 }
 
@@ -139,141 +140,52 @@ process PREPARE_SNP_LIST_IN_LD {
         """
 }
 
-process PREPARE_PEAKS {
+process DA_PEAK_ANNOTATION_SETS {
 
-    label "multi_cpu_bash"
+    label "simple_bash"
 
     output:
-        path("peaks/*.txt"), emit: merged_peak_counts
+        path("annotations/*.bed.gz")
     
     script:
 
         """
-        # Copy over data to Lustre
-        cp $params.peak_counts peak_counts.txt.gz
-        gunzip peak_counts.txt.gz
+        mkdir annotations/
 
-        # Filter peak count data so that only peaks with at least one read in one sample are included
-        awk '
-            NR == 1 { print \$0; }
-            NR > 1 {
-                sum = 0;
-                for (i = 2; i <= NF; i++) {
-                    sum += \$i;
-                }
-                if (sum > 0) {
-                    print \$0;
-                }
-            }' peak_counts.txt > peak_counts_filtered.txt
+        awk 'NR > 1 { print \$8; }' $params.da_peaks | sort | uniq > contrasts.txt
 
-        # Filter peak count data so that only peaks in 1 Mb of an expressed gene's TSS are included
-        awk 'NR > 1 { print \$1; }' peak_counts_filtered.txt | sed 's/_/\\t/g' > filtered_peaks.bed
-        awk 'NR > 1 { print \$1 "\t" \$2 "\t" \$3; }' $params.tss_regions_hg19 > tss_regions.bed
-        bedtools intersect -a filtered_peaks.bed -b tss_regions.bed -wa -u | awk '{ print \$1 "_" \$2 "_" \$3; }' > filtered_peaks_in_cis.txt
-
-        head -n 1 peak_counts_filtered.txt > peak_counts_filtered_in_cis.txt
-        grep -wFf filtered_peaks_in_cis.txt peak_counts_filtered.txt >> peak_counts_filtered_in_cis.txt
-
-        # Extract cell types
-        head peak_counts_filtered_in_cis.txt -n 1 | sed 's/\\t/\\n/g' | sed 's/[0-9]\\+-//g' | sort | uniq > cell_types.txt
-
-        # Merge peak counts for each cell type
-
-        mkdir peaks/
-
-        function process_cell_type {
-
-            awk -v c="\${1}" '
-                OFS="\t",
-                NR == 1 {
-                    for (i = 1; i <= NF; i++) {
-                        if (\$i ~ c) {
-                            matching_columns[\$i] = i + 1;
-                        }
-                    }
-                }
-                NR > 1 {
-                    sum = 0;
-                    for (key in matching_columns) {
-                        sum += \$(matching_columns[key]);
-                    }
-                    gsub("_", "\t", \$1);
-                    print \$1, sum;
-                }
-                ' peak_counts_filtered_in_cis.txt > peaks/\${1}.txt
-        }
-
-        export -f process_cell_type
-
-        parallel -a cell_types.txt process_cell_type
+        while read contrast
+        do
+            awk -v c="\$contrast" 'NR > 1 { if (\$8 == c) { gsub(/_/, "\t", \$7); print \$7; } }' $params.da_peaks > annotations/\${contrast}.bed
+            gzip annotations/\${contrast}.bed
+        done <contrasts.txt
         """
 }
 
-process CHEERS_NORMALIZE {
-
-    publishDir "$params.output_dir/cheers/", mode: "copy"
-
-    label "cheers"
-
-    input:
-        path("peaks/*")
-    
-    output:
-        path("normalized/*.txt"), emit: normalized_data
-
-    script:
-
-        """
-        cheers_normalize=\$(which CHEERS_normalize.py)
-
-        mkdir normalized/
-
-        python \$cheers_normalize Calderon_et_al normalized/ peaks/*.txt
-
-        python \$cheers_normalize Calderon_et_al_stimulated normalized/ peaks/*-S.txt
-
-        python \$cheers_normalize Calderon_et_al_unstimulated normalized/ peaks/*-U.txt
-        """
-}
-
-process CHEERS {
+process GO_SHIFTER {
 
     publishDir "$params.output_dir/", mode: "move"
 
-    label "cheers"
+    label "goshifter"
 
     input:
         path(snps_to_test)
-        path("normalized/*")
 
     output:
-        path("cheers/*.txt")
-        path("cheers/*.log")
-    
+        path("goshifter/*.txt")
+        path("goshifter/*.log")
+
     script:
 
         """
-        cheers_enrichment=\$(which CHEERS_computeEnrichment.py)
+        mkdir goshifter/
 
-        mkdir cheers/
+        echo -e "SNP\tChrom\tBP" > snps.txt
+        cat $snps_to_test >> snps.txt
 
-        python \$cheers_enrichment \\
-            ${snps_to_test.getSimpleName()} \\
-            cheers/ \\
-            normalized/Calderon_et_al_counts_normToMax_quantileNorm_euclideanNorm.txt \\
-            --snp_list $snps_to_test
-        
-        python \$cheers_enrichment \\
-            ${snps_to_test.getSimpleName()}_stimulated \\
-            cheers/ \\
-            normalized/Calderon_et_al_stimulated_counts_normToMax_quantileNorm_euclideanNorm.txt \\
-            --snp_list $snps_to_test
-        
-        python \$cheers_enrichment \\
-            ${snps_to_test.getSimpleName()}_unstimulated \\
-            cheers/ \\
-            normalized/Calderon_et_al_unstimulated_counts_normToMax_quantileNorm_euclideanNorm.txt \\
-            --snp_list $snps_to_test
+
+
+        python $params.goshifter_dir/goshifter.py 
         """
 }
 
@@ -286,16 +198,9 @@ workflow {
 
     PREPARE_SNP_LIST_IN_LD(PREPARE_SNP_LIST.out.snps_lists.flatten())
 
-    PREPARE_PEAKS()
-
-    CHEERS_NORMALIZE(PREPARE_PEAKS.out.merged_peak_counts)
-
     all_snp_lists = PREPARE_SNP_LIST_IN_LD.out.snps_lists
         .concat(POSITIVE_CONTROL_EQTL_STUDIES.out.snps_lists)
         .flatten()
 
-    CHEERS(
-        all_snp_lists,
-        CHEERS_NORMALIZE.out.normalized_data
-    )
+    GO_SHIFTER(all_snp_lists)
 }

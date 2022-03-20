@@ -47,6 +47,7 @@ dependencies:
  - plink >= 1.90b6.21
  - homer >= 4.11
  - meme >= 5.4.1
+ - gcta >= 1.93.2beta
  - r-wgcna
  - bioconductor-go.db                           #  Required for WGCNA
  - bioconductor-impute                          #  Required for WGCNA

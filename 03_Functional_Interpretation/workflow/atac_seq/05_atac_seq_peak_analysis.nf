@@ -80,11 +80,10 @@ process AGGREGATE_FRAGMENT_COUNTS {
         do
             awk 'NR>1 { print \$7; }' \$counts_file > \${counts_file}.part
             sed -i "1s:.*/::" \${counts_file}.part
+            sed -i 's/.sortedByName.bam//g' \${counts_file}.part
         done
 
         paste $params.peak_saf counts/*.part > peak_counts.tsv
-
-        chmod 444 peak_counts.tsv
 
         echo -e "Sample_File\tAssigned_Reads\tTotal_Reads\tFRiP" > peak_frips.tsv
 
@@ -95,11 +94,10 @@ process AGGREGATE_FRAGMENT_COUNTS {
             assigned_reads=\$(awk 'NR==2 { print \$2; }' \$summaries_file)
             frip=\$(echo "\$assigned_reads / \$total_reads" | bc -l)
             echo -e "\$sample_file\t\$assigned_reads\t\$total_reads\t\$frip" > \${summaries_file}.part
+            sed -i 's/.sortedByName.bam//g' \${summaries_file}.part
         done
 
         cat summaries/*.part >> peak_frips.tsv
-
-        chmod 444 peak_frips.tsv
 
         echo -e "Sample_File\tAssigned_Reads\tTotal_Reads\tFRiP" > macs2_peak_frips.tsv
 
@@ -110,11 +108,10 @@ process AGGREGATE_FRAGMENT_COUNTS {
             assigned_reads=\$(awk 'NR==2 { print \$2; }' \$summaries_file)
             frip=\$(echo "\$assigned_reads / \$total_reads" | bc -l)
             echo -e "\$sample_file\t\$assigned_reads\t\$total_reads\t\$frip" > \${summaries_file}.part
+            sed -i 's/.sortedByName.bam//g' \${summaries_file}.part
         done
 
         cat macs2_summaries/*.part >> macs2_peak_frips.tsv
-
-        chmod 444 macs2_peak_frips.tsv
         """
 }
 
