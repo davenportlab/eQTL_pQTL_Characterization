@@ -1,4 +1,4 @@
-# Colocalization Workflow
+# Colocalization Workflow
 
 1. `scripts/gains_eqtl_data_preparation.R` - Prepare eQTL data for conversion from GRCh38 to GRCh37 
 coordinates. Save standard deviation of expression data.
@@ -11,7 +11,7 @@ Calcualte standard deviation of the expression data.
 5. `scripts/coloc_ocv_assumption.R` - Run the original version of COLOC with sensitivity analysis.
 6. `scripts/coloc_susie.R` - Run COLOC with SuSiE.
 
-## Extraction Plan
+## Extraction Plan
 
 1. R to convert rsIDs to position/base format
 2. R to prepare eQTL and pQTL data (no need to convert to GRCh37)
