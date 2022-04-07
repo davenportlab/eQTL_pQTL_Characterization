@@ -2,7 +2,7 @@
 
 export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/conditional_effects/LD/nextflow_work/
 
-for CHR in 6
+for CHR in {1..6}
 do
 
     mkdir .nextflow.eqtl_conditional_effects_ld_chr_${CHR}/

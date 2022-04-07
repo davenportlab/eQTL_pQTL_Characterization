@@ -47,40 +47,13 @@ process RUN_COJO {
     script:
 
         """
-        cat locus_files/*.cond.snps | sort | uniq > signal_snps.txt
-
-        plink \\
-            --bfile $params.genotypes \\
-            --keep $eqtl_individuals \\
-            --extract locus_files/${locus}.snps \\
-            --r2 \\
-            --ld-snp-list signal_snps.txt \\
-            --ld-window-kb 2000 \\
-            --ld-window 99999 \\
-            --ld-window-r2 0.9 \\
-            --allow-extra-chr
-
-        awk 'NR > 1 { print \$6; }' plink.ld | sort | uniq > signal_ld_snps.txt
-
-        grep -vwFf signal_ld_snps.txt locus_files/${locus}.snps > non_signal_snps.txt
-
-        plink \\
-            --bfile $params.genotypes \\
-            --keep $eqtl_individuals \\
-            --extract non_signal_snps.txt \\
-            --indep 99999 1 100 \\
-            --allow-extra-chr
-        
-        mv signal_snps.txt locus_files/${locus}.snps.pruned
-        grep -wFf plink.prune.in non_signal_snps.txt >> locus_files/${locus}.snps.pruned
-
         for file_name in locus_files/*.cond.snps
         do
 
             gcta64 \\
                 --bfile $params.genotypes \\
                 --keep $eqtl_individuals \\
-                --extract locus_files/${locus}.snps.pruned \\
+                --extract locus_files/${locus}.snps \\
                 --cojo-file locus_files/${locus}.ma \\
                 --cojo-cond \$file_name \\
                 --cojo-collinear 0.99 \\

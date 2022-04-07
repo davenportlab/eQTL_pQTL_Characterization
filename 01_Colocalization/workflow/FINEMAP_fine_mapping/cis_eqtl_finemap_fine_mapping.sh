@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=~/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/FINEMAP/nextflow_work/
+export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/FINEMAP/nextflow_work/
 
-for CHR in {1..22}
+for CHR in 6
 do
 
     mkdir .nextflow.cis_eqtl_finemap_fine_mapping_CHR_${CHR}/

@@ -5,21 +5,23 @@ params.chr = "1"
 
 process SPLIT_LOCI {
 
-    label "Rbigmem"
+    label "Rhugemem"
 
     output:
-        path("*.master"),   emit: master_files
-        path("*.z"),        emit: z_files
-        path("*.ld"),       emit: ld_files
+        path("full/*.{master,z,ld}"),           emit: full_fm_files
+        path("conditional/*.{master,z,ld}"),    emit: conditional_fm_files
     
     script:
 
         """
+        mkdir full/
+        mkdir conditional/
+
         Rscript $workflow.projectDir/cis_eqtl_finemap_fine_mapping_split_loci.R $params.chr
         """
 }
 
-process FINE_MAPPING {
+process FINE_MAPPING_FULL {
 
     errorStrategy "retry"
     maxRetries 3
@@ -27,14 +29,10 @@ process FINE_MAPPING {
     label "finemap"
 
     input:
-        path(master_files)
-        path(z_files)
-        path(ld_files)
+        path(full_fm_files)
 
     output:
-        path("*.config"), emit: config_files
-        path("*.cred*"), emit: credible_set_files
-        path("*.snp"), emit: snp_files
+        path("*.{config,cred,snp}*"), emit: fm_output_files
 
     script:
 
@@ -61,22 +59,56 @@ process FINE_MAPPING {
         """
 }
 
+process FINE_MAPPING_CONDITIONAL {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "finemap"
+
+    input:
+        path(conditional_fm_files)
+
+    output:
+        path("*.{config,cred,snp}*"), emit: fm_output_files
+
+    script:
+
+        """
+        ls -1 | grep ".*\\.master" | sed s/\\.master//g > loci
+
+        while read locus; do
+
+            finemap \\
+                --sss \\
+                --in-files \${locus}.master \\
+                --n-causal-snps 1 \\
+                --log \\
+                --n-threads $task.cpus
+        
+        done <loci
+        """
+}
+
 process AGGREGATE_CREDIBILE_SETS {
 
     errorStrategy "retry"
     maxRetries 3
 
-    publishDir "$params.output_dir/", mode: "move"
+    publishDir "$params.output_dir/full/", mode: "move", pattern: "full_*"
+    publishDir "$params.output_dir/conditional/", mode: "move", pattern: "conditional_*"
 
     label "R"
 
     input:
-        path("credible_sets/*")
-        path("snps/*")
+        path("full_cred_sets/*")
+        path("conditional_cred_sets/*")
 
     output:
-        path("chr${params.chr}_credible_sets.tsv")
-        path("chr${params.chr}_pips.tsv")
+        path("full_chr${params.chr}_credible_sets.tsv")
+        path("full_chr${params.chr}_pips.tsv")
+        path("conditional_chr${params.chr}_credible_sets.tsv")
+        path("conditional_chr${params.chr}_pips.tsv")
 
     script:
 
@@ -90,14 +122,12 @@ workflow {
 
     SPLIT_LOCI()
 
-    FINE_MAPPING(
-        SPLIT_LOCI.out.master_files,
-        SPLIT_LOCI.out.z_files,
-        SPLIT_LOCI.out.ld_files
-    )
+    FINE_MAPPING_FULL(SPLIT_LOCI.out.full_fm_files)
+
+    FINE_MAPPING_CONDITIONAL(SPLIT_LOCI.out.conditional_fm_files)
 
     AGGREGATE_CREDIBILE_SETS(
-        FINE_MAPPING.out.credible_set_files,
-        FINE_MAPPING.out.snp_files
+        FINE_MAPPING_FULL.out.fm_output_files,
+        FINE_MAPPING_CONDITIONAL.out.fm_output_files
     )
 }

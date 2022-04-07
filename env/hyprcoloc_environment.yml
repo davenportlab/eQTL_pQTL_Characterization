@@ -1,0 +1,21 @@
+channels:
+
+ - conda-forge
+ - bioconda
+
+dependencies:
+
+# R
+ - r-base
+
+# R Packages for Data Analysis
+ - r-tidyverse
+ - r-rcolorbrewer
+ - r-svglite                                    #  Required for ggplot2 SVG
+
+# R Packages required for HyPrColoc
+ - r-matrix
+ - r-iterpc
+ - r-rmpfr
+ - r-pheatmap
+ - r-rcpp
