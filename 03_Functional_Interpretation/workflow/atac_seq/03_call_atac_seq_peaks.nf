@@ -2,6 +2,7 @@ nextflow.enable.dsl = 2
 
 params.atac_seq_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/processed/atac_seq/"
 params.metadata = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/metadata/reads_atac_seq.txt"
+params.chr_lengths = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/star_genome_index/chrNameLength.txt"
 params.output = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/merged/atac_seq/"
 
 
@@ -26,6 +27,8 @@ process MERGE_REPLICATES {
         path("${name}.bam"),                emit: merged_bam_file
         path("${name}.bam.bai"),            emit: merged_bam_index_file
         path("${name}.sortedByName.bam")
+        path("${name}.bedgraph")
+        path("${name}.bw")
 
     script:
 
@@ -35,6 +38,11 @@ process MERGE_REPLICATES {
 
         # Sort reads by name, making it easier to count using featureCounts
         repair -i ${name}.bam -o ${name}.sortedByName.bam -t -T 4
+
+        # Generate bigWig files for visualization of read pile up
+        scale_factor=\$(echo "(10^6) / \$(samtools view -c ${name}.bam)" | bc -l)
+        bedtools genomecov -ibam ${name}.bam -bg -scale \$scale_factor | sort -k1,1 -k2,2n > ${name}.bedgraph
+        bedGraphToBigWig ${name}.bedgraph $params.chr_lengths ${name}.bw
         """
 }
 

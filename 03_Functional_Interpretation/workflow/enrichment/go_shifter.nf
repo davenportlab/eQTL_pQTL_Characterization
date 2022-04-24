@@ -7,7 +7,8 @@ params.conditional_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocaliza
 params.conditional_results = "/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults/conditionalanalysis/conditional_eQTL_results_final.txt"
 params.sepsis_snps = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/sepsis_specific_gains_lead_mashr.txt"
 params.mashr_results = "/lustre/scratch119/humgen/projects/gains_team282/eqtl/gtex/gains_gtex_mashr_results.txt"
-params.da_peaks = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/immune/da_peak_set.csv"
+params.immune_peak_sets = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/immune/peak_sets/"
+params.neutrophil_peak_sets = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/neutrophil/peak_sets/"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/enrichment/go_shifter/"
 
 
@@ -114,17 +115,22 @@ process PREPARE_PEAKS {
         """
         mkdir peaks/
 
-        sed 's/"//g' $params.da_peaks | awk -F "," 'NR > 1 { print \$3; }' | sort | uniq > cell_types.txt
+        for cell_type_peaks in $params.immune_peak_sets/*.peaks.bed $params.neutrophil_peak_sets/*.peaks.bed
+        do
 
-        while read cell_type; do
+            if [ -s \$cell_type_peaks ]
+            then
 
-            echo -e "Chr\tStart\tEnd" >> peaks/\${cell_type}.tsv
+                cell_type=\$(basename \$cell_type_peaks | sed 's/\\.peaks\\.bed//g')
+
+                echo -e "Chr\tStart\tEnd" >> peaks/\${cell_type}.tsv
+
+                awk 'OFS="\\t" { print \$1, \$2, \$3; }' \$cell_type_peaks | \\
+                    sort -k 1,1 -k 2,2n -k 3,3n >> peaks/\${cell_type}.tsv
+                
+            fi
         
-            sed 's/"//g' $params.da_peaks | \\
-                awk -F "," -v c=\$cell_type 'BEGIN { OFS="\\t"; } NR > 1 { if (\$3 == c) { print \$5, \$6, \$7; } }' | \\
-                sort -k 1,1 -k 2,2n -k 3,3n >> peaks/\${cell_type}.tsv
-
-        done <cell_types.txt
+        done
         """
 }
 
@@ -150,7 +156,7 @@ process GO_SHIFTER {
         python \$go_shifter \\
             $snps_to_test \\
             $genome_annotation \\
-            10000 \\
+            9999 \\
             ./ \\
             ${snps_to_test.getSimpleName()}_${genome_annotation.getSimpleName()} \\
             --threads $task.cpus

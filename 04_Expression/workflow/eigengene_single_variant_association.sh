@@ -10,4 +10,4 @@ bsub \
     -o eigengene_single_variant_association_output.txt \
     -e eigengene_single_variant_association_error.txt \
     -R"select[mem>8000] rusage[mem=8000]" -M8000 \
-    "nextflow ../eigengene_single_variant_association.nf"
+    "nextflow ../eigengene_single_variant_association.nf --output_dir /nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/wgcna_initial_pass/"

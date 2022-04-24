@@ -155,17 +155,21 @@ process POSTQC_FILTERING {
 
     script:
 
-        // --require-flags 0x0001 - Keep reads that are paired.
-        // --exclude-flags 0x0004 - Filter out reads that are unmapped.
+        // --require-flags 0x0002 - Keep reads that are mapped in a proper pair.
+        // --exclude-flags 0x0004 --exclude-flags 0x0008 - Filter out reads that are unmapped (read itself or mate).
+        // --exclude-flags 0x0100 - Filter out secondary alignments.
         // --exclude-flags 0x0200 --exclude-flags 0x0400 - Filter out reads that are marked as duplicates.
         // --remove-tag XS - XS is the score of the second best alignment, which implies that the read mapped to multiple locations
+        // --min-MQT - Minimum MAPQ score of 30 required to retain read.
 
         """
         samtools view $bam_file \\
-            --require-flags 0x0001 \\
-            --exclude-flags 0x0004 \\
+            --require-flags 0x0002 \\
+            --exclude-flags 0x0004 --exclude-flags 0x0008 \\
+            --exclude-flags 0x0100 \\
             --exclude-flags 0x0200 --exclude-flags 0x0400 \\
             --remove-tag XS \\
+            --min-MQ 30 \\
             --bam \\
             -@ $task.cpus > ${name}.filtered.bam
         
@@ -175,7 +179,8 @@ process POSTQC_FILTERING {
         samtools idxstats ${name}.filtered.bam | cut -f 1 | grep -v MT | xargs samtools view -b ${name}.filtered.bam > ${name}.filtered.noMT.bam
 
         # Filter reads in blacklisted region from ENCODE
-        bedtools intersect -abam ${name}.filtered.noMT.bam -b $params.genome_black_list -v > ${name}.filtered.bam
+        sed 's/chr//g' $params.genome_black_list > black_list.bed
+        bedtools intersect -abam ${name}.filtered.noMT.bam -b black_list.bed -v > ${name}.filtered.bam
 
         samtools index -@ $task.cpus ${name}.filtered.bam
         samtools idxstats -@ $task.cpus ${name}.filtered.bam > ${name}.filtered.bam.idxstats
