@@ -3,6 +3,7 @@ nextflow.enable.dsl = 2
 params.atlas = "immune"
 params.metadata = "/nfs/users/nfs_n/nm18/eQTL_pQTL_Characterization/03_Functional_Interpretation/metadata/reads_atac_seq.txt"
 params.peak_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/immune/cell_type_peak_sets/"
+params.consensus_peaks = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/immune/consensus_peaks.bed"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/regulation/immune/"
 
 
@@ -25,11 +26,18 @@ process SHAPE_FEATURES {
     
     output:
         path("${cell_type}_shape_features.csv")
+        path("${cell_type}_consensus_shape_features.csv")
 
     script:
 
+        // I first filter the peaks to only autosomes and the X chromosome
+
         """
-        python3 $workflow.projectDir/peak_shape_features.py $peaks $cell_type ${cell_type}_shape_features.csv
+        grep -E "^[1-9]|^X" $peaks > cell_type_peaks.bed
+        python3 $workflow.projectDir/peak_shape_features.py cell_type_peaks.bed $cell_type ${cell_type}_shape_features.csv
+
+        grep -E "^[1-9]|^X" $params.consensus_peaks > consensus_peaks.bed
+        python3 $workflow.projectDir/peak_shape_features.py consensus_peaks.bed $cell_type ${cell_type}_consensus_shape_features.csv
         """
 }
 

@@ -78,7 +78,7 @@ def read_peak_distributions(peaks, cell_type):
         # For each sample, open BigWIG file for peak distributions
         bw_file = pyBigWig.open(os.path.join(sample_dir, sample, 'alignment', f'{sample}.bw'))
 
-        for i, row in peaks.iterrows():
+        for i, (_, row) in enumerate(peaks.iterrows()):
 
             # Retrieve BigWIG coverage in peak
             values = np.array(bw_file.values(row.chr, row.start, row.end))
@@ -132,7 +132,7 @@ def fiedler_vectors(distributions):
 
         distances = scpd.squareform(distances_condensed)
 
-        laplacian = sccs.laplacian(1 - distances, normed=True)
+        laplacian = sccs.laplacian(1 - distances)
 
         eigenvalues, eigenvectors = scl.eig(laplacian)
 
@@ -149,18 +149,27 @@ def main():
 
     args = parse_arguments()
 
-    print('Reading Peaks')
-    peaks = read_peaks(args.peaks)
+    print('Reading Peaks from BED File')
+    all_peaks = read_peaks(args.peaks)
 
-    print('Retrieving Peak Distributions')
-    samples, distributions = read_peak_distributions(peaks, args.cell_type)
+    num_peak_sets = np.floor(len(all_peaks) / 200)
+    peaks_sets = np.array_split(all_peaks, num_peak_sets)
 
-    print('Calculating Fiedler Vectors')
-    vectors = fiedler_vectors(distributions)
+    vectors_list = list()
+
+    for i, peaks in enumerate(peaks_sets):
+
+        print(f'Processing {i+1}/{num_peak_sets} Set of Peak')
+
+        samples, distributions = read_peak_distributions(peaks, args.cell_type)
+
+        vectors_list.append(fiedler_vectors(distributions))
+
+    vectors = np.hstack(vectors_list)
 
     print('Saving to File')
     vectors_df = pd.DataFrame(vectors)
-    vectors_df.columns = peaks.chr.str.cat(peaks.start.astype(str).str.cat(peaks.end.astype(str), sep='-'), sep=':').to_list()
+    vectors_df.columns = all_peaks.chr.str.cat(all_peaks.start.astype(str).str.cat(all_peaks.end.astype(str), sep='-'), sep=':').to_list()
     vectors_df.insert(0, 'Sample', samples)
 
     vectors_df.to_csv(args.output, index=False)
