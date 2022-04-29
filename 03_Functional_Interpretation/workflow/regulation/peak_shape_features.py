@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import argparse
-from asyncore import read
+import functools
+import multiprocessing
 import os
-import re
 import sys
 
 import pandas as pd
@@ -26,13 +26,24 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Extract peak shape features for a cell type')
 
     parser.add_argument('peaks', help='Peaks in BED format')
-    parser.add_argument('cell_type', help='Cell type of peak shapes to retrieve')
+    parser.add_argument('samples', help='File containing the list of samples to test')
     parser.add_argument('output', help='Name of output file.')
+    parser.add_argument('--threads', help='Number of threads to use.', default='1')
 
     args = parser.parse_args()
 
     if not os.path.isfile(args.peaks):
         print(f'{args.peaks} is not a valid path to a file.', file=sys.stderr)
+        exit(2)
+    
+    if not os.path.isfile(args.samples):
+        print(f'{args.samples} is not a valid path to a file.', file=sys.stderr)
+        exit(2)
+
+    try:
+        args.threads = int(args.threads)
+    except ValueError:
+        print(f'{args.threads} is not an integer.', file=sys.stderr)
         exit(2)
     
     return args
@@ -57,19 +68,17 @@ def read_peaks(peak_file):
     return peaks
 
 
-def read_peak_distributions(peaks, cell_type):
+def read_peak_distributions(peaks, samples):
 
     '''
     Read peak distributions from read pile ups for the given cell type.
 
     :param peaks: A data frame containing peaks.
-    :param cell_type: The cell type to retrieve read pile ups for.
+    :param samples_file: The samples to retrieve read pile ups for.
     :return: A list of matrices of sample distributions for each peak.
     '''
 
     sample_dir = '/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/merged/atac_seq/'
-
-    samples = [sample_name for sample_name in os.listdir(sample_dir) if cell_type in sample_name]
 
     regions = [list() for _ in range(len(peaks))]
 
@@ -98,7 +107,7 @@ def read_peak_distributions(peaks, cell_type):
 
     distributions = [np.vstack(region) for region in regions]
 
-    return samples, distributions
+    return distributions
 
 
 def hellinger(x, y):
@@ -145,6 +154,17 @@ def fiedler_vectors(distributions):
     return np.transpose(np.vstack(vectors))
 
 
+def process_peak_set(peaks_info, num_peak_sets, samples):
+
+    i, peaks = peaks_info
+
+    print(f'Processing Peak Set {i+1}/{num_peak_sets}')
+
+    distributions = read_peak_distributions(peaks, samples)
+
+    return fiedler_vectors(distributions)
+
+
 def main():
 
     args = parse_arguments()
@@ -155,15 +175,20 @@ def main():
     num_peak_sets = np.floor(len(all_peaks) / 200)
     peaks_sets = np.array_split(all_peaks, num_peak_sets)
 
+    print('Reading Samples')
+
+    with open(args.samples, 'r') as f_in:
+
+        samples = [sample_name.strip() for sample_name in f_in.readlines()]
+
     vectors_list = list()
 
-    for i, peaks in enumerate(peaks_sets):
+    with multiprocessing.Pool(args.threads) as pool:
 
-        print(f'Processing {i+1}/{num_peak_sets} Set of Peak')
-
-        samples, distributions = read_peak_distributions(peaks, args.cell_type)
-
-        vectors_list.append(fiedler_vectors(distributions))
+        vectors_list = pool.map(
+            functools.partial(process_peak_set, num_peak_sets=num_peak_sets, samples=samples), 
+            enumerate(peaks_sets)
+        )
 
     vectors = np.hstack(vectors_list)
 

@@ -41,7 +41,7 @@ process MERGE_REPLICATES {
 
         # Generate bigWig files for visualization of read pile up
         scale_factor=\$(echo "(10^6) / \$(samtools view -c ${name}.bam)" | bc -l)
-        bedtools genomecov -ibam ${name}.bam -bg -scale \$scale_factor | sort -k1,1 -k2,2n > ${name}.bedgraph
+        bedtools genomecov -ibam ${name}.bam -bg -pc -scale \$scale_factor | sort -k1,1 -k2,2n > ${name}.bedgraph
         bedGraphToBigWig ${name}.bedgraph $params.chr_lengths ${name}.bw
         """
 }

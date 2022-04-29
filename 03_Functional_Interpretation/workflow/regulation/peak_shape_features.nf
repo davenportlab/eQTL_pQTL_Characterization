@@ -11,12 +11,30 @@ params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/epigenetics/regulation/
 // Calculate Shape Features
 //-----------------------------------------------------
 
-process SHAPE_FEATURES {
+process CONSENSUS_SHAPE_FEATURES {
 
-    errorStrategy "retry"
-    maxRetries 3
+    label "consensus_shape_features"
 
-    label "python"
+    publishDir "$params.output_dir/shape_features/", mode: "move"
+
+    output:
+        path("consensus_shape_features.csv")
+    
+    script:
+
+        def sample_regex = (params.atlas == "immune") ? "Corces|Calderon" : "Ram-Mohan"
+
+        """
+        awk -F ',' 'NR > 1 { print \$2; }' $params.metadata | grep -E "$sample_regex" | sort | uniq > samples.txt
+
+        grep -E "^[1-9]|^X" $params.consensus_peaks > consensus_peaks.bed
+        python3 $workflow.projectDir/peak_shape_features.py consensus_peaks.bed samples.txt consensus_shape_features.csv --threads 16
+        """
+}
+
+process CELL_TYPE_SHAPE_FEATURES {
+
+    label "cell_shape_features"
 
     publishDir "$params.output_dir/shape_features/", mode: "move"
 
@@ -26,18 +44,16 @@ process SHAPE_FEATURES {
     
     output:
         path("${cell_type}_shape_features.csv")
-        path("${cell_type}_consensus_shape_features.csv")
 
     script:
 
         // I first filter the peaks to only autosomes and the X chromosome
 
         """
-        grep -E "^[1-9]|^X" $peaks > cell_type_peaks.bed
-        python3 $workflow.projectDir/peak_shape_features.py cell_type_peaks.bed $cell_type ${cell_type}_shape_features.csv
+        awk -F ',' 'NR > 1 { if (\$6 == "$cell_type") { print \$2; } }' $params.metadata | sort | uniq > samples.txt
 
-        grep -E "^[1-9]|^X" $params.consensus_peaks > consensus_peaks.bed
-        python3 $workflow.projectDir/peak_shape_features.py consensus_peaks.bed $cell_type ${cell_type}_consensus_shape_features.csv
+        grep -E "^[1-9]|^X" $peaks > cell_type_peaks.bed
+        python3 $workflow.projectDir/peak_shape_features.py cell_type_peaks.bed samples.txt ${cell_type}_shape_features.csv
         """
 }
 
@@ -46,6 +62,8 @@ process SHAPE_FEATURES {
 //-----------------------------------------------------
 
 workflow {
+
+    CONSENSUS_SHAPE_FEATURES()
 
     samples_list = Channel
         .fromPath(params.metadata)
@@ -68,5 +86,5 @@ workflow {
             cell_type: row[5]
         }
 
-    SHAPE_FEATURES(samples_list.peaks, samples_list.cell_type)
+    CELL_TYPE_SHAPE_FEATURES(samples_list.peaks, samples_list.cell_type)
 }
