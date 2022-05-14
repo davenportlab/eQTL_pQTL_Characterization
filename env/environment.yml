@@ -22,6 +22,7 @@ dependencies:
  - numpy
  - pandas
  - scipy
+ - scikit-learn
 
 # BioConductor
  - bioconductor-biomart

@@ -18,7 +18,9 @@ process CONSENSUS_SHAPE_FEATURES {
     publishDir "$params.output_dir/shape_features/", mode: "move"
 
     output:
-        path("consensus_shape_features.csv")
+        path("consensus_fiedler_vectors.csv")
+        path("consensus_coverage_pcs.csv")
+        path("consensus_coverage_pcs_var_explained.csv")
     
     script:
 
@@ -28,7 +30,7 @@ process CONSENSUS_SHAPE_FEATURES {
         awk -F ',' 'NR > 1 { print \$2; }' $params.metadata | grep -E "$sample_regex" | sort | uniq > samples.txt
 
         grep -E "^[1-9]|^X" $params.consensus_peaks > consensus_peaks.bed
-        python3 $workflow.projectDir/peak_shape_features.py consensus_peaks.bed samples.txt consensus_shape_features.csv --threads 16
+        python3 $workflow.projectDir/peak_shape_features.py consensus_peaks.bed samples.txt consensus --threads 16
         """
 }
 
@@ -43,7 +45,9 @@ process CELL_TYPE_SHAPE_FEATURES {
         val(cell_type)
     
     output:
-        path("${cell_type}_shape_features.csv")
+        path("${cell_type}_fiedler_vectors.csv")
+        path("${cell_type}_coverage_pcs.csv")
+        path("${cell_type}_coverage_pcs_var_explained.csv")
 
     script:
 
@@ -53,7 +57,7 @@ process CELL_TYPE_SHAPE_FEATURES {
         awk -F ',' 'NR > 1 { if (\$6 == "$cell_type") { print \$2; } }' $params.metadata | sort | uniq > samples.txt
 
         grep -E "^[1-9]|^X" $peaks > cell_type_peaks.bed
-        python3 $workflow.projectDir/peak_shape_features.py cell_type_peaks.bed samples.txt ${cell_type}_shape_features.csv
+        python3 $workflow.projectDir/peak_shape_features.py cell_type_peaks.bed samples.txt ${cell_type}
         """
 }
 

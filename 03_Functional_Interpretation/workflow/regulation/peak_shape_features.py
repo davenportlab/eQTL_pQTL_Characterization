@@ -27,7 +27,7 @@ def parse_arguments():
 
     parser.add_argument('peaks', help='Peaks in BED format')
     parser.add_argument('samples', help='File containing the list of samples to test')
-    parser.add_argument('output', help='Name of output file.')
+    parser.add_argument('prefix', help='Prefix of output file.')
     parser.add_argument('--threads', help='Number of threads to use.', default='1')
 
     args = parser.parse_args()
@@ -154,6 +154,39 @@ def fiedler_vectors(distributions):
     return np.transpose(np.vstack(vectors))
 
 
+def coverage_pcs(distributions):
+
+    '''
+    Retrieve principal components for each distribution's coverage profile.
+
+    :param distributions: The list of peak distributions.
+    :return: A matrix of principal components.
+    '''
+
+    vectors = list()
+    variance_explained = list()
+
+    for distribution in distributions:
+
+        coverage_stds = distribution.std(axis=0)
+        distribution = distribution[:, np.flatnonzero(coverage_stds)]
+
+        scaled = (distribution - distribution.mean(axis=0)) / distribution.std(axis=0)
+
+        covariance = np.cov(scaled)
+
+        eigenvalues, eigenvectors = np.linalg.eig(covariance)
+        eigenvalues = np.real(eigenvalues)
+        eigenvectors = np.real(eigenvectors)
+        eigenvectors = eigenvectors[:, np.argsort(eigenvalues)[::-1]]
+
+        vectors.append(eigenvectors[:, 0])
+
+        variance_explained.append(eigenvalues[0] / np.sum(eigenvalues))
+
+    return np.transpose(np.vstack(vectors)), np.array(variance_explained)
+
+
 def process_peak_set(peaks_info, num_peak_sets, samples):
 
     i, peaks = peaks_info
@@ -162,7 +195,7 @@ def process_peak_set(peaks_info, num_peak_sets, samples):
 
     distributions = read_peak_distributions(peaks, samples)
 
-    return fiedler_vectors(distributions)
+    return fiedler_vectors(distributions), coverage_pcs(distributions)
 
 
 def main():
@@ -190,14 +223,30 @@ def main():
             enumerate(peaks_sets)
         )
 
-    vectors = np.hstack(vectors_list)
+    fiedler_vector_matrix = np.hstack([items[0] for items in vectors_list])
+
+    coverage_pc_matrix = np.hstack([items[1][0] for items in vectors_list])
+    coverage_pc_variance_explained = np.concatenate([items[1][1] for items in vectors_list])
 
     print('Saving to File')
-    vectors_df = pd.DataFrame(vectors)
-    vectors_df.columns = all_peaks.chr.str.cat(all_peaks.start.astype(str).str.cat(all_peaks.end.astype(str), sep='-'), sep=':').to_list()
-    vectors_df.insert(0, 'Sample', samples)
 
-    vectors_df.to_csv(args.output, index=False)
+    fiedler_vector_df = pd.DataFrame(fiedler_vector_matrix)
+    fiedler_vector_df.columns = all_peaks.chr.str.cat(all_peaks.start.astype(str).str.cat(all_peaks.end.astype(str), sep='-'), sep=':').to_list()
+    fiedler_vector_df.insert(0, 'Sample', samples)
+
+    fiedler_vector_df.to_csv(f'{args.prefix}_fiedler_vectors.csv', index=False)
+
+    coverage_pc_df = pd.DataFrame(coverage_pc_matrix)
+    coverage_pc_df.columns = all_peaks.chr.str.cat(all_peaks.start.astype(str).str.cat(all_peaks.end.astype(str), sep='-'), sep=':').to_list()
+    coverage_pc_df.insert(0, 'Sample', samples)
+
+    coverage_pc_df.to_csv(f'{args.prefix}_coverage_pcs.csv', index=False)
+
+    coverage_pc_var_df = pd.DataFrame(coverage_pc_variance_explained)
+    coverage_pc_var_df.columns = ['Variance_Explained']
+    coverage_pc_var_df.insert(0, 'Peak', all_peaks.chr.str.cat(all_peaks.start.astype(str).str.cat(all_peaks.end.astype(str), sep='-'), sep=':'))
+
+    coverage_pc_var_df.to_csv(f'{args.prefix}_coverage_pcs_var_explained.csv', index=False)
 
 
 if __name__ == '__main__':
