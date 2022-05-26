@@ -65,12 +65,14 @@ for (qtl.id in qtl.ids) {
 
     results <- rbindlist(mclapply(qtl.snp.set, function(snp) {
 
-        variant.design <- data.mtx[,c(ME, snp, covs, "GAinS.ID")]
+        ME.pc.1 = paste0(ME, "_1")
 
-        f.null <- as.formula(paste0(ME, "~", paste0(covs, collapse="+"), "+(1|GAinS.ID)"))
+        variant.design <- data.mtx[,c(ME.pc.1, snp, covs, "GAinS.ID")]
+
+        f.null <- as.formula(paste0(ME.pc.1, "~", paste0(covs, collapse="+"), "+(1|GAinS.ID)"))
         model.null <- lmer(f.null, data=variant.design, REML=FALSE)
 
-        f.alt <- as.formula(paste0(ME, "~`", snp , "`+", paste0(covs, collapse="+"), "+(1|GAinS.ID)"))
+        f.alt <- as.formula(paste0(ME.pc.1, "~`", snp , "`+", paste0(covs, collapse="+"), "+(1|GAinS.ID)"))
         model.test <- lmer(f.alt, data=variant.design, REML=FALSE)
 
         if (!all(complete.cases(variant.design[, snp]))) {

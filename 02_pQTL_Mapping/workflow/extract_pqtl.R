@@ -86,10 +86,10 @@ saveRDS(cis.pqtl.summary, "cis.pqtl.summary.RDS")
 # Identify pQTL
 #----------------------------------------------------------
 
-# If the gene has a TSS, remove 5 Mb region flanking TSS to avoid cis associations
+# If the gene has a TSS, remove 1 Mb region flanking TSS (2 Mb total) to avoid cis associations
 if (nrow(protein.metadata) > 0) {
 
-    window.size <- 5e6
+    window.size <- 2e6
 
     tss.flanks <- data.frame(chr=protein.metadata$seqname, tss=protein.metadata$tss) %>%
         dplyr::mutate(start=tss - (window.size / 2) + 1) %>%
