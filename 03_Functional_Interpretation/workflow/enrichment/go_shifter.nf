@@ -21,6 +21,12 @@ process PREPARE_SNP_LIST {
     
     script:
 
+        // Analyses commented out (not run but can be by uncommenting):
+        // 1. Lead SNPs from conditional analyses w/o primary effect
+        // 2. Lead SNPs w/o sepsis-enhanced sSNPs
+        // 3. Sepsis-enhanced eSNPs
+        // 4. Sepsis-enhanced eSNPs stronger in GAinS
+
         """
         mkdir snps_lists/
 
@@ -34,31 +40,31 @@ process PREPARE_SNP_LIST {
         
         ### LEAD SNPS FROM CONDITIONAL ANALYSIS W/O PRIMARY EFFECT
 
-        sed 's/"//g' $params.conditional_results | awk 'NR > 1 { if (\$7 > 1) { print \$2; } }' | sort | uniq > snps_lists/conditional_secondary_snps.txt
+        # sed 's/"//g' $params.conditional_results | awk 'NR > 1 { if (\$7 > 1) { print \$2; } }' | sort | uniq > snps_lists/conditional_secondary_snps.txt
         
         ### LEAD SNPS W/O SEPSIS-SPECIFIC SNPS
 
         # Extract lead SNPs identified from initial cis-eQTL pass
-        awk -F "\\t" 'NR > 1 { print \$1; }' $params.lead_snps > lead_snps.txt
+        # awk -F "\\t" 'NR > 1 { print \$1; }' $params.lead_snps > lead_snps.txt
 
         # Extract SNPs from mashR results
-        awk 'NR > 1 { print \$16; }' $params.sepsis_snps > sepsis_snps.txt
+        # awk 'NR > 1 { print \$16; }' $params.sepsis_snps > sepsis_snps.txt
 
         # Filter lead SNPs to non-sepsis-specific eSNPs
-        grep -vwFf sepsis_snps.txt lead_snps.txt | sort | uniq > snps_lists/non_sepsis_snps.txt
+        # grep -vwFf sepsis_snps.txt lead_snps.txt | sort | uniq > snps_lists/non_sepsis_snps.txt
 
         ### SEPSIS-SPECIFIC SNPS
 
         # Extract SNPs from mashR results
-        awk 'NR > 1 { print \$16; }' $params.sepsis_snps | sort | uniq > snps_lists/sepsis_snps.txt
+        # awk 'NR > 1 { print \$16; }' $params.sepsis_snps | sort | uniq > snps_lists/sepsis_snps.txt
 
         ### SEPSIS-SPECIFIC SNPS STRONGER IN GAinS
 
         # Get SNP regions that are stronger in sepsis from the mashR results
-        awk 'NR > 1 { if (\$5 == "TRUE" && (\$2)^2 > (\$3)^2) { print \$1; } }' $params.mashr_results | sort > sepsis_up_snp_regions.txt
+        # awk 'NR > 1 { if (\$5 == "TRUE" && (\$2)^2 > (\$3)^2) { print \$1; } }' $params.mashr_results | sort > sepsis_up_snp_regions.txt
 
         # Filter sepsis snps based on mashR results
-        grep -wFf sepsis_up_snp_regions.txt $params.sepsis_snps | awk '{ print \$16; }' | sort | uniq > snps_lists/sepsis_up_snps.txt
+        # grep -wFf sepsis_up_snp_regions.txt $params.sepsis_snps | awk '{ print \$16; }' | sort | uniq > snps_lists/sepsis_up_snps.txt
         """
 }
 
@@ -136,7 +142,7 @@ process PREPARE_PEAKS {
 
 process GO_SHIFTER {
 
-    publishDir "$params.output_dir/", mode: "move"
+    publishDir "$params.output_dir/${snps_to_test.getSimpleName()}/", mode: "move", pattern: "*_overlap_scores.tsv"
 
     label "goshifter"
 
@@ -145,7 +151,7 @@ process GO_SHIFTER {
         path(genome_annotation)
 
     output:
-        path("${snps_to_test.getSimpleName()}_${genome_annotation.getSimpleName()}_p_value.tsv")
+        tuple path(snps_to_test), path("${snps_to_test.getSimpleName()}_${genome_annotation.getSimpleName()}_p_value.tsv"), emit: p_values
         path("${snps_to_test.getSimpleName()}_${genome_annotation.getSimpleName()}_overlap_scores.tsv")
     
     script:
@@ -156,10 +162,34 @@ process GO_SHIFTER {
         python \$go_shifter \\
             $snps_to_test \\
             $genome_annotation \\
-            9999 \\
+            1 \\
             ./ \\
             ${snps_to_test.getSimpleName()}_${genome_annotation.getSimpleName()} \\
             --threads $task.cpus
+        """
+}
+
+process COLLATE_P_VALUES {
+
+    publishDir "$params.output_dir/${snps_to_test.getSimpleName()}/", mode: "move"
+
+    label "simple_bash"
+
+    input:
+        path(snps_to_test)
+        path("p_values/*")
+
+    output:
+        path("p_values.tsv")
+    
+    script:
+
+        """
+        echo -e "Condition\\tP_Value" > p_values.tsv
+
+        awk 'OFS="\\t" { print FILENAME, \$2; }' p_values/*_p_value.tsv | \\
+            sed 's/.*\\/${snps_to_test.getSimpleName()}_//g' | \\
+            sed 's/_p_value\\.tsv//g' >> p_values.tsv
         """
 }
 
@@ -184,4 +214,14 @@ workflow {
         snps_annotation_pairs.snps_to_test,
         snps_annotation_pairs.genome_annotation
     )
+
+    p_values_channel = GO_SHIFTER.out.p_values
+        .groupTuple()
+        .multiMap{ items ->
+            snps_to_test: items[0]
+            p_values: items[1]
+        }
+
+    // TODO: Fix collation process
+    COLLATE_P_VALUES(p_values_channel.snps_to_test, p_values_channel.p_values)
 }

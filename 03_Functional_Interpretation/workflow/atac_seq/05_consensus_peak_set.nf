@@ -21,11 +21,12 @@ process GROUP_PEAK_SET {
     input:
         val(atlas)
         val(group)
-        path("narrow_peaks/*.narrowPeak")
+        path("narrow_peaks/*")
 
     output:
         tuple val(atlas), val(group), path("${group}.peaks.bed"), emit: group_peak_set
         tuple val(atlas), val(group), path("${group}.peaks.bed"), emit: group_peak_set_for_cell_type
+        tuple val(atlas), val(group), path("${group}.peaks.bed"), emit: group_peak_set_for_jaccard
         path("${group}.peaks.saf")
 
     script:
@@ -38,22 +39,46 @@ process GROUP_PEAK_SET {
         //  1. Any peak with q-value >= 10E-4 is removed
         //  2. Any peak that is wider than 3 kb is removed
         //  3. Any peak only present in one sample is removed
+
+        // Note: If there is only one sample, peaks present in that one sample are all included
+
         """
+        n_samples=\$(ls -l narrow_peaks/*.narrowPeak | wc -l)
+
         cat narrow_peaks/*.narrowPeak | awk '{ if (\$9 > 4) { print \$0; } }' | sort -k1,1 -k2,2n > narrow_peaks.sorted.bed
 
-        bedtools merge \\
-            -d 0 \\
-            -c 1,7,8,9,10 \\
-            -o count,collapse,collapse,collapse,collapse \\
-            -i narrow_peaks.sorted.bed | \\
-            awk -F '\t' -v OFS='\t' '{
-                if (\$3 - \$2 <= 3000) {
-                    if (\$4 >= 2) {
+        if [ \$n_samples -gt 1 ]
+        then
+
+            bedtools merge \\
+                -d 0 \\
+                -c 1,7,8,9,10 \\
+                -o count,collapse,collapse,collapse,collapse \\
+                -i narrow_peaks.sorted.bed | \\
+                awk -F '\t' -v OFS='\t' '{
+                    if (\$3 - \$2 <= 3000) {
+                        if (\$4 >= 2) {
+                            print \$0;
+                        }
+                    }
+                }' | \\
+                sort -k1,1 -k2,2n > ${group}.peaks.bed
+
+        else
+
+            bedtools merge \\
+                -d 0 \\
+                -c 1,7,8,9,10 \\
+                -o count,collapse,collapse,collapse,collapse \\
+                -i narrow_peaks.sorted.bed | \\
+                awk -F '\t' -v OFS='\t' '{
+                    if (\$3 - \$2 <= 3000) {
                         print \$0;
                     }
-                }
-            }' | \\
-            sort -k1,1 -k2,2n > ${group}.peaks.bed
+                }' | \\
+                sort -k1,1 -k2,2n > ${group}.peaks.bed
+
+        fi
 
         echo -e "GeneID\tChr\tStart\tEnd\tStrand" > ${group}.peaks.saf
         awk 'OFS="\t" { print \$1 ":" \$2 "-" \$3, \$1, \$2, \$3, "+"; }' ${group}.peaks.bed >> ${group}.peaks.saf
@@ -75,6 +100,7 @@ process CELL_TYPE_PEAK_SET {
         path("peak_sets/*")
 
     output:
+        tuple val(atlas), val(cell_type), path("${cell_type}.peaks.bed"), emit: cell_type_set_for_jaccard
         path("${cell_type}.peaks.bed")
         path("${cell_type}.peaks.saf")
     
@@ -178,6 +204,74 @@ process CONSENSUS_PEAK_SET {
         """
 }
 
+process GROUPS_JACCARD {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "bedtools"
+
+    publishDir "$params.output_dir/$atlas/", mode: "copy"
+
+    input:
+        val(atlas)
+        path("peak_sets/*")
+
+    output:
+        path("peak_sets_jaccard_values.tsv")
+
+    script:
+
+        """
+        ls -1 peak_sets/*.bed | sed 's/\\.peaks\\.bed//g' | sed 's/.*\\///g' > bed_files.txt
+
+        parallel \\
+            -a bed_files.txt \\
+            -a bed_files.txt \\
+            "bedtools jaccard \\
+            -a peak_sets/{1}.peaks.bed -b peak_sets/{2}.peaks.bed \\
+            | awk 'NR > 1' \\
+            | cut -f 3 \\
+            | sed 's/\$/\t{1}\t{2}/'" \\
+            > peak_sets_jaccard_values.tsv
+        """
+
+}
+
+process CELL_TYPES_JACCARD {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "bedtools"
+
+    publishDir "$params.output_dir/$atlas/", mode: "copy"
+
+    input:
+        val(atlas)
+        path("peak_sets/*")
+
+    output:
+        path("cell_type_peak_sets_jaccard_values.tsv")
+
+    script:
+
+        """
+        ls -1 peak_sets/*.bed | sed 's/\\.peaks\\.bed//g' | sed 's/.*\\///g' > bed_files.txt
+
+        parallel \\
+            -a bed_files.txt \\
+            -a bed_files.txt \\
+            "bedtools jaccard \\
+            -a peak_sets/{1}.peaks.bed -b peak_sets/{2}.peaks.bed \\
+            | awk 'NR > 1' \\
+            | cut -f 3 \\
+            | sed 's/\$/\t{1}\t{2}/'" \\
+            > cell_type_peak_sets_jaccard_values.tsv
+        """
+
+}
+
 //-----------------------------------------------------
 // Workflow
 //-----------------------------------------------------
@@ -236,4 +330,22 @@ workflow {
         }
 
     CONSENSUS_PEAK_SET(peak_files.atlas, peak_files.peaks)
+
+    peak_jaccard_files = GROUP_PEAK_SET.out.group_peak_set_for_jaccard
+        .groupTuple()
+        .multiMap{ pair ->
+            atlas: pair[0]
+            peaks: pair[2]
+        }
+
+    GROUPS_JACCARD(peak_jaccard_files.atlas, peak_jaccard_files.peaks)
+
+    cell_peak_jaccard_files = CELL_TYPE_PEAK_SET.out.cell_type_set_for_jaccard
+        .groupTuple()
+        .multiMap{ pair ->
+            atlas: pair[0]
+            peaks: pair[2]
+        }
+
+    CELL_TYPES_JACCARD(cell_peak_jaccard_files.atlas, cell_peak_jaccard_files.peaks)
 }

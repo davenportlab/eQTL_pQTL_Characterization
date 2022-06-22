@@ -51,6 +51,7 @@ dependencies:
  - gcta >= 1.93.2beta
  - r-wgcna
  - ucsc-bedgraphtobigwig >= 377
+ - ucsc-liftover >= 377
  - pybigwig >= 0.3.18
  - scanpy >= 1.7.2
  - r-seurat >= 4.1.0

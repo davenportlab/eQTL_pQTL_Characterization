@@ -8,6 +8,11 @@ dependencies:
 # R
  - r-base
 
+# Jupyter Lab
+ - jupyterlab >= 3.2.1
+ - r-base < 4.1.0
+ - r-irkernel
+
 # R Packages for Data Analysis
  - r-tidyverse
  - r-rcolorbrewer

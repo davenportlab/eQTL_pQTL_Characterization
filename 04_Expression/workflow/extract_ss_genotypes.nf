@@ -4,6 +4,7 @@ params.genotypes_prefix = "/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_ge
 params.mapping_patients = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mapping_patients.txt"
 params.mqtl_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mqtl_full_summary_statistics_snps.txt"
 params.mqtl_pc_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mqtl_all_pcs_full_summary_statistics_snps.txt"
+params.replication_snps = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/all_mqtl_all_pcs.csv"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/"
 
 process EXTRACT_GENOTYPES {
@@ -16,7 +17,7 @@ process EXTRACT_GENOTYPES {
     publishDir "$params.output_dir/", mode: "move"
 
     output:
-        path("*.raw"), emit: genotype_data_for_mapping
+        path("*.raw")
 
     script:
 
@@ -36,7 +37,36 @@ process EXTRACT_GENOTYPES {
         """
 }
 
+process EXTRACT_REPLICATION_GENOTYPES() {
+
+    errorStrategy "retry"
+    maxRetries 3
+
+    label "plink"
+
+    publishDir "$params.output_dir/", mode: "move"
+
+    output:
+        path("*.raw")
+
+    script:
+
+        """
+        awk -F ',' 'NR > 1 { print \$1; }' $params.replication_snps | sort | uniq > rep.snps.txt
+
+        plink \\
+            --bfile $params.genotypes_prefix \\
+            --extract rep.snps.txt \\
+            --recode A \\
+            --out ./eigengene_sva_rep_genotypes \\
+            --allow-extra-chr \\
+            --maf 0.01
+        """
+}
+
 workflow {
 
     EXTRACT_GENOTYPES()
+
+    EXTRACT_REPLICATION_GENOTYPES()
 }

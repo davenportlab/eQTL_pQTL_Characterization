@@ -2,7 +2,7 @@
 
 export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/fine_mapping/FINEMAP/nextflow_work/
 
-for CHR in 6
+for CHR in 1 2 3 4 6
 do
 
     mkdir .nextflow.cis_eqtl_finemap_fine_mapping_CHR_${CHR}/

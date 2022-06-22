@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' class='svglite' width='576.00pt' height='576.00pt' viewBox='0 0 576.00 576.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHw1NzYuMDA='>
+    <rect x='0.00' y='0.00' width='576.00' height='576.00' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw1NzYuMDA=)'>
+<rect x='0.000000000000064' y='0.00' width='576.00' height='576.00' style='stroke-width: 1.75; stroke: #FFFFFF; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNzAuNDR8NTY3LjAzfDguOTd8NTQ1LjQ4'>
+    <rect x='70.44' y='8.97' width='496.60' height='536.51' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNzAuNDR8NTY3LjAzfDguOTd8NTQ1LjQ4)'>
+<rect x='70.44' y='8.97' width='496.60' height='536.51' style='stroke-width: 1.75; stroke: none; fill: #FFFFFF;' />
+<line x1='205.87' y1='153.17' x2='205.87' y2='91.88' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<line x1='205.87' y1='447.94' x2='205.87' y2='521.09' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polygon points='149.44,153.17 149.44,447.94 262.30,447.94 262.30,153.17 149.44,153.17 ' style='stroke-width: 1.07; stroke: #333333; fill: #4876FF; fill-opacity: 0.50;' />
+<line x1='149.44' y1='329.97' x2='262.30' y2='329.97' style='stroke-width: 2.13; stroke: #333333; stroke-linecap: butt;' />
+<line x1='431.60' y1='92.66' x2='431.60' y2='33.35' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<line x1='431.60' y1='327.89' x2='431.60' y2='391.76' style='stroke-width: 1.07; stroke: #333333; stroke-linecap: butt;' />
+<polygon points='375.17,92.66 375.17,327.89 488.03,327.89 488.03,92.66 375.17,92.66 ' style='stroke-width: 1.07; stroke: #333333; fill: #27408B; fill-opacity: 0.50;' />
+<line x1='375.17' y1='154.03' x2='488.03' y2='154.03' style='stroke-width: 2.13; stroke: #333333; stroke-linecap: butt;' />
+</g>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHw1NzYuMDA=)'>
+<polyline points='70.44,545.48 70.44,8.97 ' style='stroke-width: 0.53; stroke-linecap: butt;' />
+<text x='62.37' y='549.91' text-anchor='end' style='font-size: 14.40px; fill: #4D4D4D; font-family: Arimo;' textLength='32.05px' lengthAdjust='spacingAndGlyphs'>0.00</text>
+<text x='62.37' y='412.89' text-anchor='end' style='font-size: 14.40px; fill: #4D4D4D; font-family: Arimo;' textLength='32.05px' lengthAdjust='spacingAndGlyphs'>0.25</text>
+<text x='62.37' y='275.86' text-anchor='end' style='font-size: 14.40px; fill: #4D4D4D; font-family: Arimo;' textLength='32.05px' lengthAdjust='spacingAndGlyphs'>0.50</text>
+<text x='62.37' y='138.83' text-anchor='end' style='font-size: 14.40px; fill: #4D4D4D; font-family: Arimo;' textLength='32.05px' lengthAdjust='spacingAndGlyphs'>0.75</text>
+<polyline points='65.95,544.67 70.44,544.67 ' style='stroke-width: 1.75; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='65.95,407.64 70.44,407.64 ' style='stroke-width: 1.75; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='65.95,270.62 70.44,270.62 ' style='stroke-width: 1.75; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='65.95,133.59 70.44,133.59 ' style='stroke-width: 1.75; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='70.44,545.48 567.03,545.48 ' style='stroke-width: 0.53; stroke-linecap: butt;' />
+<polyline points='205.87,549.96 205.87,545.48 ' style='stroke-width: 1.75; stroke: #333333; stroke-linecap: butt;' />
+<polyline points='431.60,549.96 431.60,545.48 ' style='stroke-width: 1.75; stroke: #333333; stroke-linecap: butt;' />
+<text x='205.87' y='564.04' text-anchor='middle' style='font-size: 14.40px; fill: #4D4D4D; font-family: Arimo;' textLength='105.49px' lengthAdjust='spacingAndGlyphs'>Not Replicated</text>
+<text x='431.60' y='564.04' text-anchor='middle' style='font-size: 14.40px; fill: #4D4D4D; font-family: Arimo;' textLength='75.71px' lengthAdjust='spacingAndGlyphs'>Replicated</text>
+<text transform='translate(22.09,277.22) rotate(-90)' text-anchor='middle' style='font-size: 18.00px; font-family: Arimo;' textLength='159.11px' lengthAdjust='spacingAndGlyphs'>|Spearman's Rho|</text>
+</g>
+</svg>

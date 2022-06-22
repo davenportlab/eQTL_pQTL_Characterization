@@ -30,7 +30,7 @@ cis.eqtl.summary <- readRDS("/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults
 cis.eqtl <- readRDS("/nfs/users/nfs_n/nm18/gains_team282/eqtl/cisresults/cisqtl_all_significant.rds")
 
 # Conditional summary statistics
-cis.eqtl.summary.conditional <- fread(paste0("/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/conditional_effects/LD/chr", chr.input, "_conditional_cis_eQTL_summary_statistics.tsv"))
+cis.eqtl.summary.conditional <- fread(paste0("/nfs/users/nfs_n/nm18/gains_team282/nikhil/colocalization/cis_eqtl/conditional_effects/LMM/chr", chr.input, "_conditional_cis_eQTL_summary_statistics.tsv"))
 
 # SNP information
 geno.bim <- fread("/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID.bim", sep="\t")

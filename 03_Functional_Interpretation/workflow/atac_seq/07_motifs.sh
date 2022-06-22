@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 
-export NXF_WORK=~/gains_team282/epigenetics/accessibility/analysis/atac_seq/nextflow_work/
+for atlas in immune neutrophil
+do
 
-mkdir .nextflow.07_motifs/
-cd .nextflow.07_motifs/
+    export NXF_WORK=/nfs/users/nfs_n/nm18/gains_team282/epigenetics/accessibility/analysis/atac_seq/$atlas/nextflow_work/
 
-bsub \
-    -q long \
-    -o motifs_output.txt \
-    -e motifs_error.txt \
-    -R"select[mem>8192] rusage[mem=8192]" -M8192 \
-    "nextflow ../07_motifs.nf"
+    mkdir .nextflow.07_motifs_${atlas}/
+    cd .nextflow.07_motifs_${atlas}/
+
+    bsub \
+        -q long \
+        -o motifs_${atlas}_output.txt \
+        -e motifs_${atlas}_error.txt \
+        -R"select[mem>8192] rusage[mem=8192]" -M8192 \
+        "nextflow ../07_motifs.nf --atlas $atlas"
+
+    cd ../
+
+done

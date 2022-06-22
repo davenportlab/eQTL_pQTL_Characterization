@@ -84,7 +84,7 @@ trans.maf <- as.matrix(
     ) / (2 * nrow(trans.geno))
 )
 
-# Load gene expression to get number of samples
+# Load protein expression to get number of samples
 protein.sample.info <- read.csv("/nfs/users/nfs_n/nm18/gains_team282/proteomics/MS2019_processed_data/sample_info_1860_MS2019.csv") %>%
     dplyr::mutate(Patient = gsub("^GA", "", Patient)) %>%
     dplyr::filter(Patient %in% rownames(cis.geno))
