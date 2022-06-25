@@ -12,5 +12,9 @@ colnames(iupac.map) <- diag(iupac.map)
 
 alleles.iupac <- Vectorize(function(x, y) {
  
-    return(iupac.map[x, y])
+    if (x %in% rownames(iupac.map) && y %in% colnames(iupac.map)) {
+        return(iupac.map[x, y])
+    } else {
+        return(NA)
+    }
 })
