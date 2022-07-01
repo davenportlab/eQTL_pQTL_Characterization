@@ -20,10 +20,14 @@ process GENOMIC_ANNOTATIONS {
 
     output:
         path("*.annotation.bed"),                   emit: annotations
+        path("*.annotation.bed"),                   emit: annotations_for_point
         path("*.annotation.bed"),                   emit: annotations_for_matched
         path("lead_snps.bed"),                      emit: lead_snps
+        path("lead_snps.bed"),                      emit: lead_snps_for_point
         path("conditional_snps.bed"),               emit: conditional_snps
+        path("conditional_snps.bed"),               emit: conditional_snps_for_point
         path("sepsis_enhanced_snps.bed"),           emit: sepsis_snps
+        path("sepsis_enhanced_snps.bed"),           emit: sepsis_snps_for_point
         path("lead_matched_snps.txt"),              emit: lead_matched_snps
         path("conditional_matched_snps.txt"),       emit: conditional_matched_snps
         path("sepsis_enhanced_matched_snps.txt"),   emit: sepsis_matched_snps
@@ -93,6 +97,82 @@ process GENOMIC_ANNOTATIONS {
         awk 'NR > 1 { print \$0; }' $params.matched_snps | sort -k1,1 | join - conditional_snps.txt > conditional_matched_snps.txt
 
         awk 'NR > 1 { print \$0; }' $params.matched_snps | sort -k1,1 | join - sepsis_enhanced_snps.txt > sepsis_enhanced_matched_snps.txt
+        """
+}
+
+process OVERLAPS_POINT_ESTIMATES {
+
+    label "simple_bash"
+
+    publishDir "$params.output_dir/", mode: "move"
+
+    input:
+        path("annotations/*")
+        path(lead_snps)
+        path(conditional_snps)
+        path(sepsis_snps)
+
+    output:
+        path("cis_eqtl_sets_point_estimates.tsv")
+        path("conditional_cis_eqtl_sets_point_estimates.tsv")
+        path("sepsis_enhanced_sets_point_estimates.tsv")
+
+    script:
+
+        """
+        ### cis-eQTL
+
+        n_snps=\$(wc -l < $lead_snps)
+        sort -k1,1 -k2,2n $lead_snps > set_hg38_sorted.bed
+
+        echo -e "Annotation\\tOverlap\\tN_SNPs" > cis_eqtl_sets_point_estimates.tsv
+
+        for annotation in annotations/*
+        do
+
+            annotation_name=\$(basename \$annotation | sed 's/\\.annotation\\.bed//g')
+
+            overlap=\$(bedtools intersect -a set_hg38_sorted.bed -b \$annotation -wa | wc -l)
+
+            echo -e "\$annotation_name\\t\$overlap\\t\$n_snps" >> cis_eqtl_sets_point_estimates.tsv
+        
+        done
+
+        ### Conditional cis-eQTL
+
+        n_snps=\$(wc -l < $conditional_snps)
+        sort -k1,1 -k2,2n $conditional_snps > set_hg38_sorted.bed
+
+        echo -e "Annotation\\tOverlap\\tN_SNPs" > conditional_cis_eqtl_sets_point_estimates.tsv
+
+        for annotation in annotations/*
+        do
+
+            annotation_name=\$(basename \$annotation | sed 's/\\.annotation\\.bed//g')
+
+            overlap=\$(bedtools intersect -a set_hg38_sorted.bed -b \$annotation -wa | wc -l)
+
+            echo -e "\$annotation_name\\t\$overlap\\t\$n_snps" >> conditional_cis_eqtl_sets_point_estimates.tsv
+        
+        done
+
+        ### Sepsis-Enhanced cis-eQTL
+
+        n_snps=\$(wc -l < $sepsis_snps)
+        sort -k1,1 -k2,2n $sepsis_snps > set_hg38_sorted.bed
+
+        echo -e "Annotation\\tOverlap\\tN_SNPs" > sepsis_enhanced_sets_point_estimates.tsv
+
+        for annotation in annotations/*
+        do
+
+            annotation_name=\$(basename \$annotation | sed 's/\\.annotation\\.bed//g')
+
+            overlap=\$(bedtools intersect -a set_hg38_sorted.bed -b \$annotation -wa | wc -l)
+
+            echo -e "\$annotation_name\\t\$overlap\\t\$n_snps" >> sepsis_enhanced_sets_point_estimates.tsv
+        
+        done
         """
 }
 
@@ -303,28 +383,35 @@ workflow {
 
     GENOMIC_ANNOTATIONS()
 
-    OVERLAP_OBSERVED(
-        Channel.from(1..10000).buffer(size: 100),
-        GENOMIC_ANNOTATIONS.out.annotations.collect(),
-        GENOMIC_ANNOTATIONS.out.lead_snps,
-        GENOMIC_ANNOTATIONS.out.conditional_snps,
-        GENOMIC_ANNOTATIONS.out.sepsis_snps
+    OVERLAPS_POINT_ESTIMATES(
+        GENOMIC_ANNOTATIONS.out.annotations_for_point.collect(),
+        GENOMIC_ANNOTATIONS.out.lead_snps_for_point,
+        GENOMIC_ANNOTATIONS.out.conditional_snps_for_point,
+        GENOMIC_ANNOTATIONS.out.sepsis_snps_for_point
     )
 
-    LIFT_OVER_AND_OVERLAP(
-        Channel.from(1..10000).buffer(size: 100),
-        GENOMIC_ANNOTATIONS.out.annotations_for_matched.collect(),
-        GENOMIC_ANNOTATIONS.out.lead_matched_snps,
-        GENOMIC_ANNOTATIONS.out.conditional_matched_snps,
-        GENOMIC_ANNOTATIONS.out.sepsis_matched_snps
-    )
+    // OVERLAP_OBSERVED(
+    //     Channel.from(1..10000).buffer(size: 100),
+    //     GENOMIC_ANNOTATIONS.out.annotations.collect(),
+    //     GENOMIC_ANNOTATIONS.out.lead_snps,
+    //     GENOMIC_ANNOTATIONS.out.conditional_snps,
+    //     GENOMIC_ANNOTATIONS.out.sepsis_snps
+    // )
 
-    COLLATE_RESULTS(
-        OVERLAP_OBSERVED.out.cis_eqtl_overlaps.collect(),
-        OVERLAP_OBSERVED.out.conditional_cis_eqtl_overlaps.collect(),
-        OVERLAP_OBSERVED.out.sepsis_overlaps.collect(),
-        LIFT_OVER_AND_OVERLAP.out.cis_eqtl_overlaps.collect(),
-        LIFT_OVER_AND_OVERLAP.out.conditional_cis_eqtl_overlaps.collect(),
-        LIFT_OVER_AND_OVERLAP.out.sepsis_overlaps.collect()
-    )
+    // LIFT_OVER_AND_OVERLAP(
+    //     Channel.from(1..10000).buffer(size: 100),
+    //     GENOMIC_ANNOTATIONS.out.annotations_for_matched.collect(),
+    //     GENOMIC_ANNOTATIONS.out.lead_matched_snps,
+    //     GENOMIC_ANNOTATIONS.out.conditional_matched_snps,
+    //     GENOMIC_ANNOTATIONS.out.sepsis_matched_snps
+    // )
+
+    // COLLATE_RESULTS(
+    //     OVERLAP_OBSERVED.out.cis_eqtl_overlaps.collect(),
+    //     OVERLAP_OBSERVED.out.conditional_cis_eqtl_overlaps.collect(),
+    //     OVERLAP_OBSERVED.out.sepsis_overlaps.collect(),
+    //     LIFT_OVER_AND_OVERLAP.out.cis_eqtl_overlaps.collect(),
+    //     LIFT_OVER_AND_OVERLAP.out.conditional_cis_eqtl_overlaps.collect(),
+    //     LIFT_OVER_AND_OVERLAP.out.sepsis_overlaps.collect()
+    // )
 }

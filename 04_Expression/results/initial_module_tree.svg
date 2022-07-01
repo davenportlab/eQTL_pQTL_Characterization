@@ -434,10 +434,10 @@
   <use xlink:href="#glyph0-8" x="277.792969" y="148.779297"/>
 </g>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
-  <use xlink:href="#glyph0-1" x="283.304688" y="203.230469"/>
-  <use xlink:href="#glyph0-2" x="283.304688" y="193.234375"/>
-  <use xlink:href="#glyph0-6" x="283.304688" y="185.230469"/>
-  <use xlink:href="#glyph0-11" x="283.304688" y="178.556641"/>
+  <use xlink:href="#glyph0-1" x="283.304688" y="203.234375"/>
+  <use xlink:href="#glyph0-2" x="283.304688" y="193.238281"/>
+  <use xlink:href="#glyph0-6" x="283.304688" y="185.234375"/>
+  <use xlink:href="#glyph0-11" x="283.304688" y="178.560547"/>
 </g>
 <g style="fill:rgb(0%,0%,0%);fill-opacity:1;">
   <use xlink:href="#glyph0-1" x="288.8125" y="343.121094"/>
@@ -452,7 +452,7 @@
   <use xlink:href="#glyph0-10" x="294.320312" y="318.447266"/>
 </g>
 <path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 286.25 301.121094 L 286.25 279.445312 L 291.757812 279.445312 L 291.757812 301.121094 "/>
-<path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 280.738281 161.230469 L 280.738281 139.554688 L 289.003906 139.554688 L 289.003906 279.445312 "/>
+<path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 280.738281 161.234375 L 280.738281 139.554688 L 289.003906 139.554688 L 289.003906 279.445312 "/>
 <path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 275.230469 131.453125 L 275.230469 109.773438 L 284.871094 109.773438 L 284.871094 139.554688 "/>
 <path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 252.847656 150.398438 L 252.847656 103.933594 L 280.050781 103.933594 L 280.050781 109.773438 "/>
 <path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 235.285156 105.164062 L 235.285156 88.039062 L 266.449219 88.039062 L 266.449219 103.933594 "/>

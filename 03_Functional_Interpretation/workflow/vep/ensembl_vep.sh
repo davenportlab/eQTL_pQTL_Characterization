@@ -13,6 +13,13 @@ rm -f qtl_both_ref.vcf.gz
 sed 's/^chr//g' /nfs/users/nfs_n/nm18/gains_team282/epigenetics/vep/qtl_both_ref.vcf > qtl_both_ref.vcf
 gzip qtl_both_ref.vcf
 
+# Get reference/alternate alleles
+gunzip -c qtl_both_ref.vcf.gz | awk '{ print $3; }' | sort | uniq > snps.txt
+
+gunzip -c /lustre/scratch118/humgen/resources/variation/Homo_sapiens/grch38/dbsnp_155.hg38.vcf.gz | \
+    awk 'OFS="\t" { if ($0 !~ "^#") { gsub("^chr", "", $1); print $1, $2, $3, $4, $5; } }' | \
+    grep -wFf snps.txt > qtl_ref_alleles.tsv
+
 # Execute HGI's VEP
 bsub \
     -q normal \
