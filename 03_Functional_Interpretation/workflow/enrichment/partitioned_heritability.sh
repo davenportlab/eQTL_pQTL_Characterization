@@ -10,4 +10,4 @@ bsub \
     -o partitioned_heritability_output.txt \
     -e partitioned_heritability_error.txt \
     -R"select[mem>32768] rusage[mem=32768]" -M32768 \
-    "nextflow ../partitioned_heritability.nf"
+    "nextflow ../partitioned_heritability.nf -resume"

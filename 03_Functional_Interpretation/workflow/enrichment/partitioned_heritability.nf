@@ -37,7 +37,7 @@ process COLLATE_RESULTS {
     script:
 
         """
-        echo -e "Eigengene\\tAnnotation\\tComponent\\tVariance\\tProportion" > variance_components.csv
+        echo -e "Eigengene,Annotation,Component,Variance,Proportion" > variance_components.csv
 
         cat var_comps/*.csv >> variance_components.csv
         """

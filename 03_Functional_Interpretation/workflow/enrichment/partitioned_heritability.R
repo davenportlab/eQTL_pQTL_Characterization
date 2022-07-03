@@ -63,10 +63,7 @@ f <- paste0(
 # Use first module eigengene from each module
 me.set <- colnames(map.data)[grepl("^ME_[0-9]*_1", colnames(map.data))]
 
-n_cores <- detectCores() - 1
-cl <- makeCluster(n_cores)
-
-var.comp <- parLapply(cl, me.set, function(me) {
+var.comp <- mclapply(me.set, function(me) {
 
     tryCatch({
 
@@ -94,7 +91,7 @@ var.comp <- parLapply(cl, me.set, function(me) {
 
         return(var.props)
     })
-}) %>%
+}, mc.cores=16) %>%
     do.call(rbind, .)
 
 write.table(var.comp, paste0(annotation, ".variance_components.csv"), quote=F, sep=",", row.names=F, col.names=F)
