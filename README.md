@@ -9,6 +9,11 @@ The goal of this project is to characterize mechanisms
 underlying molecular QTL in the Genomic Advances in 
 Sepsis ([GAinS](https://ukccggains.com/)) cohort.
 
+## Thesis
+
+The thesis was submitted on 6 July 2022. You can find the
+specific release of the repository [here](https://github.com/davenportlab/eQTL_pQTL_Characterization/releases/tag/Thesis-Submission).
+
 ## Technical Details
 
 We use [Anaconda environments](https://docs.conda.io/projects/conda/en/latest/index.html)
@@ -26,7 +31,7 @@ Linux workstation or compute cluster with:
 
 ## Analyses
 
-The project is divided into five broad analytical steps.
+The project is divided into four broad analytical steps.
 Each analysis has a dedicated root-level directory. Each
 step also has its own Anaconda environment. A project-level
 environment is used for the Jupyter Notebooks.
@@ -43,10 +48,6 @@ environment is used for the Jupyter Notebooks.
     underlying eQTL detected in GAinS.
 4. `04_Expression` - The goal is to jointly analyze gene
     and protein expression.
-5. `05_MR` - The goal is to perform Mendelian
-    Randomization to hypothesize about causality between
-    molecular exposures and outcomes after the
-    colocalization analysis.
 
 ## Setup
 
