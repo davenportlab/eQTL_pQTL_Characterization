@@ -295,7 +295,7 @@ For the WGCNA analysis, run the following scripts in order:
 
 ### Prediction from Module Eigengenes
 
-> Note: Experimental
+> **Note**: Experimental
 
 **File**: `wgcna_12_predictors.ipynb`
 
