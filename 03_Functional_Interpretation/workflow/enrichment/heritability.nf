@@ -115,6 +115,8 @@ process GRM_CALCULATION {
             --make-grm \\
             --out ${annotation_bed.getSimpleName()}/annotation_snps_grm \\
             --thread-num 16
+        
+        wc -l in_annotation.snps > ${annotation_bed.getSimpleName()}/n_annotation_snps.txt
 
         gcta64 \\
             --bfile autosomes/autosomes \\
@@ -122,6 +124,8 @@ process GRM_CALCULATION {
             --make-grm \\
             --out ${annotation_bed.getSimpleName()}/other_snps_grm \\
             --thread-num 16
+
+        wc -l not_in_annotation.snps > ${annotation_bed.getSimpleName()}/n_other_snps.txt
         """
 }
 
