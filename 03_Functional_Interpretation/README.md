@@ -304,7 +304,7 @@ Run the scripts in the following order:
 3. Consensus Peak Sets Fragment Counts
 4. Fraction of Reads in Peaks (FRiP)
 
-### Sample Jaccard Similarity
+### Sample Jaccard Similarity
 
 **File**: `atac_02_peaks_jaccard_similarity.ipynb`
 
@@ -394,7 +394,7 @@ Run the scripts in the following order:
 **Outputs**:
 1. Differentially Accessible Peaks in Neutrophil Atlas
 
-### Compare with Original Calderon et al. Analysis
+### Compare with Original Calderon et al. Analysis
 
 **File**: `atac_08_calderon_et_al_comparison.ipynb`
 
@@ -626,7 +626,7 @@ Run the scripts in the following order:
 **Outputs**:
 1. Proportion of Variance Assigned to Each Component
 
-### Analysis of Partitioned Heritability
+### Analysis of Partitioned Heritability
 
 **File**: `enrichment_05_partitioned_heritability.ipynb`
 
