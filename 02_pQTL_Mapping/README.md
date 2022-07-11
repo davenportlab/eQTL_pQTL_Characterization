@@ -2,9 +2,18 @@
 
 This folder contains the scripts for processing the pQTL mapping results. The order of running the scripts is described below:
 
+1. [pQTL Processing](#pqtl-processing)
+    1. [Protein Metadata](#protein-metadata)
+    2. [Extract pQTL](#extract-pqtl)
+    3. [pQTL Analysis](#pqtl-analysis)
+
+---
+
 ## pQTL Processing
 
 Run the scripts in the following order:
+
+---
 
 ### Protein Metadata
 
@@ -21,6 +30,8 @@ Run the scripts in the following order:
 
 **Outputs**:
 1. Table of Metadata (Gene-to-Protein Mapping)
+
+---
 
 ### Extract pQTL
 
@@ -41,6 +52,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. cis-pQTL
 2. trans-pQTL
+
+---
 
 ### pQTL Analysis
 
