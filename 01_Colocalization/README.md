@@ -2,9 +2,38 @@
 
 This folder contains the scripts for colocalisation and fine mapping. The order of running the scripts is described below:
 
+1. [Conditional Summary Statistics](#conditional-summary-statistics)
+    1. [Cis-eQTL Conditional Summary Statistics](#cis-eqtl-conditional-summary-statistics)
+2. [LD Fine Mapping](#ld-fine-mapping)
+    1. [Retrieve Tagging SNPs](#retrieve-tagging-snps)
+3. [Fine Mapping Setup](#fine-mapping-setup)
+    1. [Extract Genotypes](#extract-genotypes)
+4. [FINEMAP](#finemap)
+    1. [Cis-eQTL Fine Mapping](#cis-eqtl-fine-mapping)
+    2. [Module QTL Fine Mapping](#module-qtl-fine-mapping)
+    3. [pQTL Fine Mapping](#pqtl-fine-mapping)
+5. [SuSiE](#susie)
+    1. [Extract 1000G LD](#extract-1000g-ld)
+    2. [Cis-eQTL Fine Mapping](#cis-eqtl-fine-mapping-1)
+    3. [Module QTL Fine Mapping](#module-qtl-fine-mapping-1)
+    4. [pQTL Fine Mapping](#pqtl-fine-mapping-1)
+6. [Colocalisation](#colocalisation-1)
+    1. [Cis-eQTL Colocalisation](#cis-eqtl-colocalisation)
+    2. [Cis-eQTL Colocalisation with Cis-pQTL](#cis-eqtl-colocalisation-with-cis-pqtl)
+    3. [Trans-pQTL Colocalisation](#trans-pqtl-colocalisation)
+    4. [Cis-eQTL Colocalising with Module QTL](#cis-eqtl-colocalising-with-module-qtl)
+    5. [Module QTL Colocalising with GWAS Associations](#module-qtl-colocalising-with-gwas-associations)
+7. [Credible Sets](#credible-sets)
+    1. [Compare Credible Sets from Cis-eQTL](#compare-credible-sets-from-cis-eqtl)
+    2. [Compare Credible Sets from Module QTL and pQTL](#compare-credible-sets-from-module-qtl-and-pqtl)
+
+---
+
 ## Conditional Summary Statistics
 
 Run the scripts in the following order:
+
+---
 
 ### Cis-eQTL Conditional Summary Statistics
 
@@ -26,9 +55,13 @@ Run the scripts in the following order:
 **Outputs**:
 1. Conditional summary statistics for individual conditional cis-eQTL signals
 
+---
+
 ## LD Fine Mapping
 
 This analysis was concerned with identifying variants in LD with molecular QTL. Run the scripts in the following order:
+
+---
 
 ### Retrieve Tagging SNPs
 
@@ -52,9 +85,13 @@ This analysis was concerned with identifying variants in LD with molecular QTL. 
 2. Tagging SNPs in 1 Mb for QTL with $R^2 > 0.9$
 3. Tagging SNPs in 1 Mb for QTL with $R^2 > 0.8$
 
+---
+
 ## Fine Mapping Setup
 
 The purpose of this section is to retrieve the genotypes for the various QTL loci to generate LD matrices. Run the scripts in the following order:
+
+---
 
 ### Extract Genotypes
 
@@ -76,9 +113,13 @@ The purpose of this section is to retrieve the genotypes for the various QTL loc
 2. trans-pQTL Genotypes
 3. eQTL Genotypes
 
+---
+
 ## FINEMAP
 
 Run the scripts in the following order:
+
+---
 
 ### Cis-eQTL Fine Mapping
 
@@ -102,6 +143,8 @@ Run the scripts in the following order:
 1. FINEMAP Credible Sets for cis-eQTL
 2. FINEMAP Credible Sets for Conditional cis-eQTL
 
+---
+
 ### Module QTL Fine Mapping
 
 **File**: `mqtl_finemap_fine_mapping.sh`
@@ -121,6 +164,8 @@ Run the scripts in the following order:
 
 **Outputs**:
 1. FINEMAP Credible Sets for Module QTL
+
+---
 
 ### pQTL Fine Mapping
 
@@ -143,9 +188,13 @@ Run the scripts in the following order:
 1. FINEMAP Credible Sets for cis-pQTL
 2. FINEMAP Credible Sets for trans-pQTL
 
+---
+
 ## SuSiE
 
 Run the scripts in the following order:
+
+---
 
 ### Extract 1000G LD
 
@@ -165,6 +214,8 @@ Run the scripts in the following order:
 
 **Outputs**:
 1. Extracted, filtered, recoded genotypes from 1000G
+
+---
 
 ### Cis-eQTL Fine Mapping
 
@@ -188,6 +239,8 @@ Run the scripts in the following order:
 1. SuSiE Credible Sets for cis-eQTL
 2. SuSiE Credible Sets for Conditional cis-eQTL
 
+---
+
 ### Module QTL Fine Mapping
 
 **File**: `mqtl_susie_fine_mapping.sh`
@@ -207,6 +260,8 @@ Run the scripts in the following order:
 
 **Outputs**:
 1. SuSiE Credible Sets for Module QTL
+
+---
 
 ### pQTL Fine Mapping
 
@@ -230,9 +285,13 @@ Run the scripts in the following order:
 1. SuSiE Credible Sets for cis-pQTL
 2. SuSiE Credible Sets for trans-pQTL
 
+---
+
 ## Colocalisation
 
 Run the scripts in the following order:
+
+---
 
 ### Cis-eQTL Colocalisation
 
@@ -253,6 +312,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Colocalising cis-eQTL
 
+---
+
 ### Cis-eQTL Colocalisation with Cis-pQTL
 
 **File**: `02_cis_eqtl_cis_pqtl_colocalization.ipynb`
@@ -272,6 +333,8 @@ Run the scripts in the following order:
 
 **Outputs**: None
 
+---
+
 ### Trans-pQTL Colocalisation
 
 **File**: `03_trans_pqtl_colocalization.ipynb`
@@ -288,12 +351,9 @@ Run the scripts in the following order:
 
 **Dependencies**: None
 
-**Outputs**:
-1. Colocalising cis-eQTL with Module QTL
-
-**Dependencies**: None
-
 **Outputs**: None
+
+---
 
 ### Cis-eQTL Colocalising with Module QTL
 
@@ -311,6 +371,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Module QTL Colocalising with GWAS Associations
 
@@ -330,6 +392,14 @@ Run the scripts in the following order:
 
 **Outputs**: None
 
+---
+
+## Credible Sets
+
+Run the scripts in the following order:
+
+---
+
 ### Compare Credible Sets from Cis-eQTL
 
 **File**: `06_compare_credible_sets.ipynb`
@@ -345,6 +415,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Compare Credible Sets from Module QTL and pQTL
 
