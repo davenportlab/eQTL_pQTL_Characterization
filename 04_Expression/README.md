@@ -1,11 +1,35 @@
 # Expression
 
-This folder contains the scripts for the co-expression analysis. The order of running the scripts
-is described below.
+This folder contains the scripts for the co-expression analysis. The order of running the scripts is described below.
+
+1. [WGCNA](#wgcna)
+    1. [WGCNA on Gene Expression](#wgcna-on-gene-expression)
+    2. [Module Annotation](#module-annotation)
+    3. [Module Associations with SRS and Cell Frequencies](#module-associations-with-srs-and-cell-frequencies)
+    4. [Module Associations with Time Point and Diagnosis](#module-associations-with-time-point-and-diagnosis)
+    5. [Module Associations with Outcome](#module-associations-with-outcome)
+    6. [Module Associations](#module-associations)
+    7. [Network Analysis](#network-analysis)
+    8. [Preparation for Module QTL Mapping](#preparation-for-module-qtl-mapping)
+    9. [Prepare Genotypes for Module QTL](#prepare-genotypes-for-module-qtl)
+    10. [Perform Module QTL Mapping](#perform-module-qtl-mapping)
+    11. [Module QTL Analysis](#module-qtl-analysis)
+    12. [Module QTL Information](#module-qtl-information)
+    13. [Extract Genotypes for Module QTL Loci Summary Statistics](#extract-genotypes-for-module-qtl-loci-summary-statistics)
+    14. [Generate Module QTL Loci Summary Statistics](#generate-module-qtl-loci-summary-statistics)
+    15. [Module QTL Replication](#module-qtl-replication)
+    16. [Prediction from Module Eigengenes](#prediction-from-module-eigengenes)
+2. [Trajectories](#trajectories)
+    1. [DDRTree](#ddrtree)
+    2. [Pseudotime Analysis](#pseudotime-analysis)
+
+---
 
 ## WGCNA
 
 For the WGCNA analysis, run the following scripts in order:
+
+---
 
 ### WGCNA on Gene Expression
 
@@ -29,6 +53,8 @@ For the WGCNA analysis, run the following scripts in order:
 5. Eigengenes
 6. Network Connectivity Metrics
 
+---
+
 ### Module Annotation
 
 **File**: `wgcna_02_gene_coexpression_module_annotation.ipynb`
@@ -45,6 +71,8 @@ For the WGCNA analysis, run the following scripts in order:
 1. GO Cellular Components, Molecular Functions, and Biological Processes
 2. KEGG Human Pathways
 3. Reactome Pathways
+
+---
 
 ### Module Associations with SRS and Cell Frequencies
 
@@ -74,6 +102,8 @@ For the WGCNA analysis, run the following scripts in order:
 5. xCell Signature Enrichment in Module Eigengenes (Hypergeometric Test)
 6. scRNA-seq Marker Gene Set Enrichment in Module Eigengenes (Hypergeometric Test)
 
+---
+
 ### Module Associations with Time Point and Diagnosis
 
 **File**: `wgcna_04_gene_coexpression_module_time_point_and_diagnosis.ipynb`
@@ -91,6 +121,8 @@ For the WGCNA analysis, run the following scripts in order:
 1. Time Point Association with Module Eigengenes (Repeat Measures ANOVA - GES)
 2. Diagnosis Association with Module Eigengenes (Repeat Measures ANOVA - GES)
 
+---
+
 ### Module Associations with Outcome
 
 **File**: `wgcna_05_gene_coexpression_module_proportional_hazards_model.ipynb`
@@ -106,6 +138,8 @@ For the WGCNA analysis, run the following scripts in order:
 
 **Outputs**:
 1. Outcome Association with Module Eigengenes (Cox Proportional Hazards Model - Beta)
+
+---
 
 ### Module Associations
 
@@ -126,6 +160,8 @@ For the WGCNA analysis, run the following scripts in order:
 **Outputs**:
 1. Combined Association Table
 
+---
+
 ### Network Analysis
 
 **File**: `wgcna_07_network_analysis.ipynb`
@@ -141,6 +177,8 @@ For the WGCNA analysis, run the following scripts in order:
 **Outputs**:
 1. Module Adjacencies
 2. Module Node Lists
+
+---
 
 ### Preparation for Module QTL Mapping
 
@@ -168,6 +206,8 @@ For the WGCNA analysis, run the following scripts in order:
 3. Mapping Data (Eigengenes, Covariates)
 4. List of SNPs to Test
 
+---
+
 ### Prepare Genotypes for Module QTL
 
 **File**: `extract_genotypes.sh`
@@ -183,6 +223,8 @@ For the WGCNA analysis, run the following scripts in order:
 
 **Outputs**:
 1. Extracted, filtered, recoded genotypes for mapping
+
+---
 
 ### Perform Module QTL Mapping
 
@@ -200,6 +242,8 @@ For the WGCNA analysis, run the following scripts in order:
 
 **Outputs**:
 1. Summary Statistics for Tested SNPs for each Module Eigengene
+
+---
 
 ### Module QTL Analysis
 
@@ -222,6 +266,8 @@ For the WGCNA analysis, run the following scripts in order:
 3. Module QTL Full Summary Statistics
 4. mQTL RDS Object
 
+---
+
 ### Module QTL Information
 
 **File** `wgcna_10_eigengene_sva_qtl_info.ipynb`
@@ -240,6 +286,8 @@ For the WGCNA analysis, run the following scripts in order:
 **Outputs**:
 1. EBI GWAS Variants that are Module QTL
 
+---
+
 ### Extract Genotypes for Module QTL Loci Summary Statistics
 
 **File**: `extract_ss_genotypes.sh`
@@ -257,6 +305,8 @@ For the WGCNA analysis, run the following scripts in order:
 **Outputs**:
 1. Extracted, filtered, recoded genotypes for module QTL loci
 2. Extracted, filtered, recoded genotypes for module QTL replication
+
+---
 
 ### Generate Module QTL Loci Summary Statistics
 
@@ -277,6 +327,8 @@ For the WGCNA analysis, run the following scripts in order:
 **Outputs**:
 1. Summary statistics for module eigengenes from module QTL loci
 
+---
+
 ### Module QTL Replication
 
 **File**: `wgcna_11_module_qtl_replication.ipynb`
@@ -292,6 +344,8 @@ For the WGCNA analysis, run the following scripts in order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Prediction from Module Eigengenes
 
@@ -310,9 +364,13 @@ For the WGCNA analysis, run the following scripts in order:
 
 **Outputs**: None
 
+---
+
 ## Trajectories
 
 For the trajectories analysis, run the following scripts in order:
+
+---
 
 ### DDRTree
 
@@ -336,6 +394,8 @@ For the trajectories analysis, run the following scripts in order:
 2. DDRTree branches
 3. DDRTree projected points
 4. Pseudotime
+
+---
 
 ### Pseudotime Analysis
 
