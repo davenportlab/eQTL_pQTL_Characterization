@@ -2,9 +2,72 @@
 
 This folder contains the scripts for functional interpretation of the molecular QTL. The order of running the scripts is described below:
 
+1. [Retrieve Public Data](#retrieve-public-data)
+    1. [Generate Metadata](#generate-metadata)
+    2. [RNA-seq Data Overview](#rna-seq-data-overview)
+    3. [ATAC-seq Data Overview](#atac-seq-data-overview)
+    4. [Download from SRA](#download-from-sra)
+2. [Alignment](#alignment)
+    1. [Index Genomes](#index-genomes)
+3. [RNA Sequencing](#rna-sequencing)
+    1. [Trim Adapter Contamination](#trim-adapter-contamination)
+    2. [Alignment](#alignment-1)
+    3. [Merge Replicates and Count Reads](#merge-replicates-and-count-reads)
+    4. [RNA-seq Analysis](#rna-seq-analysis)
+    5. [Basic Alignment QC](#basic-alignment-qc)
+    6. [Differentially Expressed Genes](#differentially-expressed-genes)
+4. [ATAC Sequencing](#atac-sequencing)
+    1. [Trim Adapter Contamination](#trim-adapter-contamination-1)
+    2. [Alignment](#alignment-2)
+    3. [Merge Replicates and Call Peaks](#merge-replicates-and-call-peaks)
+    4. [Quality Control](#quality-control)
+    5. [Peak Sets](#peak-sets)
+    6. [Count Fragments in Peaks](#count-fragments-in-peaks)
+    7. [Sample Jaccard Similarity](#sample-jaccard-similarity)
+    8. [Explore Consensus Peak Set](#explore-consensus-peak-set)
+    9. [Explore All Peak Sets](#explore-all-peak-sets)
+    10. [Sample Alignment QC](#sample-alignment-qc)
+    11. [Differentially Accessible Peaks in Immune Atlas](#differentially-accessible-peaks-in-immune-atlas)
+    12. [Differentially Accessible Peaks in Neutrophil Atlas](#differentially-accessible-peaks-in-neutrophil-atlas)
+    13. [Compare with Original Calderon et al. Analysis](#compare-with-original-calderon-et-al-analysis)
+    14. [Motif Enrichment](#motif-enrichment)
+    15. [Analysis of Motif Enrichment](#analysis-of-motif-enrichment)
+5. [Functional Enrichment](#functional-enrichment)
+    1. [Gene-Peak Clusters](#gene-peak-clusters)
+    2. [Overlap with Prior Analyses](#overlap-with-prior-analyses)
+    3. [SNP Matching Within Cohort](#snp-matching-within-cohort)
+    4. [Analysis of SNP Matching Within Cohort](#analysis-of-snp-matching-within-cohort)
+    5. [SNP Matching Setup](#snp-matching-setup)
+    6. [Matched SNP Enrichment](#matched-snp-enrichment)
+    7. [Analysis of Matched SNP Enrichment](#analysis-of-matched-snp-enrichment)
+    8. [CHEERS on Calderon et al. Data](#cheers-on-calderon-et-al-data)
+    9. [Analysis of CHEERS on Calderon et al. Data](#analysis-of-cheers-on-calderon-et-al-data)
+    10. [CHEERS](#cheers)
+    11. [Analysis of CHEERS](#analysis-of-cheers)
+    12. [GoShifter on Calderon et al. Data](#goshifter-on-calderon-et-al-data)
+    13. [Analysis of GoShifter on Calderon et al. Data](#analysis-of-goshifter-on-calderon-et-al-data)
+    14. [GoShifter](#goshifter)
+    15. [Analysis of GoShifter](#analysis-of-goshifter)
+    16. [Create GRMs](#create-grms)
+    17. [Partitioned Heritability](#partitioned-heritability)
+    18. [Analysis of Partitioned Heritability](#analysis-of-partitioned-heritability)
+    19. [Scissor scRNA-seq Analysis](#scissor-scrna-seq-analysis)
+6. [Variant Effect Prediction](#variant-effect-prediction)
+    1. [Preparation](#preparation)
+    2. [Ensembl's VEP](#ensembls-vep)
+    3. [VEP Analysis](#vep-analysis)
+7. [Regulation](#regulation)
+    1. [Peak Shapes](#peak-shapes)
+8. [Integration](#integration)
+    1. [Module Integration](#module-integration)
+
+---
+
 ## Retrieve Public Data
 
 Run the scripts in the following order:
+
+---
 
 ### Generate Metadata
 
@@ -21,6 +84,8 @@ Run the scripts in the following order:
 1. RNA-seq Reads Table
 2. ATAC-seq Reads Table
 
+---
+
 ### RNA-seq Data Overview
 
 **File**: `rna_01_rna_seq_raw_data.ipynb`
@@ -34,6 +99,8 @@ Run the scripts in the following order:
 
 **Outputs**: None
 
+---
+
 ### ATAC-seq Data Overview
 
 **File**: `atac_01_atac_seq_raw_data.ipynb`
@@ -46,6 +113,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Download from SRA
 
@@ -63,9 +132,13 @@ Run the scripts in the following order:
 1. FASTQ files from RNA-seq studies
 2. FASTQ files from ATAC-seq studies
 
+---
+
 ## Alignment
 
 Run the scripts in the following order:
+
+---
 
 ### Index Genomes
 
@@ -84,9 +157,13 @@ Run the scripts in the following order:
 1. STAR Index
 2. Bowtie 2 Index
 
+---
+
 ## RNA Sequencing
 
 Run the scripts in the following order:
+
+---
 
 ### Trim Adapter Contamination
 
@@ -103,6 +180,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Trimmed FASTQ Files
 2. MultiQC Report After Trimming
+
+---
 
 ### Alignment
 
@@ -122,6 +201,8 @@ Run the scripts in the following order:
 2. Read Counts in Genes from STAR
 3. MultiQC Report After Post-Alignment Quality Control
 
+---
+
 ### Merge Replicates and Count Reads
 
 **File**: `03_merge_replicates.sh`
@@ -139,6 +220,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Merged BAM Files
 2. Reads in Exons from featureCounts
+
+---
 
 ### RNA-seq Analysis
 
@@ -158,6 +241,8 @@ Run the scripts in the following order:
 1. Read Count Matrix
 2. Aggregate RNASeQC Output
 
+---
+
 ### Basic Alignment QC
 
 **File**: `rna_02_rna_seq_read_counts.ipynb`
@@ -171,6 +256,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Differentially Expressed Genes
 
@@ -188,9 +275,13 @@ Run the scripts in the following order:
 **Outputs**:
 1. Differentially Expressed Genes
 
+---
+
 ## ATAC Sequencing
 
 Run the scripts in the following order:
+
+---
 
 ### Trim Adapter Contamination
 
@@ -207,6 +298,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Trimmed FASTQ Files
 2. MultiQC Report After Trimming
+
+---
 
 ### Alignment
 
@@ -227,6 +320,8 @@ Run the scripts in the following order:
 1. Alignment BAM Files
 2. MultiQC Report After Post-Alignment Quality Control
 
+---
+
 ### Merge Replicates and Call Peaks
 
 **File**: `03_call_atac_seq_peaks.sh`
@@ -244,6 +339,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Merged BAM Files
 2. Peaks from MACS2
+
+---
 
 ### Quality Control
 
@@ -265,6 +362,8 @@ Run the scripts in the following order:
 2. Jaccard Values between Samples
 3. Sample TSS Enrichment Scores
 
+---
+
 ### Peak Sets
 
 **File**: `05_consensus_peak_set.sh`
@@ -285,6 +384,8 @@ Run the scripts in the following order:
 4. Group Jaccard Values
 5. Cell Type Jaccard Values
 
+---
+
 ### Count Fragments in Peaks
 
 **File**: `06_count_fragments.sh`
@@ -304,6 +405,8 @@ Run the scripts in the following order:
 3. Consensus Peak Sets Fragment Counts
 4. Fraction of Reads in Peaks (FRiP)
 
+---
+
 ### Sample Jaccard Similarity
 
 **File**: `atac_02_peaks_jaccard_similarity.ipynb`
@@ -317,6 +420,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Explore Consensus Peak Set
 
@@ -333,7 +438,9 @@ Run the scripts in the following order:
 
 **Outputs**: None
 
-### Explore All Peak Set
+---
+
+### Explore All Peak Sets
 
 **File**: `atac_04_all_peak_sets.ipynb`
 
@@ -346,6 +453,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Sample Alignment QC
 
@@ -361,6 +470,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Differentially Accessible Peaks in Immune Atlas
 
@@ -378,6 +489,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Differentially Accessible Peaks in Immune Atlas
 
+---
+
 ### Differentially Accessible Peaks in Neutrophil Atlas
 
 **File**: `atac_07_neutrophil_peak_count_normalization.ipynb`
@@ -393,6 +506,8 @@ Run the scripts in the following order:
 
 **Outputs**:
 1. Differentially Accessible Peaks in Neutrophil Atlas
+
+---
 
 ### Compare with Original Calderon et al. Analysis
 
@@ -411,6 +526,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Motif Enrichment
 
@@ -439,6 +556,8 @@ Run the scripts in the following order:
 6. Motif Enrichment for Group Peak Sets
 7. Motif Enrichment for DA Peak Sets (More and Less Accessible)
 
+---
+
 ### Analysis of Motif Enrichment
 
 **File**: `atac_09_homer.ipynb`
@@ -452,9 +571,13 @@ Run the scripts in the following order:
 
 **Outputs**: None
 
+---
+
 ## Functional Enrichment
 
 Run the scripts in the following order:
+
+---
 
 ### Gene-Peak Clusters
 
@@ -472,6 +595,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Overlap with Prior Analyses
 
@@ -500,6 +625,8 @@ Run the scripts in the following order:
 4. SNPs Overlapping Differentially Accessible Peaks
 5. SNPs that are caQTL
 
+---
+
 ### SNP Matching Within Cohort
 
 > **Note**: Experimental
@@ -527,6 +654,8 @@ Run the scripts in the following order:
 1. Fisher Test Results from Enrichment
 2. TSS-Corrected Enrichment Test Results
 
+---
+
 ### Analysis of SNP Matching Within Cohort
 
 > **Note**: Experimental
@@ -541,6 +670,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### SNP Matching Setup
 
@@ -557,6 +688,8 @@ Run the scripts in the following order:
 
 **Outputs**
 1. Table of All Cis-eQTL eSNPs
+
+---
 
 ### Matched SNP Enrichment
 
@@ -583,6 +716,8 @@ Run the scripts in the following order:
 3. Sepsis-Enhanced eQTL Overlaps
 4. Background Overlaps
 
+---
+
 ### Analysis of Matched SNP Enrichment
 
 **File**: `enrichment_02_snp_snap.ipynb`
@@ -597,6 +732,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### CHEERS on Calderon et al. Data
 
@@ -623,6 +760,8 @@ Run the scripts in the following order:
 1. Normalised Peak Specificity Scores
 2. CHEERS Results
 
+---
+
 ### Analysis of CHEERS on Calderon et al. Data
 
 > **Note**: Experimental
@@ -638,6 +777,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### CHEERS
 
@@ -661,6 +802,8 @@ Run the scripts in the following order:
 2. CHEERS Results for Ex Vivo Stimulations
 3. CHEERS Results for Whole Blood Stimulations
 
+---
+
 ### Analysis of CHEERS
 
 **File**: `enrichment_03_cheers.ipynb`
@@ -673,6 +816,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### GoShifter on Calderon et al. Data
 
@@ -699,6 +844,8 @@ Run the scripts in the following order:
 1. Overlap Scores
 2. Empirical P-Values
 
+---
+
 ### Analysis of GoShifter on Calderon et al. Data
 
 > **Note**: Experimental
@@ -714,6 +861,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### GoShifter
 
@@ -738,6 +887,8 @@ Run the scripts in the following order:
 3. Overlap Scores
 4. Empirical P-Values
 
+---
+
 ### Analysis of GoShifter
 
 **File**: `enrichment_04_goshifter.ipynb`
@@ -754,6 +905,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Create GRMs
 
@@ -776,6 +929,8 @@ Run the scripts in the following order:
 2. Full Genetic Relationship Matrix
 3. Genetic Relationship Matrices for Genome Annotations
 
+---
+
 ### Partitioned Heritability
 
 **File**: `paritioned_heritability.sh`
@@ -794,6 +949,8 @@ Run the scripts in the following order:
 **Outputs**:
 1. Proportion of Variance Assigned to Each Component
 
+---
+
 ### Analysis of Partitioned Heritability
 
 **File**: `enrichment_05_partitioned_heritability.ipynb`
@@ -808,6 +965,8 @@ Run the scripts in the following order:
 **Dependencies**: None
 
 **Outputs**: None
+
+---
 
 ### Scissor scRNA-seq Analysis
 
@@ -828,9 +987,13 @@ Run the scripts in the following order:
 
 **Output**: None
 
+---
+
 ## Variant Effect Prediction
 
 Run the scripts in the following order:
+
+---
 
 ### Preparation
 
@@ -857,6 +1020,8 @@ Run the scripts in the following order:
 3. VCF with QTL Variants on hg19 with CS Variants
 4. VCF with QTL Variants on hg19 with CS Variants with Both Alleles as the Reference
 
+---
+
 ### Ensembl's VEP
 
 **File**: `ensembl_vep.sh`
@@ -871,6 +1036,8 @@ Run the scripts in the following order:
 
 **Outputs**:
 1. Table of VEP Consequences
+
+---
 
 ### VEP Analysis
 
@@ -889,9 +1056,13 @@ Run the scripts in the following order:
 
 **Outputs**: None
 
+---
+
 ## Regulation
 
 Run the scripts in the following order:
+
+---
 
 ### Peak Shapes
 
@@ -913,9 +1084,13 @@ Run the scripts in the following order:
 1. Fiedler Vectors for Consensus and Cell Type Peaks
 2. Coverage PCs for Consensus and Cell Type Peaks
 
+---
+
 ## Integration
 
 Run the scripts in the following order:
+
+---
 
 ### Module Integration
 
