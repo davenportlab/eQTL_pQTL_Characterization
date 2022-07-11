@@ -390,28 +390,28 @@ workflow {
         GENOMIC_ANNOTATIONS.out.sepsis_snps_for_point
     )
 
-    // OVERLAP_OBSERVED(
-    //     Channel.from(1..10000).buffer(size: 100),
-    //     GENOMIC_ANNOTATIONS.out.annotations.collect(),
-    //     GENOMIC_ANNOTATIONS.out.lead_snps,
-    //     GENOMIC_ANNOTATIONS.out.conditional_snps,
-    //     GENOMIC_ANNOTATIONS.out.sepsis_snps
-    // )
+    OVERLAP_OBSERVED(
+        Channel.from(1..10000).buffer(size: 100),
+        GENOMIC_ANNOTATIONS.out.annotations.collect(),
+        GENOMIC_ANNOTATIONS.out.lead_snps,
+        GENOMIC_ANNOTATIONS.out.conditional_snps,
+        GENOMIC_ANNOTATIONS.out.sepsis_snps
+    )
 
-    // LIFT_OVER_AND_OVERLAP(
-    //     Channel.from(1..10000).buffer(size: 100),
-    //     GENOMIC_ANNOTATIONS.out.annotations_for_matched.collect(),
-    //     GENOMIC_ANNOTATIONS.out.lead_matched_snps,
-    //     GENOMIC_ANNOTATIONS.out.conditional_matched_snps,
-    //     GENOMIC_ANNOTATIONS.out.sepsis_matched_snps
-    // )
+    LIFT_OVER_AND_OVERLAP(
+        Channel.from(1..10000).buffer(size: 100),
+        GENOMIC_ANNOTATIONS.out.annotations_for_matched.collect(),
+        GENOMIC_ANNOTATIONS.out.lead_matched_snps,
+        GENOMIC_ANNOTATIONS.out.conditional_matched_snps,
+        GENOMIC_ANNOTATIONS.out.sepsis_matched_snps
+    )
 
-    // COLLATE_RESULTS(
-    //     OVERLAP_OBSERVED.out.cis_eqtl_overlaps.collect(),
-    //     OVERLAP_OBSERVED.out.conditional_cis_eqtl_overlaps.collect(),
-    //     OVERLAP_OBSERVED.out.sepsis_overlaps.collect(),
-    //     LIFT_OVER_AND_OVERLAP.out.cis_eqtl_overlaps.collect(),
-    //     LIFT_OVER_AND_OVERLAP.out.conditional_cis_eqtl_overlaps.collect(),
-    //     LIFT_OVER_AND_OVERLAP.out.sepsis_overlaps.collect()
-    // )
+    COLLATE_RESULTS(
+        OVERLAP_OBSERVED.out.cis_eqtl_overlaps.collect(),
+        OVERLAP_OBSERVED.out.conditional_cis_eqtl_overlaps.collect(),
+        OVERLAP_OBSERVED.out.sepsis_overlaps.collect(),
+        LIFT_OVER_AND_OVERLAP.out.cis_eqtl_overlaps.collect(),
+        LIFT_OVER_AND_OVERLAP.out.conditional_cis_eqtl_overlaps.collect(),
+        LIFT_OVER_AND_OVERLAP.out.sepsis_overlaps.collect()
+    )
 }
