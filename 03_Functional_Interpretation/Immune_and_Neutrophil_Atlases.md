@@ -125,6 +125,13 @@ experiment.
 
 ### RNA-Seq
 
+<object data="results/rna_seq_qc_intronic_rate.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="results/rna_seq_qc_intronic_rate.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="results/rna_seq_qc_intronic_rate.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+
 ### ATAC-Seq
 
 1. FASTQ files were downloaded from SRA in paired-end mode
