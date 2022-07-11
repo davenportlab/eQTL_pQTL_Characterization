@@ -1,7 +1,6 @@
 nextflow.enable.dsl = 2
 
 params.genotypes_prefix = "/nfs/users/nfs_n/nm18/gains_team282/Genotyping/All_genotyping_merged_filtered_b38_refiltered_rsID"
-params.mapping_patients = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/expression/eigengene_sva/mapping_patients.txt"
 params.output_dir = "/nfs/users/nfs_n/nm18/gains_team282/nikhil/data/genotypes/"
 
 process EXTRACT_GENOTYPES {
